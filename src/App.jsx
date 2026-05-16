@@ -53,28 +53,34 @@ const processSteps = [
 
 const gallery = [
   {
-    title: 'Roof Sealing Project',
-    src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Balcony Coating',
-    src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    title: 'Roof Waterproofing',
+    location: 'South Dublin',
+    src: '/images/commercial-roof-waterproofing.jpg',
   },
   {
     title: 'Wet Room Protection',
-    src: 'https://images.unsplash.com/photo-1582582494700-6fa6d1f6fef2?auto=format&fit=crop&w=900&q=80',
+    location: 'Dublin 6',
+    src: '/images/bathroom-waterproofing.jpg',
+  },
+  {
+    title: 'Balcony Sealing',
+    location: 'Dublin 8',
+    src: '/images/balcony-waterproofing-membrane.jpg',
   },
   {
     title: 'Basement Waterproofing',
-    src: 'https://images.unsplash.com/photo-1565538420870-da08ff96a207?auto=format&fit=crop&w=900&q=80',
+    location: 'North Dublin',
+    src: '/images/basement-waterproofing.jpg',
   },
   {
-    title: 'Damp Proofing Works',
-    src: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80',
+    title: 'Leak Detection & Repair',
+    location: 'Dublin 12',
+    src: '/images/leak-detection.jpg',
   },
   {
-    title: 'Commercial Protection System',
-    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+    title: 'Damp Proofing System',
+    location: 'West Dublin',
+    src: '/images/waterproofing-systems.jpg',
   },
 ]
 
@@ -335,14 +341,28 @@ function App() {
 
         <section className="section-shell bg-white">
           <div className="container-shell">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue">Project Gallery</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue">Project Showcase</p>
             <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Recent Waterproofing Work</h2>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <p className="mt-4 max-w-3xl text-base text-navy/75 sm:text-lg">
+              Real waterproofing and damp-proofing projects completed across Dublin and surrounding areas.
+            </p>
+            <div className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
               {gallery.map((item) => (
-                <figure key={item.title} className="group relative overflow-hidden rounded-2xl">
-                  <img src={item.src} alt={item.title} className="h-64 w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 to-transparent px-4 py-4 text-sm font-semibold text-white">
-                    {item.title}
+                <figure key={item.title} className="group mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-blue/10 bg-white">
+                  <div className="overflow-hidden">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-full h-auto transition duration-500 group-hover:scale-[1.02]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <figcaption className="flex items-center justify-between gap-3 px-4 py-3">
+                    <span className="text-sm font-semibold text-navy">{item.title}</span>
+                    <span className="rounded-full bg-mist px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-blue">
+                      {item.location}
+                    </span>
                   </figcaption>
                 </figure>
               ))}
