@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ps-navy: #0b1f3a;
+  --ps-blue: #165fa8;
+  --ps-lime: #b5e61d;
+  --ps-white: #ffffff;
+  --ps-mist: #f2f5f8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  color: var(--ps-navy);
+  background: var(--ps-white);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .section-shell {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .ps-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold tracking-wide transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2;
+  }
+
+  .ps-btn-primary {
+    @apply bg-lime text-navy hover:-translate-y-0.5 hover:shadow-lift;
+  }
+
+  .ps-btn-secondary {
+    @apply border-2 border-navy bg-white text-navy hover:-translate-y-0.5 hover:bg-mist hover:shadow-lift;
+  }
+
+  .reveal {
+    animation: fade-up 0.8s ease both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
