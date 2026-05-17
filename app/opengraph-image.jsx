@@ -28,7 +28,7 @@ export default function Image() {
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(circle at 18% 20%, rgba(181,230,29,0.20), transparent 32%), radial-gradient(circle at 84% 10%, rgba(22,95,168,0.55), transparent 35%)',
+              'radial-gradient(circle at 18% 20%, rgba(109,182,242,0.24), transparent 32%), radial-gradient(circle at 84% 10%, rgba(22,95,168,0.52), transparent 35%)',
           }}
         />
         <div
@@ -40,7 +40,7 @@ export default function Image() {
             width: 380,
             height: 380,
             borderRadius: 999,
-            background: 'rgba(181,230,29,0.12)',
+            background: 'rgba(109,182,242,0.14)',
             filter: 'blur(30px)',
           }}
         />
@@ -65,7 +65,7 @@ export default function Image() {
                 fontSize: 26,
                 letterSpacing: '0.24em',
                 textTransform: 'uppercase',
-                color: '#b5e61d',
+                color: '#9fd0f8',
               }}
             >
               Premium Waterproofing Specialists

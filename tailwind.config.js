@@ -8,7 +8,6 @@ export default {
         charcoal: '#0C1526',
         navy: '#0B1F3A',
         blue: '#165FA8',
-        lime: '#B5E61D',
         mist: '#F2F5F8',
       },
       fontFamily: {

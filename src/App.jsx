@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { serviceAreas, siteConfig } from './siteConfig'
 
@@ -192,7 +192,18 @@ function PrimaryButton({ href, children }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full bg-lime px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-obsidian transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_-18px_rgba(181,230,29,0.95)]"
+      className="inline-flex items-center justify-center rounded-full bg-[#6BB6F2] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-[#7CC0F5] hover:shadow-[0_14px_24px_-14px_rgba(53,99,143,0.45)]"
+    >
+      {children}
+    </a>
+  )
+}
+
+function SecondaryButton({ href, children, className = '' }) {
+  return (
+    <a
+      href={href}
+      className={`inline-flex items-center justify-center rounded-full border border-navy/22 bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-mist ${className}`}
     >
       {children}
     </a>
@@ -203,6 +214,8 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
+  const { scrollY } = useScroll()
+  const heroVideoY = useTransform(scrollY, [0, 500], [0, 45])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -285,18 +298,33 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="bg-white pt-28 sm:pt-32">
-          <div className="container-shell grid gap-10 pb-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex rounded-full border border-navy/15 bg-mist px-4 py-1 text-xs uppercase tracking-[0.16em] text-blue"
-            >
-              Dublin Waterproofing Specialists
-            </motion.p>
+        <section id="home" className="relative isolate overflow-hidden bg-white pt-28 sm:pt-32">
+          <motion.div style={{ y: heroVideoY }} className="absolute inset-0">
+            <video
+              className="h-full w-full object-cover"
+              src="/media/videos/site-02.mp4"
+              poster="/media/images/project-06.jpeg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-white/74" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/86 via-white/72 to-[#edf4fb]/72" />
 
+          <div className="container-shell relative grid gap-10 pb-16 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:pb-20">
             <div>
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="inline-flex rounded-full border border-navy/15 bg-white/88 px-4 py-1 text-xs uppercase tracking-[0.16em] text-blue"
+              >
+                Dublin Waterproofing Specialists
+              </motion.p>
+
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -310,7 +338,7 @@ function App() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.14 }}
-                className="mt-6 max-w-[54ch] text-base leading-relaxed text-navy/70 sm:text-lg"
+                className="mt-6 max-w-[54ch] text-base leading-relaxed text-navy/72 sm:text-lg"
               >
                 PrimeSeal Waterproofing delivers dependable systems for roofs, balconies, basements, wet areas, and commercial properties with contractor-grade workmanship and clear project communication.
               </motion.p>
@@ -322,26 +350,20 @@ function App() {
                 className="mt-8 flex flex-wrap gap-3"
               >
                 <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
-                <a
-                  href={siteConfig.phoneHref}
-                  className="inline-flex items-center justify-center rounded-full border border-navy/20 bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition hover:bg-mist"
-                >
-                  Call Now
-                </a>
+                <SecondaryButton href={siteConfig.phoneHref}>Call Now</SecondaryButton>
               </motion.div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-navy/10 bg-mist">
-              <video
-                className="h-full min-h-[320px] w-full object-cover"
-                src="/media/videos/site-02.mp4"
-                poster="/media/images/project-06.jpeg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
+            <div className="rounded-2xl border border-navy/12 bg-white/86 p-5 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[2px] sm:p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Trusted Service Signals</p>
+              <ul className="mt-4 space-y-2 text-sm text-navy/80">
+                {trustSignals.map((signal) => (
+                  <li key={signal} className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#6BB6F2]" />
+                    {signal}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
@@ -351,7 +373,7 @@ function App() {
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {trustSignals.map((signal) => (
                 <li key={signal} className="flex items-center gap-2 text-sm font-medium text-navy/78">
-                  <span className="h-2 w-2 rounded-full bg-lime" />
+                  <span className="h-2 w-2 rounded-full bg-[#6BB6F2]" />
                   {signal}
                 </li>
               ))}
@@ -524,7 +546,7 @@ function App() {
         <section id="contact" className="section-shell bg-navy text-white">
           <div className="container-shell grid gap-8 rounded-3xl border border-white/15 bg-navy px-6 py-10 sm:px-10 lg:grid-cols-[1.05fr_1fr]">
             <div>
-              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-lime">
+              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-[#9FD0F8]">
                 Free Inspections & Quotes
               </p>
               <h2 className="font-display mt-4 text-3xl font-semibold uppercase leading-[1.08] sm:text-4xl">
@@ -535,18 +557,8 @@ function App() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PrimaryButton href={siteConfig.emailHref}>Request Free Inspection</PrimaryButton>
-                <a
-                  href={siteConfig.phoneHref}
-                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
-                >
-                  Call Now
-                </a>
-                <a
-                  href={siteConfig.socials.whatsapp}
-                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
-                >
-                  WhatsApp
-                </a>
+                <SecondaryButton href={siteConfig.phoneHref} className="border-white/45 bg-white text-navy hover:bg-white/92">Call Now</SecondaryButton>
+                <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/45 bg-white text-navy hover:bg-white/92">WhatsApp</SecondaryButton>
               </div>
             </div>
 
@@ -641,7 +653,7 @@ function App() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-lime text-obsidian shadow-[0_14px_26px_-14px_rgba(11,31,58,0.55)] transition duration-300 hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#6BB6F2] text-navy shadow-[0_14px_26px_-14px_rgba(11,31,58,0.42)] transition duration-300 hover:scale-105 hover:bg-[#7CC0F5]"
       >
         <SocialIcon type="whatsapp" />
       </a>
