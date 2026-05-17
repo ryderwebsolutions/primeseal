@@ -3,9 +3,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { serviceAreas, siteConfig } from './siteConfig'
-import balconyBeforeAndAfter from '../balconybeforeandafter.jpeg'
-import gardenBeforeAndAfter from '../gardenbeforeandafter.jpeg'
-import roofBeforeAndAfter from '../roofbeforeandafter.jpeg'
+
 
 const logoSrc = '/images/primeseal-logo.jpg'
 
@@ -73,9 +71,9 @@ const trustSignals = [
 ]
 
 const beforeAfterItems = [
-  { label: 'Balcony Waterproofing', src: balconyBeforeAndAfter },
-  { label: 'Garden Waterproofing', src: gardenBeforeAndAfter },
-  { label: 'Roof Waterproofing', src: roofBeforeAndAfter },
+  { label: 'Balcony Waterproofing', src: '/balconybeforeandafter.jpeg' },
+  { label: 'Garden Waterproofing', src: '/gardenbeforeandafter.jpeg' },
+  { label: 'Roof Waterproofing', src: '/roofbeforeandafter.jpeg' },
 ]
 
 const showcaseItems = [
@@ -496,12 +494,13 @@ function App() {
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-navy/12 bg-white">
-              <img
-                src="/media/images/project-12.jpeg"
-                alt="PrimeSeal waterproofing project finish"
+              <video
+                src="/about-video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="h-full min-h-[360px] w-full object-cover"
-                loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
