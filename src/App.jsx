@@ -1,16 +1,17 @@
 "use client"
 
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { clientExpectations, serviceAreas, siteConfig, trustPillars } from './siteConfig'
+import { serviceAreas, siteConfig } from './siteConfig'
 
 const logoSrc = '/images/primeseal-logo.jpg'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Case Studies', href: '#before-after' },
+  { label: 'Process', href: '#process' },
+  { label: 'Showcase', href: '#showcase' },
   { label: 'About', href: '#about' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -59,59 +60,113 @@ const serviceGroups = [
   },
 ]
 
-const heroIndicators = ['Fully insured specialists', 'Residential & commercial', 'Free site surveys', 'High-grade membrane systems']
+const trustSignals = [
+  'Residential & Commercial',
+  'Dublin Based',
+  'Fully Insured',
+  'Long-Term Waterproofing Systems',
+  'Free Inspections & Quotes',
+  'Leak Prevention Specialists',
+]
 
-const featuredProjects = [
+const processSteps = [
   {
-    title: 'Commercial Roof Recovery',
-    subtitle: 'Dublin Docklands',
-    text: 'Multi-stage waterproofing remediation with reflective top coat and reinforced detailing around penetrations.',
-    media: '/media/videos/site-01.mp4',
-    type: 'video',
+    title: 'Inspection',
+    text: 'Site visit to review current conditions, leak points, and exposure areas.',
   },
   {
-    title: 'Balcony Edge & Drain Detailing',
-    subtitle: 'South Dublin',
-    text: 'Balcony rewaterproofing package with priming, liquid membrane, and sealed drainage points.',
-    media: '/media/images/project-08.jpeg',
+    title: 'Assessment',
+    text: 'Clear diagnosis of moisture risk and substrate requirements before work begins.',
+  },
+  {
+    title: 'System Selection',
+    text: 'Specification of the most suitable waterproofing system for long-term reliability.',
+  },
+  {
+    title: 'Installation',
+    text: 'Professional application with attention to detailing, junctions, and finish quality.',
+  },
+  {
+    title: 'Final Checks',
+    text: 'Completion checks to confirm system integrity and project readiness.',
+  },
+]
+
+const showcaseItems = [
+  {
+    label: 'Roof Waterproofing',
+    src: '/media/videos/site-01.mp4',
+    type: 'video',
+    poster: '/media/images/project-06.jpeg',
+  },
+  {
+    label: 'Balcony Systems',
+    src: '/media/images/project-08.jpeg',
     type: 'image',
   },
   {
-    title: 'Wet Area Tanking Upgrade',
-    subtitle: 'Dublin 6',
-    text: 'Full wet-room rebuild support with substrate correction, corner reinforcement, and premium finish quality.',
-    media: '/media/videos/site-03.mp4',
+    label: 'Leak Repairs',
+    src: '/media/images/project-05.jpeg',
+    type: 'image',
+  },
+  {
+    label: 'Flat Roof Work',
+    src: '/media/videos/site-03.mp4',
     type: 'video',
+    poster: '/media/images/project-04.jpeg',
+  },
+  {
+    label: 'Commercial Projects',
+    src: '/media/images/project-11.jpeg',
+    type: 'image',
+  },
+  {
+    label: 'Liquid Waterproofing',
+    src: '/media/videos/site-06.mp4',
+    type: 'video',
+    poster: '/media/images/project-07.jpeg',
   },
 ]
 
-const masonryItems = [
-  { src: '/media/images/project-01.jpeg', title: 'Torch-on membrane finish', tag: 'Roofing' },
-  { src: '/media/images/project-02.jpeg', title: 'Deck coating detail', tag: 'Balcony' },
-  { src: '/media/images/project-03.jpeg', title: 'Substrate prep stage', tag: 'Preparation' },
-  { src: '/media/images/project-04.jpeg', title: 'Liquid membrane pass', tag: 'Membrane' },
-  { src: '/media/images/project-05.jpeg', title: 'Drain upstand treatment', tag: 'Detailing' },
-  { src: '/media/images/project-06.jpeg', title: 'Industrial roof sealing', tag: 'Commercial' },
-  { src: '/media/images/project-07.jpeg', title: 'Gloss coat finish', tag: 'Finishing' },
-  { src: '/media/images/project-09.jpeg', title: 'Waterproofing texture', tag: 'Closeup' },
-  { src: '/media/images/project-10.jpeg', title: 'Scaffold roof work', tag: 'Sitework' },
-  { src: '/media/images/project-11.jpeg', title: 'Edge joint sealing', tag: 'Detailing' },
-  { src: '/media/images/project-12.jpeg', title: 'Surface restoration', tag: 'Case Study' },
-  { src: '/images/commercial-roof-waterproofing.jpg', title: 'Commercial roof system', tag: 'Prime Seal' },
-]
-
-const beforeAfterCases = [
+const faqItems = [
   {
-    title: 'Flat Roof Refurbishment',
-    location: 'Dublin 12',
-    before: '/media/images/project-10.jpeg',
-    after: '/media/images/project-11.jpeg',
+    question: 'What waterproofing services do you provide?',
+    answer:
+      'We provide roof waterproofing, balcony systems, basement waterproofing, flat roof solutions, wet room tanking, liquid waterproofing, leak prevention, and commercial waterproofing works.',
   },
   {
-    title: 'Balcony Waterproofing Upgrade',
-    location: 'North Dublin',
-    before: '/media/images/project-03.jpeg',
-    after: '/media/images/project-07.jpeg',
+    question: 'Do you work on residential and commercial projects?',
+    answer:
+      'Yes. Prime Seal delivers waterproofing works for both private residential properties and larger commercial sites.',
+  },
+  {
+    question: 'What areas do you cover?',
+    answer: 'We are Dublin based and cover Dublin and surrounding areas for inspection and project delivery.',
+  },
+  {
+    question: 'How long does waterproofing last?',
+    answer:
+      'Lifespan depends on exposure, substrate, and system type, but professionally specified and installed systems are designed for long-term protection.',
+  },
+  {
+    question: 'Do you offer inspections and quotes?',
+    answer:
+      'Yes. We provide inspections and clear quotations so you can understand scope, approach, and expected outcomes before work starts.',
+  },
+  {
+    question: 'What causes recurring leaks and damp issues?',
+    answer:
+      'Recurring issues are often linked to failed detailing, poor drainage management, substrate movement, and unsuitable previous repairs.',
+  },
+  {
+    question: 'What waterproofing systems do you use?',
+    answer:
+      'We use a range of high-grade systems including liquid membranes, torch-on solutions, and detail-specific waterproofing products based on project needs.',
+  },
+  {
+    question: 'How quickly can projects begin?',
+    answer:
+      'Start times depend on project size and current scheduling, but we prioritise responsive planning and clear timelines after initial assessment.',
   },
 ]
 
@@ -144,77 +199,10 @@ function PrimaryButton({ href, children }) {
   )
 }
 
-function GhostButton({ href, children }) {
-  return (
-    <a
-      href={href}
-      className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/14"
-    >
-      {children}
-    </a>
-  )
-}
-
-function BeforeAfterCard({ title, location, before, after }) {
-  const [split, setSplit] = useState(52)
-
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.55 }}
-      className="overflow-hidden rounded-3xl border border-white/12 bg-[#0f1828]/90"
-    >
-      <div className="relative aspect-[16/10]">
-        <img src={after} alt={`${title} after`} className="h-full w-full object-cover" loading="lazy" decoding="async" />
-        <img
-          src={before}
-          alt={`${title} before`}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
-          decoding="async"
-          style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
-        />
-        <div className="absolute inset-y-0" style={{ left: `${split}%` }}>
-          <div className="relative h-full w-px bg-lime shadow-[0_0_20px_rgba(181,230,29,0.95)]">
-            <span className="absolute left-1/2 top-1/2 grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-lime/50 bg-obsidian/80 text-xs text-lime">
-              ↔
-            </span>
-          </div>
-        </div>
-        <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-obsidian/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/90">
-          Before
-        </span>
-        <span className="absolute right-4 top-4 rounded-full border border-lime/50 bg-lime/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-lime">
-          After
-        </span>
-      </div>
-
-      <div className="space-y-4 p-6">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="font-display text-2xl font-semibold text-white">{title}</h3>
-          <span className="rounded-full bg-white/8 px-3 py-1 text-xs uppercase tracking-[0.12em] text-white/70">{location}</span>
-        </div>
-        <input
-          type="range"
-          min="20"
-          max="80"
-          value={split}
-          aria-label={`Adjust before and after for ${title}`}
-          onChange={(event) => setSplit(Number(event.target.value))}
-          className="w-full accent-lime"
-        />
-      </div>
-    </motion.article>
-  )
-}
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { scrollY } = useScroll()
-  const heroDrift = useTransform(scrollY, [0, 500], [0, 120])
+  const [openFaq, setOpenFaq] = useState(0)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -224,18 +212,18 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-obsidian text-white">
+    <div className="bg-white text-navy">
       <header
         className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-          scrolled ? 'border-b border-white/10 bg-obsidian/80 py-3 backdrop-blur-xl' : 'bg-transparent py-5'
+          scrolled ? 'border-b border-navy/10 bg-white/95 py-3' : 'bg-white/90 py-4'
         }`}
       >
         <div className="container-shell flex items-center justify-between gap-6">
           <a href="#home" className="flex items-center gap-3" aria-label="Prime Seal Waterproofing home">
-            <img src={logoSrc} alt="Prime Seal logo" className="h-10 w-auto rounded-md bg-white/95 p-1 sm:h-11" loading="eager" />
+            <img src={logoSrc} alt="Prime Seal logo" className="h-10 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-11" loading="eager" />
             <div className="hidden sm:block">
-              <p className="font-display text-lg font-semibold uppercase tracking-[0.12em]">Prime Seal</p>
-              <p className="text-xs uppercase tracking-[0.18em] text-white/60">Waterproofing Specialists</p>
+              <p className="font-display text-lg font-semibold uppercase tracking-[0.12em] text-navy">Prime Seal</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-navy/60">Waterproofing Specialists</p>
             </div>
           </a>
 
@@ -244,7 +232,7 @@ function App() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm uppercase tracking-[0.12em] text-white/85 transition duration-300 hover:text-lime"
+                className="text-sm uppercase tracking-[0.12em] text-navy/85 transition duration-300 hover:text-blue"
               >
                 {item.label}
               </a>
@@ -252,7 +240,7 @@ function App() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href={siteConfig.phoneHref} className="text-sm font-semibold tracking-wide text-white/90 transition hover:text-lime">
+            <a href={siteConfig.phoneHref} className="text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
               Call {siteConfig.phone}
             </a>
             <PrimaryButton href="#contact">Get Free Quote</PrimaryButton>
@@ -263,7 +251,7 @@ function App() {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/20 bg-white/6 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full border border-navy/20 bg-white text-navy lg:hidden"
           >
             <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
           </button>
@@ -275,8 +263,8 @@ function App() {
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.25 }}
-              className="container-shell mt-4 rounded-2xl border border-white/10 bg-obsidian/95 p-5 backdrop-blur-xl lg:hidden"
+              transition={{ duration: 0.2 }}
+              className="container-shell mt-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm lg:hidden"
             >
               <div className="space-y-3">
                 {navLinks.map((item) => (
@@ -284,7 +272,7 @@ function App() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block rounded-xl border border-white/10 px-4 py-3 text-sm uppercase tracking-[0.12em] text-white/80 transition hover:border-lime/35 hover:text-lime"
+                    className="block rounded-xl border border-navy/10 px-4 py-3 text-sm uppercase tracking-[0.12em] text-navy/80 transition hover:border-blue/35 hover:text-blue"
                   >
                     {item.label}
                   </a>
@@ -297,108 +285,103 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="relative isolate flex min-h-screen items-center overflow-hidden">
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/media/videos/site-02.mp4"
-            poster="/media/images/project-06.jpeg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-          <div className="absolute inset-0 bg-[#040912]/70" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(181,230,29,0.2),transparent_45%),radial-gradient(circle_at_90%_4%,rgba(22,95,168,0.55),transparent_38%)]" />
-          <motion.div style={{ y: heroDrift }} className="absolute -right-28 top-1/4 hidden h-72 w-72 rounded-full bg-lime/10 blur-3xl lg:block" />
-
-          <div className="container-shell relative z-10 pt-28">
+        <section id="home" className="bg-white pt-28 sm:pt-32">
+          <div className="container-shell grid gap-10 pb-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:pb-20">
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65 }}
-              className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.16em] text-lime"
+              transition={{ duration: 0.4 }}
+              className="inline-flex rounded-full border border-navy/15 bg-mist px-4 py-1 text-xs uppercase tracking-[0.16em] text-blue"
             >
-              Premium Specialist Waterproofing
+              Dublin Waterproofing Specialists
             </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display mt-6 max-w-4xl text-4xl font-bold uppercase leading-[1.02] sm:text-5xl lg:text-7xl"
-            >
-              Premium Waterproofing Solutions Built To Last
-            </motion.h1>
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.08 }}
+                className="font-display mt-5 max-w-[16ch] text-4xl font-bold uppercase leading-[1.04] text-navy sm:text-5xl lg:text-[3.7rem]"
+              >
+                Protecting Properties Across Dublin With Long-Term Waterproofing Solutions
+              </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.18 }}
-              className="mt-7 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
-            >
-              Prime Seal delivers high-performance waterproofing across Ireland with expert detailing, durable systems, and craftsmanship focused on long-term protection.
-            </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.14 }}
+                className="mt-6 max-w-[54ch] text-base leading-relaxed text-navy/70 sm:text-lg"
+              >
+                PrimeSeal Waterproofing delivers dependable systems for roofs, balconies, basements, wet areas, and commercial properties with contractor-grade workmanship and clear project communication.
+              </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.28 }}
-              className="mt-10 flex flex-wrap gap-3"
-            >
-              <PrimaryButton href="#contact">Get Free Quote</PrimaryButton>
-              <GhostButton href={siteConfig.phoneHref}>Call Now</GhostButton>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.2 }}
+                className="mt-8 flex flex-wrap gap-3"
+              >
+                <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
+                <a
+                  href={siteConfig.phoneHref}
+                  className="inline-flex items-center justify-center rounded-full border border-navy/20 bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition hover:bg-mist"
+                >
+                  Call Now
+                </a>
+              </motion.div>
+            </div>
 
-            <motion.ul
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2"
-            >
-              {heroIndicators.map((item) => (
-                <li key={item} className="rounded-xl border border-white/15 bg-white/7 px-4 py-3 text-sm backdrop-blur-xl">
-                  {item}
-                </li>
-              ))}
-            </motion.ul>
-
-            <motion.a
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              href="#services"
-              className="mt-14 inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-white/65"
-            >
-              Scroll
-              <span className="h-8 w-px animate-pulse bg-white/45" />
-            </motion.a>
+            <div className="overflow-hidden rounded-2xl border border-navy/10 bg-mist">
+              <video
+                className="h-full min-h-[320px] w-full object-cover"
+                src="/media/videos/site-02.mp4"
+                poster="/media/images/project-06.jpeg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </div>
           </div>
         </section>
 
-        <section id="services" className="section-shell bg-[#050c18]">
+        <section className="border-y border-navy/10 bg-mist py-8">
           <div className="container-shell">
-            <div className="max-w-5xl">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {trustSignals.map((signal) => (
+                <li key={signal} className="flex items-center gap-2 text-sm font-medium text-navy/78">
+                  <span className="h-2 w-2 rounded-full bg-lime" />
+                  {signal}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="services" className="section-shell bg-white">
+          <div className="container-shell">
+            <div className="max-w-4xl">
               <p className="label-text">Our Services</p>
               <h2 className="section-title">Built Around Waterproofing Performance, Finish Quality, and Long-Term Reliability</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/68 sm:text-lg">
+              <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/68 sm:text-lg">
                 Prime Seal delivers specialist waterproofing solutions across residential and commercial properties, with clean technical execution and dependable long-term protection.
               </p>
             </div>
 
-            <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
               {serviceGroups.map((group) => (
-                <div key={group.heading} className="border-t border-white/15 pt-7 lg:pt-8">
-                  <h3 className="font-display text-xl font-semibold uppercase tracking-[0.07em] text-white sm:text-2xl">
+                <div key={group.heading} className="border-t border-navy/14 pt-7 lg:pt-8">
+                  <h3 className="font-display text-xl font-semibold uppercase tracking-[0.07em] text-navy sm:text-2xl">
                     {group.heading}
                   </h3>
                   <ul className="mt-5 lg:mt-6">
                     {group.items.map((service) => (
-                      <li key={service.title} className="flex gap-4 border-b border-white/10 py-4 sm:py-5 lg:py-6">
-                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lime/90" />
+                      <li key={service.title} className="flex gap-4 border-b border-navy/12 py-4 sm:py-5 lg:py-6">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue/80" />
                         <div>
-                          <p className="font-display text-lg font-semibold leading-tight text-white sm:text-xl">{service.title}</p>
-                          <p className="mt-1.5 max-w-[34ch] text-sm leading-relaxed text-white/62 sm:text-[15px]">{service.text}</p>
+                          <p className="font-display text-lg font-semibold leading-tight text-navy sm:text-xl">{service.title}</p>
+                          <p className="mt-1.5 max-w-[38ch] text-sm leading-relaxed text-navy/63 sm:text-[15px]">{service.text}</p>
                         </div>
                       </li>
                     ))}
@@ -409,188 +392,171 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section-shell bg-[#050b16]">
-          <div className="container-shell space-y-10">
-            <div className="max-w-3xl">
-              <p className="label-text">Project Showcase</p>
-              <h2 className="section-title">Cinematic Waterproofing Case Work Using Real Prime Seal Site Media</h2>
-            </div>
-
-            {featuredProjects.map((project, index) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 36 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.55 }}
-                className="grid gap-6 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-8 lg:grid-cols-2"
-              >
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''} relative overflow-hidden rounded-2xl border border-white/10`}>
-                  {project.type === 'video' ? (
-                    <video
-                      src={project.media}
-                      poster="/media/images/project-08.jpeg"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="none"
-                      className="h-full min-h-[320px] w-full object-cover transition duration-700 hover:scale-105"
-                    />
-                  ) : (
-                    <img
-                      src={project.media}
-                      alt={project.title}
-                      className="h-full min-h-[320px] w-full object-cover transition duration-700 hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  )}
-                </div>
-
-                <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} flex flex-col justify-center`}
-                >
-                  <p className="text-xs uppercase tracking-[0.16em] text-lime/90">{project.subtitle}</p>
-                  <h3 className="font-display mt-3 text-3xl leading-tight text-white sm:text-4xl">{project.title}</h3>
-                  <p className="mt-4 max-w-xl leading-relaxed text-white/75">{project.text}</p>
-                  <div className="mt-6 inline-flex w-fit items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.12em] text-white/75">
-                    Real site execution footage
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
-        <section id="before-after" className="section-shell relative overflow-hidden bg-[#030813]">
-          <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(22,95,168,0.22),transparent_45%,rgba(181,230,29,0.12))]" />
-          <div className="container-shell relative">
-            <div className="max-w-3xl">
-              <p className="label-text">Before / After Case Studies</p>
-              <h2 className="section-title">Proof of Performance Through Premium Waterproofing Transformations</h2>
-            </div>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
-              {beforeAfterCases.map((entry) => (
-                <BeforeAfterCard key={entry.title} {...entry} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section-shell bg-[#060d1a]">
+        <section id="process" className="section-shell bg-mist">
           <div className="container-shell">
             <div className="max-w-3xl">
-              <p className="label-text">Premium Gallery</p>
-              <h2 className="section-title">Membrane Textures, Scaffold Work, Surface Detail, and Real Project Finishes</h2>
+              <p className="label-text">Our Process</p>
+              <h2 className="section-title">Clear, Professional Waterproofing Delivery From Survey to Completion</h2>
             </div>
 
-            <div className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
-              {masonryItems.map((item) => (
-                <motion.figure
-                  key={item.src}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45 }}
-                  className="group relative mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/10"
-                >
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full object-cover transition duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/10 to-black/0 opacity-80 transition duration-500 group-hover:opacity-100" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                    <p className="text-xs uppercase tracking-[0.14em] text-lime">{item.tag}</p>
-                    <p className="mt-1 text-sm font-semibold text-white">{item.title}</p>
-                  </figcaption>
-                </motion.figure>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+              {processSteps.map((step, index) => (
+                <div key={step.title} className="rounded-2xl border border-navy/12 bg-white p-5 lg:p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Step {index + 1}</p>
+                  <h3 className="font-display mt-3 text-xl font-semibold text-navy">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/65">{step.text}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="about" className="section-shell bg-[#030813]">
-          <div className="container-shell grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:items-start">
+        <section id="showcase" className="section-shell bg-white">
+          <div className="container-shell">
+            <div className="max-w-3xl">
+              <p className="label-text">Project Showcase</p>
+              <h2 className="section-title">Real Project Photography and Waterproofing Site Video</h2>
+            </div>
+
+            <div className="relative mt-10">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-14 bg-gradient-to-r from-white to-transparent md:block" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-14 bg-gradient-to-l from-white to-transparent md:block" />
+
+              <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
+                {showcaseItems.map((item) => (
+                  <article
+                    key={`${item.label}-${item.src}`}
+                    className="min-w-[82%] snap-start overflow-hidden rounded-2xl border border-navy/10 bg-mist sm:min-w-[60%] lg:min-w-[42%] xl:min-w-[35%]"
+                  >
+                    <div className="relative h-[280px] sm:h-[320px]">
+                      {item.type === 'video' ? (
+                        <video
+                          src={item.src}
+                          poster={item.poster}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="none"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <img src={item.src} alt={item.label} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                      )}
+                    </div>
+                    <div className="border-t border-navy/10 px-4 py-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.1em] text-navy">{item.label}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="section-shell bg-mist">
+          <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
             <div>
-              <p className="label-text">About Prime Seal</p>
-              <h2 className="section-title">Established Craftsmanship With Specialist Focus on Waterproofing Longevity</h2>
-              <p className="mt-4 max-w-xl leading-relaxed text-white/75">
-                Prime Seal combines technical waterproofing knowledge with premium site execution. Every detail from substrate prep to final finish is delivered to protect property value and prevent recurring failures.
+              <p className="label-text">About PrimeSeal</p>
+              <h2 className="section-title">Straightforward, Reliable Waterproofing Expertise</h2>
+              <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/72 sm:text-lg">
+                PrimeSeal Waterproofing provides long-lasting waterproofing solutions for residential and commercial properties across Dublin and surrounding areas.
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <ul className="mt-6 space-y-2 text-sm text-navy/72 sm:text-base">
+                <li>Years of practical waterproofing experience</li>
+                <li>Quality workmanship and clean project delivery</li>
+                <li>Leak prevention expertise for recurring issues</li>
+                <li>Reliable materials selected for long-term performance</li>
+                <li>Residential and commercial capability</li>
+              </ul>
+              <div className="mt-7 grid gap-2 sm:grid-cols-2">
                 {serviceAreas.map((area) => (
-                  <span key={area} className="rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.12em] text-white/65">
+                  <span key={area} className="rounded-lg border border-navy/12 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-navy/72">
                     {area}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {trustPillars.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-xl">
-                  <p className="font-display text-2xl font-semibold uppercase text-lime">{item.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/72">{item.text}</p>
-                </div>
-              ))}
+            <div className="overflow-hidden rounded-2xl border border-navy/12 bg-white">
+              <img
+                src="/media/images/project-12.jpeg"
+                alt="PrimeSeal waterproofing project finish"
+                className="h-full min-h-[360px] w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </section>
 
-        <section className="section-shell bg-[#060d18]">
-          <div className="container-shell">
-            <div className="max-w-3xl">
-              <p className="label-text">Why Clients Reach Out</p>
-              <h2 className="section-title">Built Around the Things Property Owners Actually Care About</h2>
-            </div>
+        <section id="faq" className="section-shell bg-white">
+          <div className="container-shell max-w-5xl">
+            <p className="label-text">FAQ</p>
+            <h2 className="section-title">Frequently Asked Questions</h2>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {clientExpectations.map((item, index) => (
-                <motion.article
-                  key={item.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className="rounded-2xl border border-white/12 bg-white/[0.05] p-6 shadow-[0_18px_35px_-24px_rgba(0,0,0,0.9)] backdrop-blur-xl"
-                >
-                  <p className="font-display text-4xl leading-none text-lime/80">“</p>
-                  <p className="mt-3 font-display text-2xl font-semibold uppercase text-white">{item.title}</p>
-                  <p className="mt-4 leading-relaxed text-white/78">{item.text}</p>
-                </motion.article>
-              ))}
+            <div className="mt-10 space-y-3 lg:space-y-4">
+              {faqItems.map((item, index) => {
+                const isOpen = openFaq === index
+                return (
+                  <article key={item.question} className="overflow-hidden rounded-xl border border-navy/12 bg-mist">
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left lg:px-6 lg:py-5"
+                    >
+                      <span className="font-semibold text-navy">{item.question}</span>
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-navy/20 bg-white text-navy">
+                        {isOpen ? '−' : '+'}
+                      </span>
+                    </button>
+                    <div className={`grid transition-all duration-200 ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                      <p className="overflow-hidden px-5 pb-5 text-sm leading-relaxed text-navy/70 lg:px-6 lg:pb-6">{item.answer}</p>
+                    </div>
+                  </article>
+                )
+              })}
             </div>
           </div>
         </section>
 
-        <section className="section-shell border-y border-white/10 bg-[#050b15]">
-          <div className="container-shell grid gap-5 rounded-3xl border border-white/12 bg-gradient-to-r from-[#0a1221] to-[#0f1f39] p-8 md:grid-cols-3">
+        <section id="contact" className="section-shell bg-navy text-white">
+          <div className="container-shell grid gap-8 rounded-3xl border border-white/15 bg-navy px-6 py-10 sm:px-10 lg:grid-cols-[1.05fr_1fr]">
             <div>
-              <p className="label-text">Protect Your Property Today</p>
-              <h3 className="font-display text-2xl font-semibold text-white">Get Your Free Waterproofing Quote</h3>
+              <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-lime">
+                Free Inspections & Quotes
+              </p>
+              <h2 className="font-display mt-4 text-3xl font-semibold uppercase leading-[1.08] sm:text-4xl">
+                Protect Your Property Before Small Leaks Become Major Damage.
+              </h2>
+              <p className="mt-4 max-w-xl text-white/80">
+                Speak with PrimeSeal for a practical site assessment and long-term waterproofing approach tailored to your property.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PrimaryButton href={siteConfig.emailHref}>Request Free Inspection</PrimaryButton>
+                <a
+                  href={siteConfig.phoneHref}
+                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
+                >
+                  Call Now
+                </a>
+                <a
+                  href={siteConfig.socials.whatsapp}
+                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
+                >
+                  WhatsApp
+                </a>
+              </div>
             </div>
-            <div className="md:col-span-2 flex flex-wrap items-center gap-3 md:justify-end">
-              <PrimaryButton href={siteConfig.emailHref}>Email Us</PrimaryButton>
-              <GhostButton href={siteConfig.socials.whatsapp}>WhatsApp</GhostButton>
-              <GhostButton href={siteConfig.phoneHref}>Speak With Our Team</GhostButton>
-            </div>
-          </div>
-        </section>
 
-        <section id="contact" className="section-shell bg-[#03070f]">
-          <div className="container-shell grid gap-7 lg:grid-cols-[1fr_1.2fr]">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-lg">
-              <p className="label-text">Contact</p>
-              <h2 className="font-display mt-3 text-3xl font-semibold uppercase text-white">Speak With Prime Seal</h2>
-              <p className="mt-4 text-white/70">Fast responses, practical advice, and premium waterproofing guidance from specialists.</p>
-              <div className="mt-6 space-y-3 text-sm text-white/80">
+            <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
+              <h3 className="font-display text-xl font-semibold uppercase text-white">Contact Details</h3>
+              <div className="mt-4 space-y-2 text-sm text-white/82">
                 <p>Phone: {siteConfig.phone}</p>
                 <p>Email: {siteConfig.email}</p>
                 <p>Location: {siteConfig.location}</p>
+                <p>Hours: Mon-Fri 8:00-18:00, Sat 9:00-14:00</p>
               </div>
               <div className="mt-6 flex gap-2">
                 <a href={siteConfig.socials.whatsapp} target="_blank" rel="noreferrer" className="social-chip" aria-label="WhatsApp">
@@ -604,44 +570,69 @@ function App() {
                 </a>
               </div>
             </div>
-
-            <div className="relative overflow-hidden rounded-3xl border border-white/12">
-              <video
-                src="/media/videos/site-06.mp4"
-                poster="/media/images/project-05.jpeg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
-                className="h-full min-h-[330px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/26 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="label-text">On-site execution</p>
-                <p className="mt-2 max-w-lg text-sm text-white/84">
-                  Every project is delivered with a focus on detail, durability, and finish quality that reflects a premium specialist brand.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-[#02060f] py-10">
-        <div className="container-shell flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="border-t border-navy/12 bg-[#f7f9fc] py-14">
+        <div className="container-shell grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-display text-2xl uppercase tracking-[0.08em]">{siteConfig.name}</p>
-            <p className="mt-2 text-sm text-white/60">Premium waterproofing systems across Dublin and Ireland.</p>
+            <p className="font-display text-2xl uppercase tracking-[0.08em] text-navy">{siteConfig.name}</p>
+            <p className="mt-3 text-sm leading-relaxed text-navy/68">
+              Premium waterproofing contractor solutions for homes and commercial buildings across Dublin and surrounding areas.
+            </p>
           </div>
-          <div className="flex flex-wrap items-center gap-5 text-xs uppercase tracking-[0.12em] text-white/60">
-            {navLinks.map((item) => (
-              <a key={item.label} href={item.href} className="transition hover:text-lime">
-                {item.label}
+
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-blue">Services</h4>
+            <ul className="mt-3 space-y-2 text-sm text-navy/72">
+              {serviceGroups.flatMap((group) => group.items).map((service) => (
+                <li key={service.title}>{service.title}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-blue">Quick Links</h4>
+            <ul className="mt-3 space-y-2 text-sm text-navy/72">
+              {navLinks.map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="transition hover:text-blue">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-blue">Contact & Hours</h4>
+            <ul className="mt-3 space-y-2 text-sm text-navy/72">
+              <li>{siteConfig.phone}</li>
+              <li>{siteConfig.email}</li>
+              <li>{siteConfig.location}</li>
+              <li>Mon-Fri: 8:00-18:00</li>
+              <li>Sat: 9:00-14:00</li>
+            </ul>
+            <div className="mt-4 flex gap-2">
+              <a href={siteConfig.socials.facebook} target="_blank" rel="noreferrer" className="social-chip" aria-label="Facebook">
+                <SocialIcon type="facebook" />
               </a>
-            ))}
+              <a href={siteConfig.socials.instagram} target="_blank" rel="noreferrer" className="social-chip" aria-label="Instagram">
+                <SocialIcon type="instagram" />
+              </a>
+            </div>
           </div>
-          <p className="text-xs text-white/50">© {new Date().getFullYear()} {siteConfig.shortName}. All rights reserved.</p>
+        </div>
+        <div className="container-shell mt-10 border-t border-navy/12 pt-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-navy/60">© {new Date().getFullYear()} {siteConfig.shortName}. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.12em] text-navy/58">
+              {serviceAreas.map((area) => (
+                <span key={area}>{area}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </footer>
 
@@ -650,7 +641,7 @@ function App() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-lime text-obsidian shadow-[0_16px_34px_-16px_rgba(181,230,29,0.95)] transition duration-300 hover:scale-110"
+        className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full bg-lime text-obsidian shadow-[0_14px_26px_-14px_rgba(11,31,58,0.55)] transition duration-300 hover:scale-105"
       >
         <SocialIcon type="whatsapp" />
       </a>

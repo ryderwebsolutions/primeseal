@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --ps-obsidian: #030813;
-  --ps-charcoal: #0c1526;
-  --ps-navy: #165fa8;
+  --ps-obsidian: #f4f7fb;
+  --ps-charcoal: #dfe7f0;
+  --ps-navy: #0b1f3a;
+  --ps-blue: #35638f;
   --ps-lime: #b5e61d;
 }
 
@@ -16,8 +17,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-manrope), 'Segoe UI', sans-serif;
-  color: #ffffff;
-  background: var(--ps-obsidian);
+  color: var(--ps-navy);
+  background: #ffffff;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -31,13 +32,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050a13;
+  background: #edf2f8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1c5da0, #0f2744);
+  background: linear-gradient(180deg, #6c87a4, #35587f);
   border-radius: 999px;
-  border: 2px solid #050a13;
+  border: 2px solid #edf2f8;
 }
 
 @layer components {
@@ -46,7 +47,7 @@ body {
   }
 
   .section-shell {
-    @apply py-20 sm:py-24 lg:py-28;
+    @apply py-16 sm:py-20 lg:py-24;
   }
 
   .font-display {
@@ -54,14 +55,14 @@ body {
   }
 
   .label-text {
-    @apply inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-lime;
+    @apply inline-flex rounded-full border border-navy/15 bg-mist px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue;
   }
 
   .section-title {
-    @apply font-display mt-4 text-3xl font-semibold uppercase leading-[1.05] text-white sm:text-4xl lg:text-5xl;
+    @apply font-display mt-4 text-3xl font-semibold uppercase leading-[1.06] text-navy sm:text-4xl lg:text-5xl;
   }
 
   .social-chip {
-    @apply grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:border-lime/50 hover:text-lime;
+    @apply grid h-10 w-10 place-items-center rounded-full border border-navy/20 bg-white text-navy transition duration-300 hover:-translate-y-0.5 hover:border-blue hover:text-blue;
   }
 }
