@@ -8,7 +8,7 @@ const logoSrc = '/images/primeseal-logo.jpg'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
+  { label: 'Before & After', href: '#process' },
   { label: 'Showcase', href: '#showcase' },
   { label: 'About', href: '#about' },
   { label: 'FAQ', href: '#faq' },
@@ -71,24 +71,28 @@ const trustSignals = [
 
 const processSteps = [
   {
-    title: 'Inspection',
-    text: 'Site visit to review current conditions, leak points, and exposure areas.',
+    title: 'Flat Roof Upgrade',
+    location: 'Dublin 12',
+    before: '/media/images/project-10.jpeg',
+    after: '/media/images/project-11.jpeg',
   },
   {
-    title: 'Assessment',
-    text: 'Clear diagnosis of moisture risk and substrate requirements before work begins.',
+    title: 'Balcony Waterproofing',
+    location: 'North Dublin',
+    before: '/media/images/project-03.jpeg',
+    after: '/media/images/project-07.jpeg',
   },
   {
-    title: 'System Selection',
-    text: 'Specification of the most suitable waterproofing system for long-term reliability.',
+    title: 'Wet Room Remediation',
+    location: 'Dublin 6',
+    before: '/media/images/project-02.jpeg',
+    after: '/media/images/project-04.jpeg',
   },
   {
-    title: 'Installation',
-    text: 'Professional application with attention to detailing, junctions, and finish quality.',
-  },
-  {
-    title: 'Final Checks',
-    text: 'Completion checks to confirm system integrity and project readiness.',
+    title: 'Leak-Prone Roof Detail',
+    location: 'South Dublin',
+    before: '/media/images/project-01.jpeg',
+    after: '/media/images/project-06.jpeg',
   },
 ]
 
@@ -214,6 +218,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
+  const [featuredComparison, setFeaturedComparison] = useState(58)
   const { scrollY } = useScroll()
   const heroVideoY = useTransform(scrollY, [0, 500], [0, 45])
 
@@ -416,18 +421,120 @@ function App() {
 
         <section id="process" className="section-shell bg-mist">
           <div className="container-shell">
-            <div className="max-w-3xl">
-              <p className="label-text">Our Process</p>
-              <h2 className="section-title">Clear, Professional Waterproofing Delivery From Survey to Completion</h2>
+            <div className="max-w-4xl">
+              <h2 className="section-title">Before & After Waterproofing Projects</h2>
+              <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/68 sm:text-lg">
+                Real waterproofing upgrades completed across Dublin for roofs, balconies, wet rooms, and leak-prone properties.
+              </p>
             </div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-              {processSteps.map((step, index) => (
-                <div key={step.title} className="rounded-2xl border border-navy/12 bg-white p-5 lg:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Step {index + 1}</p>
-                  <h3 className="font-display mt-3 text-xl font-semibold text-navy">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy/65">{step.text}</p>
+            <motion.article
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4 }}
+              className="mt-10 overflow-hidden rounded-2xl border border-navy/12 bg-white p-4 shadow-[0_18px_38px_-26px_rgba(11,31,58,0.45)] sm:p-5"
+            >
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-display text-xl font-semibold text-navy sm:text-2xl">{processSteps[0].title}</h3>
+                <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-blue">
+                  {processSteps[0].location}
+                </span>
+              </div>
+
+              <div className="relative overflow-hidden rounded-xl border border-navy/12 bg-mist">
+                <img
+                  src={processSteps[0].before}
+                  alt={`${processSteps[0].title} before waterproofing`}
+                  className="h-[280px] w-full object-cover sm:h-[360px]"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+                <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${featuredComparison}%` }}>
+                  <img
+                    src={processSteps[0].after}
+                    alt={`${processSteps[0].title} after waterproofing`}
+                    className="h-[280px] w-full object-cover sm:h-[360px]"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
+
+                <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-navy/76 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
+                  Before
+                </div>
+                <div className="pointer-events-none absolute right-4 top-4 rounded-full bg-[#6BB6F2]/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy">
+                  After
+                </div>
+
+                <div
+                  className="pointer-events-none absolute inset-y-0 w-px bg-white/95 shadow-[0_0_0_1px_rgba(11,31,58,0.18)]"
+                  style={{ left: `${featuredComparison}%` }}
+                >
+                  <span className="absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white bg-navy/78" />
+                </div>
+
+                <label htmlFor="featured-comparison" className="sr-only">
+                  Adjust before and after comparison
+                </label>
+                <input
+                  id="featured-comparison"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={featuredComparison}
+                  onChange={(event) => setFeaturedComparison(Number(event.target.value))}
+                  className="absolute inset-x-0 bottom-4 z-10 mx-auto w-[88%] cursor-ew-resize accent-[#6BB6F2]"
+                />
+              </div>
+            </motion.article>
+
+            <div className="mt-10 space-y-6">
+              {processSteps.slice(1).map((project, index) => (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  className="rounded-2xl border border-navy/12 bg-white p-4 shadow-[0_14px_30px_-24px_rgba(11,31,58,0.35)] sm:p-5"
+                >
+                  <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="font-display text-xl font-semibold text-navy sm:text-2xl">{project.title}</h3>
+                    <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-blue">
+                      {project.location}
+                    </span>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-2">
+                    <figure className="group overflow-hidden rounded-xl border border-navy/12 bg-mist">
+                      <div className="border-b border-navy/12 px-3 py-2">
+                        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-navy/75">Before</span>
+                      </div>
+                      <img
+                        src={project.before}
+                        alt={`${project.title} before`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[230px] w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                      />
+                    </figure>
+
+                    <figure className="group overflow-hidden rounded-xl border border-navy/12 bg-mist">
+                      <div className="border-b border-navy/12 px-3 py-2">
+                        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-blue">After</span>
+                      </div>
+                      <img
+                        src={project.after}
+                        alt={`${project.title} after`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[230px] w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                      />
+                    </figure>
+                  </div>
+                </motion.article>
               ))}
             </div>
           </div>
