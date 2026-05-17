@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --ps-navy: #0b1f3a;
-  --ps-blue: #165fa8;
+  --ps-obsidian: #030813;
+  --ps-charcoal: #0c1526;
+  --ps-navy: #165fa8;
   --ps-lime: #b5e61d;
-  --ps-white: #ffffff;
-  --ps-mist: #f2f5f8;
 }
 
 html {
@@ -16,9 +15,9 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-  color: var(--ps-navy);
-  background: var(--ps-white);
+  font-family: var(--font-manrope), 'Segoe UI', sans-serif;
+  color: #ffffff;
+  background: var(--ps-obsidian);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -27,39 +26,42 @@ body {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050a13;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1c5da0, #0f2744);
+  border-radius: 999px;
+  border: 2px solid #050a13;
+}
+
 @layer components {
   .container-shell {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
   }
 
   .section-shell {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-20 sm:py-24 lg:py-28;
   }
 
-  .ps-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold tracking-wide transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2;
+  .font-display {
+    font-family: var(--font-rajdhani), var(--font-manrope), sans-serif;
   }
 
-  .ps-btn-primary {
-    @apply bg-lime text-navy hover:-translate-y-0.5 hover:shadow-lift;
+  .label-text {
+    @apply inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-lime;
   }
 
-  .ps-btn-secondary {
-    @apply border-2 border-navy bg-white text-navy hover:-translate-y-0.5 hover:bg-mist hover:shadow-lift;
+  .section-title {
+    @apply font-display mt-4 text-3xl font-semibold uppercase leading-[1.05] text-white sm:text-4xl lg:text-5xl;
   }
 
-  .reveal {
-    animation: fade-up 0.8s ease both;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .social-chip {
+    @apply grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition duration-300 hover:-translate-y-0.5 hover:border-lime/50 hover:text-lime;
   }
 }

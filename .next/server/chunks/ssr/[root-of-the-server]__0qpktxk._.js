@@ -1,0 +1,3 @@
+module.exports=[72045,a=>{"use strict";a.s(["siteConfig",0,{name:"Prime Seal Waterproofing",shortName:"Prime Seal",domain:"https://primesealwaterproof.com",phone:"+353 87 137 2847",phoneHref:"tel:+353871372847",email:"info@primesealwaterproof.com",emailHref:"mailto:info@primesealwaterproof.com",location:"Dublin and surrounding areas",areaServed:"Ireland",socials:{whatsapp:"https://wa.me/353871372847",facebook:"https://www.facebook.com/profile.php?id=61575446935350",instagram:"https://www.instagram.com/primeseal_waterproofing/"}}])},91227,a=>{a.v(b=>Promise.all(["server/chunks/ssr/[externals]_next_dist_compiled_@vercel_og_index_node_00__rw~.js"].map(b=>a.l(b))).then(()=>b(21425)))}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__0qpktxk._.js.map
