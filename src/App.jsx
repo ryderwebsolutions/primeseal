@@ -14,46 +14,48 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const services = [
+const serviceGroups = [
   {
-    title: 'Roof Waterproofing',
-    text: 'Torch-on and liquid systems engineered for long-term weather resistance.',
-    icon: 'M3 11.5 12 4l9 7.5M5 10.2V20h14v-9.8',
+    heading: 'Residential & Structural Systems',
+    items: [
+      {
+        title: 'Roof Waterproofing',
+        text: 'Torch-on and liquid systems for long-term weather protection.',
+      },
+      {
+        title: 'Balcony Waterproofing',
+        text: 'Membrane detailing for exposed balcony perimeters and outlets.',
+      },
+      {
+        title: 'Basement Waterproofing',
+        text: 'Sub-structure protection against persistent seepage and pressure.',
+      },
+      {
+        title: 'Flat Roof Systems',
+        text: 'Complete flat roof waterproofing upgrades with durable finishes.',
+      },
+    ],
   },
   {
-    title: 'Balcony Waterproofing',
-    text: 'Membrane detailing for high-risk balcony perimeters, outlets, and upstands.',
-    icon: 'M4 6h16M4 12h16M4 18h16',
-  },
-  {
-    title: 'Basement Waterproofing',
-    text: 'Sub-structure protection against hydrostatic pressure and persistent seepage.',
-    icon: 'M3 20h18M6 20V9m6 11V5m6 15v-8',
-  },
-  {
-    title: 'Flat Roof Systems',
-    text: 'Complete flat roof waterproofing upgrades with premium membrane finishes.',
-    icon: 'M4 15h16M6 15l1.8-6h8.4l1.8 6',
-  },
-  {
-    title: 'Wet Room Waterproofing',
-    text: 'Professional tanking and floor-to-wall transitions for leak-proof interiors.',
-    icon: 'M8 4v7m8-7v7M6 20h12M4 13c.8 1.5 2.2 2.5 4 2.8',
-  },
-  {
-    title: 'Liquid Waterproofing',
-    text: 'Seamless liquid membrane coatings for complex details and hard-to-reach zones.',
-    icon: 'M12 3c3.2 4 5 7 5 10a5 5 0 0 1-10 0c0-3 1.8-6 5-10Z',
-  },
-  {
-    title: 'Leak Prevention',
-    text: 'Survey-led defect prevention designed to stop expensive future damage.',
-    icon: 'M4 12h5l2-5 2 10 2-5h5',
-  },
-  {
-    title: 'Commercial Waterproofing',
-    text: 'Large-scale waterproofing for apartment blocks, retail units, and facilities.',
-    icon: 'M4 21V7l8-4 8 4v14M9 21v-6h6v6',
+    heading: 'Specialist Protection Services',
+    items: [
+      {
+        title: 'Wet Room Waterproofing',
+        text: 'Professional tanking and transitions for leak-proof wet areas.',
+      },
+      {
+        title: 'Liquid Waterproofing',
+        text: 'Seamless liquid membrane application for complex detailing zones.',
+      },
+      {
+        title: 'Leak Prevention',
+        text: 'Survey-led prevention work focused on stopping future failures.',
+      },
+      {
+        title: 'Commercial Waterproofing',
+        text: 'Reliable systems for apartment blocks, retail sites, and facilities.',
+      },
+    ],
   },
 ]
 
@@ -374,32 +376,34 @@ function App() {
           </div>
         </section>
 
-        <section id="services" className="section-shell bg-gradient-to-b from-[#050b17] to-[#070f1d]">
+        <section id="services" className="section-shell bg-[#050c18]">
           <div className="container-shell">
-            <div className="max-w-3xl">
+            <div className="max-w-5xl">
               <p className="label-text">Our Services</p>
               <h2 className="section-title">Built Around Waterproofing Performance, Finish Quality, and Long-Term Reliability</h2>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/68 sm:text-lg">
+                Prime Seal delivers specialist waterproofing solutions across residential and commercial properties, with clean technical execution and dependable long-term protection.
+              </p>
             </div>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-              {services.map((service, index) => (
-                <motion.article
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.45, delay: index * 0.05 }}
-                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] p-6 backdrop-blur-xl"
-                >
-                  <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-lime/10 blur-2xl transition duration-500 group-hover:scale-125" />
-                  <div className="relative">
-                    <span className="grid h-12 w-12 place-items-center rounded-xl border border-white/20 bg-obsidian/80 text-lime">
-                      <Icon path={service.icon} />
-                    </span>
-                    <h3 className="font-display mt-5 text-2xl leading-tight text-white">{service.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/70">{service.text}</p>
-                  </div>
-                </motion.article>
+            <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
+              {serviceGroups.map((group) => (
+                <div key={group.heading} className="border-t border-white/15 pt-7 lg:pt-8">
+                  <h3 className="font-display text-xl font-semibold uppercase tracking-[0.07em] text-white sm:text-2xl">
+                    {group.heading}
+                  </h3>
+                  <ul className="mt-5 lg:mt-6">
+                    {group.items.map((service) => (
+                      <li key={service.title} className="flex gap-4 border-b border-white/10 py-4 sm:py-5 lg:py-6">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lime/90" />
+                        <div>
+                          <p className="font-display text-lg font-semibold leading-tight text-white sm:text-xl">{service.title}</p>
+                          <p className="mt-1.5 max-w-[34ch] text-sm leading-relaxed text-white/62 sm:text-[15px]">{service.text}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </div>
