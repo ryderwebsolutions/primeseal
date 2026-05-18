@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: 'Prime Seal Waterproofing',
-  shortName: 'Prime Seal',
+  name: 'PrimeSeal Waterproofing',
+  shortName: 'PrimeSeal',
   domain: 'https://primesealwaterproof.com',
   phone: '+353 87 137 2847',
   phoneHref: 'tel:+353871372847',
@@ -22,7 +22,7 @@ export const trustPillars = [
   },
   {
     title: 'Real Project Evidence',
-    text: 'The website is built around real Prime Seal site photography and live project video, showing actual finishes, detailing, and working conditions.',
+    text: 'The website is built around real PrimeSeal site photography and live project video, showing actual finishes, detailing, and working conditions.',
   },
   {
     title: 'Residential & Commercial',
@@ -49,4 +49,15 @@ export const clientExpectations = [
   },
 ]
 
-export const serviceAreas = ['Dublin', 'South Dublin', 'North Dublin', 'Commercial Sites', 'Residential Projects']
+export const serviceAreas = [
+  'Dublin City Centre',
+  'South Dublin',
+  'North Dublin',
+  'West Dublin',
+  'Dublin 2',
+  'Dublin 4',
+  'Dublin 6',
+  'Dublin 8',
+  'Commercial sites across Dublin',
+  'Surrounding areas',
+]

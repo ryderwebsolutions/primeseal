@@ -19,18 +19,18 @@ const rajdhani = Rajdhani({
 export const metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
-    default: `${siteConfig.name} | Premium Waterproofing Specialists`,
+    default: `${siteConfig.name} | Dublin Waterproofing Specialists`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    'Premium waterproofing specialists for roofs, balconies, basements, wet rooms, and commercial projects across Dublin and Ireland.',
+    'Reliable waterproofing specialists for roofs, balconies, basements, wet rooms, and commercial properties across Dublin.',
   keywords: [
     siteConfig.name,
     'waterproofing Dublin',
     'roof waterproofing',
     'balcony waterproofing',
     'basement waterproofing',
-    'commercial waterproofing Ireland',
+    'commercial waterproofing Dublin',
   ],
   alternates: {
     canonical: '/',
@@ -40,9 +40,9 @@ export const metadata = {
     locale: 'en_IE',
     url: '/',
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Premium Waterproofing Specialists`,
+    title: `${siteConfig.name} | Dublin Waterproofing Specialists`,
     description:
-      'Protecting properties across Ireland with premium waterproofing systems and specialist workmanship.',
+      'Protecting Dublin properties with specialist waterproofing systems and professional workmanship.',
     images: [
       {
         url: '/opengraph-image',
@@ -56,7 +56,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description:
-      'Premium waterproofing services across Dublin and Ireland: roofs, balconies, basements, and commercial sites.',
+      'Reliable waterproofing services across Dublin: roofs, balconies, basements, and commercial sites.',
     images: ['/opengraph-image'],
   },
   robots: {

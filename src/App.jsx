@@ -9,9 +9,12 @@ const logoSrc = '/images/primeseal-logo.jpg'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
-  { label: 'Before & After', href: '#process' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Why PrimeSeal', href: '#why-choose' },
+  { label: 'Process', href: '#process' },
+  { label: 'Reviews', href: '#reviews' },
   { label: 'Showcase', href: '#showcase' },
-  { label: 'About', href: '#about' },
+  { label: 'Areas', href: '#areas' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -72,10 +75,77 @@ const heroServices = [
   'Commercial Waterproofing',
 ]
 
-const beforeAfterItems = [
-  { label: 'Balcony Waterproofing', src: '/balconybeforeandafter.jpeg' },
-  { label: 'Garden Waterproofing', src: '/gardenbeforeandafter.jpeg' },
-  { label: 'Roof Waterproofing', src: '/roofbeforeandafter.jpeg' },
+const trustBarItems = [
+  'Fully Insured',
+  'Dublin-Based Specialists',
+  'Residential & Commercial Projects',
+  'Long-Term Waterproofing Systems',
+  'Free Leak Assessments',
+  'Warranty Available On Selected Works',
+]
+
+const whyChooseItems = [
+  'Long-lasting waterproofing systems',
+  'Specialist leak prevention expertise',
+  'Clean professional workmanship',
+  'Fast inspections across Dublin',
+  'Residential & commercial capability',
+  'Solutions designed to prevent repeat failures',
+  'Reliable communication throughout projects',
+]
+
+const processSteps = [
+  { title: 'Site Inspection', icon: 'M3 9.75 9-6.75 9 6.75v10.5L12 27 3 20.25V9.75Z' },
+  { title: 'Moisture & Leak Assessment', icon: 'M12 3v18m0 0-4-4m4 4 4-4M4 7h16' },
+  { title: 'Waterproofing System Recommendation', icon: 'M4 5h16v14H4zM8 9h8M8 13h6' },
+  { title: 'Surface Preparation', icon: 'M4 17 10 11m0 0 3 3m-3-3 7-7' },
+  { title: 'Waterproofing Application', icon: 'M5 19h14M7 15h10M9 11h6M11 7h2' },
+  { title: 'Final Inspection & Completion', icon: 'm5 13 4 4L19 7' },
+]
+
+const projectItems = [
+  {
+    title: 'Balcony Waterproofing',
+    location: 'South Dublin',
+    src: '/clean-balcony-before-after.jpeg',
+    problem: 'Water ingress and worn waterproofing surface.',
+    solution: 'Liquid waterproofing membrane system applied with edge sealing.',
+    result: 'Long-term waterproof protection with clean durable finish.',
+  },
+  {
+    title: 'Garden Area Waterproofing',
+    location: 'North Dublin',
+    src: '/clean-garden-before-after.jpeg',
+    problem: 'Standing water and failed waterproofing causing ongoing damp risk.',
+    solution: 'Surface prepared and new membrane system installed with proper drainage detailing.',
+    result: 'Sealed surface with improved water run-off and long-term protection.',
+  },
+  {
+    title: 'Roof Edge Waterproofing',
+    location: 'West Dublin',
+    src: '/clean-roof-before-after.jpeg',
+    problem: 'Exposed roof edge showing weathered and failing protection layers.',
+    solution: 'Edge rebuilt and waterproofed using a durable liquid membrane system.',
+    result: 'Clean professional finish with reliable leak prevention at critical edges.',
+  },
+]
+
+const testimonialItems = [
+  {
+    name: 'Homeowner, Dublin 4',
+    text: 'PrimeSeal identified the leak source quickly and fixed the issue properly. The communication and finish quality were excellent.',
+    rating: 5,
+  },
+  {
+    name: 'Landlord, North Dublin',
+    text: 'Very practical team. They explained the problem clearly, sent a written quote, and completed the waterproofing work to a high standard.',
+    rating: 5,
+  },
+  {
+    name: 'Commercial Client, West Dublin',
+    text: 'Professional from inspection to completion. We needed a reliable long-term solution, and PrimeSeal delivered exactly that.',
+    rating: 5,
+  },
 ]
 
 const showcaseItems = [
@@ -116,43 +186,43 @@ const showcaseItems = [
 
 const faqItems = [
   {
-    question: 'What waterproofing services do you provide?',
+    question: 'What waterproofing services do you provide in Dublin?',
     answer:
-      'We provide roof waterproofing, balcony systems, basement waterproofing, flat roof solutions, wet room tanking, liquid waterproofing, leak prevention, and commercial waterproofing works.',
+      'We provide roof, balcony, basement, and wet room waterproofing, plus leak prevention and commercial waterproofing systems across Dublin.',
   },
   {
-    question: 'Do you work on residential and commercial projects?',
+    question: 'Do you handle both residential and commercial waterproofing?',
     answer:
-      'Yes. Prime Seal delivers waterproofing works for both private residential properties and larger commercial sites.',
+      'Yes. We carry out waterproofing works for homeowners, landlords, and commercial properties across Dublin.',
   },
   {
-    question: 'What areas do you cover?',
-    answer: 'We are Dublin based and cover Dublin and surrounding areas for inspection and project delivery.',
+    question: 'What areas of Dublin do you cover?',
+    answer: 'We are Dublin-based and cover Dublin City Centre, South Dublin, North Dublin, West Dublin, and surrounding areas.',
   },
   {
-    question: 'How long does waterproofing last?',
+    question: 'How long does professional waterproofing last?',
     answer:
-      'Lifespan depends on exposure, substrate, and system type, but professionally specified and installed systems are designed for long-term protection.',
+      'Lifespan depends on exposure, surface condition, and system type, but correctly specified waterproofing is designed for long-term protection.',
   },
   {
-    question: 'Do you offer inspections and quotes?',
+    question: 'Do you offer free leak inspections and written quotes?',
     answer:
-      'Yes. We provide inspections and clear quotations so you can understand scope, approach, and expected outcomes before work starts.',
+      'Yes. We provide free leak inspections and clear written quotes so you know exactly what work is needed before we start.',
   },
   {
-    question: 'What causes recurring leaks and damp issues?',
+    question: 'Why do leaks and damp problems keep coming back?',
     answer:
-      'Recurring issues are often linked to failed detailing, poor drainage management, substrate movement, and unsuitable previous repairs.',
+      'Recurring leaks are often caused by failed detailing, blocked or poor drainage, surface movement, or short-term patch repairs.',
   },
   {
-    question: 'What waterproofing systems do you use?',
+    question: 'What waterproofing systems do you use for repairs?',
     answer:
-      'We use a range of high-grade systems including liquid membranes, torch-on solutions, and detail-specific waterproofing products based on project needs.',
+      'We use proven systems including liquid membranes and torch-on solutions, selected to match the surface and leak risk on your property.',
   },
   {
-    question: 'How quickly can projects begin?',
+    question: 'How quickly can a waterproofing project start?',
     answer:
-      'Start times depend on project size and current scheduling, but we prioritise responsive planning and clear timelines after initial assessment.',
+      'Start dates depend on project size and current bookings, but we prioritise fast inspections and clear scheduling after assessment.',
   },
 ]
 
@@ -180,7 +250,7 @@ function PrimaryButton({ href, children }) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full bg-[#6BB6F2] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-[#7CC0F5] hover:shadow-[0_14px_24px_-14px_rgba(53,99,143,0.45)]"
+      className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#6BB6F2] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-[#7CC0F5] hover:shadow-[0_14px_24px_-14px_rgba(53,99,143,0.45)] sm:w-auto"
     >
       {children}
     </a>
@@ -191,10 +261,20 @@ function SecondaryButton({ href, children, className = '' }) {
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full border border-navy/22 bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-mist ${className}`}
+      className={`inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-navy/22 bg-white px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.12em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-mist sm:w-auto ${className}`}
     >
       {children}
     </a>
+  )
+}
+
+function StarRating({ count = 5 }) {
+  return (
+    <div className="flex items-center gap-1 text-[#F6B70A]" aria-label={`${count} out of 5 stars`}>
+      {Array.from({ length: count }).map((_, index) => (
+        <span key={index}>★</span>
+      ))}
+    </div>
   )
 }
 
@@ -220,10 +300,10 @@ function App() {
         }`}
       >
         <div className="container-shell flex items-center justify-between gap-6">
-          <a href="#home" className="flex items-center gap-3" aria-label="Prime Seal Waterproofing home">
-            <img src={logoSrc} alt="Prime Seal logo" className="h-10 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-11" loading="eager" />
+          <a href="#home" className="flex items-center gap-3" aria-label="PrimeSeal Waterproofing home">
+            <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-12 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-14" loading="eager" />
             <div className="hidden sm:block">
-              <p className="font-display text-lg font-semibold uppercase tracking-[0.12em] text-navy">Prime Seal</p>
+              <p className="font-display text-xl font-semibold uppercase tracking-[0.1em] text-navy">PrimeSeal</p>
               <p className="text-xs uppercase tracking-[0.18em] text-navy/60">Waterproofing Specialists</p>
             </div>
           </a>
@@ -244,34 +324,34 @@ function App() {
             <a href={siteConfig.phoneHref} className="text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
               Call {siteConfig.phone}
             </a>
-            <PrimaryButton href="#contact">Get Free Quote</PrimaryButton>
+            <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={siteConfig.phoneHref}
-              aria-label={`Call Prime Seal at ${siteConfig.phone}`}
+              aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
               className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
             >
               <SocialIcon type="phone" />
             </a>
             <a
+              href={siteConfig.socials.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open PrimeSeal WhatsApp in a new tab"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            >
+              <SocialIcon type="whatsapp" />
+            </a>
+            <a
               href={siteConfig.socials.instagram}
               target="_blank"
               rel="noreferrer"
-              aria-label="Open Prime Seal Instagram in a new tab"
+              aria-label="Open PrimeSeal Instagram in a new tab"
               className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
             >
               <SocialIcon type="instagram" />
-            </a>
-            <a
-              href={siteConfig.socials.facebook}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open Prime Seal Facebook in a new tab"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
-            >
-              <SocialIcon type="facebook" />
             </a>
             <button
               type="button"
@@ -305,7 +385,7 @@ function App() {
                     {item.label}
                   </a>
                 ))}
-                <PrimaryButton href="#contact">Speak With Our Team</PrimaryButton>
+                <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
               </div>
             </motion.div>
           )}
@@ -326,8 +406,8 @@ function App() {
               preload="metadata"
             />
           </motion.div>
-          <div className="absolute inset-0 bg-white/74" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/86 via-white/72 to-[#edf4fb]/72" />
+          <div className="absolute inset-0 bg-[#071223]/55" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/68 via-[#071223]/55 to-[#071223]/45" />
 
           <div className="container-shell relative grid gap-10 pb-16 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:pb-20">
             <div>
@@ -335,7 +415,7 @@ function App() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="inline-flex rounded-full border border-navy/15 bg-white/88 px-4 py-1 text-xs uppercase tracking-[0.16em] text-blue"
+                className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.16em] text-[#B7DFFF]"
               >
                 Dublin Waterproofing Specialists
               </motion.p>
@@ -344,18 +424,27 @@ function App() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="font-display mt-5 max-w-[16ch] text-4xl font-bold uppercase leading-[1.04] text-navy sm:text-5xl lg:text-[3.7rem]"
+                className="font-display mt-5 max-w-[18ch] text-4xl font-bold uppercase leading-[1.04] text-white sm:text-5xl lg:text-[3.7rem]"
               >
-                Protecting Properties Across Dublin With Long-Term Waterproofing Solutions
+                Dublin Waterproofing Specialists
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.14 }}
-                className="mt-6 max-w-[54ch] text-base leading-relaxed text-navy/72 sm:text-lg"
+                transition={{ duration: 0.4, delay: 0.12 }}
+                className="mt-4 max-w-[40ch] text-lg font-semibold leading-snug text-white sm:text-xl"
               >
-                PrimeSeal Waterproofing delivers dependable systems for roofs, balconies, basements, wet areas, and commercial properties with contractor-grade workmanship and clear project communication.
+                Protecting Roofs, Balconies & Properties From Water Damage
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.14 }}
+                className="mt-6 max-w-[58ch] text-base leading-relaxed text-white/90 sm:text-lg"
+              >
+                Reliable waterproofing solutions for flat roofs, balconies, basements, wet rooms and commercial properties across Dublin.
               </motion.p>
 
               <motion.div
@@ -365,20 +454,33 @@ function App() {
                 className="mt-8 flex flex-wrap gap-3"
               >
                 <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
-                <SecondaryButton href={siteConfig.phoneHref}>Call Now</SecondaryButton>
+                <SecondaryButton href={siteConfig.phoneHref} className="border-white/50 bg-white/95 text-navy hover:bg-white">Call Now</SecondaryButton>
               </motion.div>
             </div>
 
-            <div className="rounded-2xl border border-navy/12 bg-white/82 p-4 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[2px] sm:p-5">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-blue">Waterproofing Services</p>
-              <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-[0.92rem] leading-[1.2] text-navy/78 sm:gap-x-5 sm:text-sm">
+            <div className="rounded-2xl border border-white/16 bg-white/12 p-4 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[3px] sm:p-5">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#B7DFFF]">Trusted Across Dublin</p>
+              <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm leading-[1.3] text-white/90 sm:gap-x-5">
                 {heroServices.map((service) => (
                   <li key={service} className="flex items-start gap-2">
-                    <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8EC9F6]" />
+                    <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#9FD0F8]" />
                     <span>{service}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-navy/8 bg-white py-4 sm:py-5">
+          <div className="container-shell">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {trustBarItems.map((item) => (
+                <p key={item} className="flex items-start gap-2 text-sm text-navy/78">
+                  <span className="mt-[2px] text-blue">✓</span>
+                  <span>{item}</span>
+                </p>
+              ))}
             </div>
           </div>
         </section>
@@ -388,8 +490,47 @@ function App() {
             <div className="max-w-4xl">
               <p className="label-text">Our Services</p>
               <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-navy/70 sm:text-lg">
-                Prime Seal delivers specialist waterproofing solutions across residential and commercial properties, with clean technical execution and dependable long-term protection.
+                Stop recurring leaks before they cause structural damage. PrimeSeal Waterproofing provides practical, long-term waterproofing systems designed to protect homes, rental properties, and commercial buildings across Dublin.
               </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {serviceGroups.map((group) => (
+                <article key={group.heading} className="rounded-2xl border border-navy/12 bg-mist p-6 sm:p-7">
+                  <h3 className="font-display text-2xl font-semibold uppercase leading-tight text-navy">{group.heading}</h3>
+                  <ul className="mt-5 space-y-3">
+                    {group.items.map((item) => (
+                      <li key={item.title} className="rounded-xl border border-navy/10 bg-white px-4 py-3">
+                        <p className="text-sm font-semibold text-navy sm:text-base">{item.title}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-navy/72">{item.text}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="why-choose" className="section-shell bg-mist">
+          <div className="container-shell">
+            <div className="max-w-4xl">
+              <p className="label-text">Why PrimeSeal</p>
+              <h2 className="section-title">Why Property Owners Choose PrimeSeal</h2>
+              <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/70 sm:text-lg">
+                Protect your property from hidden water damage with specialist work focused on reliability, clean finishes, and results that last.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {whyChooseItems.map((item) => (
+                <div key={item} className="rounded-xl border border-navy/12 bg-white px-4 py-4">
+                  <p className="flex items-start gap-2 text-sm leading-relaxed text-navy/78 sm:text-base">
+                    <span className="mt-[2px] text-blue">✓</span>
+                    <span>{item}</span>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -397,24 +538,73 @@ function App() {
         <section id="process" className="section-shell bg-mist">
           <div className="container-shell">
             <div className="max-w-4xl">
-              <h2 className="section-title">Before & After Waterproofing Work</h2>
+              <p className="label-text">Our Method</p>
+              <h2 className="section-title">Our Waterproofing Process</h2>
               <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/68 sm:text-lg">
-                Real PrimeSeal waterproofing projects completed across Dublin and surrounding areas.
+                Fix waterproofing issues properly the first time with a clear process from site assessment to completion.
               </p>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {beforeAfterItems.map((item) => (
-                <article key={item.label} className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_8px_20px_-18px_rgba(11,31,58,0.35)]">
-                  <img
-                    src={item.src}
-                    alt={item.label}
-                    loading="lazy"
-                    decoding="async"
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                  <div className="px-4 py-3">
-                    <p className="text-sm font-semibold text-navy">{item.label}</p>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
+              {processSteps.map((step, index) => (
+                <article key={step.title} className="rounded-2xl border border-navy/12 bg-white px-4 py-5 text-center sm:px-5">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-mist text-blue">
+                    <Icon path={step.icon} className="h-5 w-5" />
+                  </div>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-blue/85">Step {index + 1}</p>
+                  <p className="mt-2 text-sm font-semibold leading-snug text-navy">{step.title}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="section-shell bg-white">
+          <div className="container-shell">
+            <div className="max-w-4xl">
+              <p className="label-text">Project Results</p>
+              <h2 className="section-title">Recent Waterproofing Projects</h2>
+              <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/68 sm:text-lg">
+                Real project photography and clear outcomes from residential and commercial waterproofing work across Dublin.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-3">
+              {projectItems.map((item) => (
+                <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_14px_28px_-22px_rgba(11,31,58,0.35)]">
+                  <div className="grid gap-0.5 bg-navy/6 sm:grid-cols-2">
+                    <figure className="relative h-[250px] overflow-hidden bg-mist sm:h-[280px]">
+                      <img
+                        src={item.src}
+                        alt={`${item.title} before waterproofing in ${item.location}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-left"
+                      />
+                      <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                        Before
+                      </span>
+                    </figure>
+
+                    <figure className="relative h-[250px] overflow-hidden bg-mist sm:h-[280px]">
+                      <img
+                        src={item.src}
+                        alt={`${item.title} after waterproofing in ${item.location}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-right"
+                      />
+                      <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                        After
+                      </span>
+                    </figure>
+                  </div>
+
+                  <div className="space-y-2.5 px-4 py-5 sm:px-5">
+                    <p className="font-display text-lg font-semibold uppercase leading-tight text-navy">{item.title} - {item.location}</p>
+                    <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Problem:</span> {item.problem}</p>
+                    <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Solution:</span> {item.solution}</p>
+                    <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Result:</span> {item.result}</p>
                   </div>
                 </article>
               ))}
@@ -462,38 +652,63 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section-shell bg-mist">
+        <section id="reviews" className="section-shell bg-mist">
           <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
             <div>
-              <p className="label-text">About PrimeSeal</p>
+              <p className="label-text">Client Reviews</p>
+              <h2 className="section-title">Trusted By Homeowners & Property Managers</h2>
               <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/72 sm:text-lg">
-                PrimeSeal Waterproofing provides long-lasting waterproofing solutions for residential and commercial properties across Dublin and surrounding areas.
+                Reliable waterproofing solutions across Dublin, backed by practical communication, clear quotes, and professional workmanship.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-navy/72 sm:text-base">
-                <li>Years of practical waterproofing experience</li>
-                <li>Quality workmanship and clean project delivery</li>
-                <li>Leak prevention expertise for recurring issues</li>
-                <li>Reliable materials selected for long-term performance</li>
-                <li>Residential and commercial capability</li>
+                <li>Fully insured Dublin-based specialists</li>
+                <li>Fast response for active leaks and damp issues</li>
+                <li>Free leak assessments and written quotes</li>
+                <li>WhatsApp support for quick communication</li>
               </ul>
-              <div className="mt-7 grid gap-2 sm:grid-cols-2">
+            </div>
+
+            <div className="grid gap-4">
+              {testimonialItems.map((item) => (
+                <article key={item.name} className="rounded-2xl border border-navy/12 bg-white p-5">
+                  <StarRating count={item.rating} />
+                  <p className="mt-3 text-sm leading-relaxed text-navy/72">“{item.text}”</p>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-blue">{item.name}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell bg-white py-14 sm:py-16">
+          <div className="container-shell">
+            <div className="rounded-2xl border border-navy/12 bg-mist px-6 py-8 sm:px-8">
+              <p className="label-text">Workmanship Warranty</p>
+              <h2 className="font-display mt-4 text-3xl font-semibold uppercase leading-[1.08] text-navy sm:text-4xl">
+                Workmanship Warranty Available
+              </h2>
+              <p className="mt-4 max-w-[72ch] text-base leading-relaxed text-navy/72 sm:text-lg">
+                Selected waterproofing works come with a written workmanship warranty depending on the repair type, waterproofing system and surface condition.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="areas" className="section-shell bg-mist">
+          <div className="container-shell">
+            <div className="max-w-4xl">
+              <p className="label-text">Areas Covered</p>
+              <h2 className="section-title">Dublin Areas We Cover</h2>
+              <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/68 sm:text-lg">
+                We carry out residential and commercial waterproofing inspections and repairs across Dublin with fast scheduling and practical site support.
+              </p>
+              <div className="mt-7 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {serviceAreas.map((area) => (
-                  <span key={area} className="rounded-lg border border-navy/12 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-navy/72">
+                  <span key={area} className="rounded-lg border border-navy/12 bg-white px-3 py-2 text-sm font-semibold text-navy/78">
                     {area}
                   </span>
                 ))}
               </div>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border border-navy/12 bg-white">
-              <video
-                src="/about-video.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="h-full min-h-[360px] w-full object-cover"
-              />
             </div>
           </div>
         </section>
@@ -536,15 +751,15 @@ function App() {
                 Free Inspections & Quotes
               </p>
               <h2 className="font-display mt-4 text-3xl font-semibold uppercase leading-[1.08] sm:text-4xl">
-                Protect Your Property Before Small Leaks Become Major Damage.
+                Need help with a leak or damp problem?
               </h2>
               <p className="mt-4 max-w-xl text-white/80">
-                Speak with PrimeSeal for a practical site assessment and long-term waterproofing approach tailored to your property.
+                Book a free inspection and we will assess the issue, explain the best repair option, and provide a clear written quote.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PrimaryButton href={siteConfig.emailHref}>Request Free Inspection</PrimaryButton>
                 <SecondaryButton href={siteConfig.phoneHref} className="border-white/45 bg-white text-navy hover:bg-white/92">Call Now</SecondaryButton>
-                <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/45 bg-white text-navy hover:bg-white/92">WhatsApp</SecondaryButton>
+                <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/45 bg-white text-navy hover:bg-white/92">WhatsApp Us</SecondaryButton>
               </div>
             </div>
 
@@ -555,6 +770,7 @@ function App() {
                 <p>Email: {siteConfig.email}</p>
                 <p>Location: {siteConfig.location}</p>
                 <p>Hours: Mon-Fri 8:00-18:00, Sat 9:00-14:00</p>
+                <p>Fully insured | Residential & commercial | Free leak assessments</p>
               </div>
               <div className="mt-6 flex gap-2">
                 <a href={siteConfig.socials.whatsapp} target="_blank" rel="noreferrer" className="social-chip" aria-label="WhatsApp">
@@ -577,7 +793,7 @@ function App() {
           <div>
             <p className="font-display text-2xl uppercase tracking-[0.08em] text-navy">{siteConfig.name}</p>
             <p className="mt-3 text-sm leading-relaxed text-navy/68">
-              Premium waterproofing contractor solutions for homes and commercial buildings across Dublin and surrounding areas.
+              Reliable waterproofing contractor solutions for homeowners, landlords, and commercial properties across Dublin.
             </p>
           </div>
 
@@ -626,7 +842,7 @@ function App() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs text-navy/60">© {new Date().getFullYear()} {siteConfig.shortName}. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.12em] text-navy/58">
-              {serviceAreas.map((area) => (
+              {serviceAreas.slice(0, 6).map((area) => (
                 <span key={area}>{area}</span>
               ))}
             </div>
