@@ -113,7 +113,7 @@ const projectItems = [
     result: 'Long-term waterproof protection with clean durable finish.',
   },
   {
-    title: 'Garden Area Waterproofing',
+    title: 'FLAT ROOF WATERPROOFING',
     location: 'North Dublin',
     src: '/clean-garden-before-after.jpeg',
     problem: 'Standing water and failed waterproofing causing ongoing damp risk.',
@@ -156,12 +156,12 @@ const showcaseItems = [
     poster: '/media/images/project-06.jpeg',
   },
   {
-    label: 'Balcony Systems',
+    label: 'FLAT ROOF WATERPROOFING',
     src: '/media/images/project-08.jpeg',
     type: 'image',
   },
   {
-    label: 'Leak Repairs',
+    label: 'BALCONY SYSTEMS',
     src: '/media/images/project-05.jpeg',
     type: 'image',
   },
