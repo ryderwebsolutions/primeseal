@@ -572,32 +572,50 @@ function App() {
             <div className="mt-10 grid gap-8 lg:grid-cols-3">
               {projectItems.map((item) => (
                 <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_14px_28px_-22px_rgba(11,31,58,0.35)]">
-                  <div className="grid gap-0.5 bg-navy/6 sm:grid-cols-2">
-                    <figure className="relative h-[250px] overflow-hidden bg-mist sm:h-[280px]">
+                  <div className="bg-navy/6">
+                    <figure className="relative h-[250px] overflow-hidden bg-mist sm:hidden">
                       <img
                         src={item.src}
-                        alt={`${item.title} before waterproofing in ${item.location}`}
+                        alt={`${item.title} before and after waterproofing in ${item.location}`}
                         loading="lazy"
                         decoding="async"
-                        className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-left"
+                        className="h-full w-full object-cover"
                       />
                       <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
                         Before
                       </span>
-                    </figure>
-
-                    <figure className="relative h-[250px] overflow-hidden bg-mist sm:h-[280px]">
-                      <img
-                        src={item.src}
-                        alt={`${item.title} after waterproofing in ${item.location}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-right"
-                      />
-                      <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                      <span className="absolute right-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
                         After
                       </span>
                     </figure>
+
+                    <div className="hidden gap-0.5 sm:grid sm:grid-cols-2">
+                      <figure className="relative h-[280px] overflow-hidden bg-mist">
+                        <img
+                          src={item.src}
+                          alt={`${item.title} before waterproofing in ${item.location}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-left"
+                        />
+                        <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                          Before
+                        </span>
+                      </figure>
+
+                      <figure className="relative h-[280px] overflow-hidden bg-mist">
+                        <img
+                          src={item.src}
+                          alt={`${item.title} after waterproofing in ${item.location}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-right"
+                        />
+                        <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                          After
+                        </span>
+                      </figure>
+                    </div>
                   </div>
 
                   <div className="space-y-2.5 px-4 py-5 sm:px-5">
