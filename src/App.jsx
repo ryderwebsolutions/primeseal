@@ -166,6 +166,8 @@ function Icon({ path, className = 'h-5 w-5' }) {
 
 function SocialIcon({ type }) {
   const paths = {
+    phone:
+      'M7.2 4.9c.8-.8 2-.8 2.8 0l1.8 1.8c.6.6.7 1.5.3 2.2l-1 1.6c-.2.4-.2.9.1 1.2 1 1.5 2.3 2.8 3.8 3.8.4.3.9.3 1.2.1l1.6-1c.7-.4 1.6-.3 2.2.3l1.8 1.8c.8.8.8 2 0 2.8l-1.1 1.1c-.9.9-2.4 1.3-3.7.9-2.6-.8-5.6-2.7-8.3-5.4S5 11.5 4.2 8.9c-.4-1.3 0-2.8.9-3.7L7.2 4.9Z',
     whatsapp:
       'M16.7 14.4 17.8 20 12 16.8A8.9 8.9 0 1 1 21 12a8.9 8.9 0 0 1-4.3 7.6M8.4 7.7c-.2.4-.6 1.1-.6 2 0 .9.5 1.8.6 1.9.1.2 1.6 2.7 4 3.6 1.9.8 2.3.6 2.7.5.4-.1 1.2-.5 1.4-1 .2-.5.2-1 .1-1.1-.1-.1-.4-.2-.8-.4-.4-.2-.9-.5-1-.6-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.2-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4Z',
     facebook: 'M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z',
@@ -245,15 +247,42 @@ function App() {
             <PrimaryButton href="#contact">Get Free Quote</PrimaryButton>
           </div>
 
-          <button
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-navy/20 bg-white text-navy lg:hidden"
-          >
-            <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href={siteConfig.phoneHref}
+              aria-label={`Call Prime Seal at ${siteConfig.phone}`}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            >
+              <SocialIcon type="phone" />
+            </a>
+            <a
+              href={siteConfig.socials.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Prime Seal Instagram in a new tab"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            >
+              <SocialIcon type="instagram" />
+            </a>
+            <a
+              href={siteConfig.socials.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Prime Seal Facebook in a new tab"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            >
+              <SocialIcon type="facebook" />
+            </a>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-navy/20 bg-white text-navy"
+            >
+              <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
+            </button>
+          </div>
         </div>
 
         <AnimatePresence>
