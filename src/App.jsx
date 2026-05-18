@@ -61,13 +61,15 @@ const serviceGroups = [
   },
 ]
 
-const trustSignals = [
-  'Residential & Commercial',
-  'Dublin Based',
-  'Fully Insured',
-  'Long-Term Waterproofing Systems',
-  'Free Inspections & Quotes',
-  'Leak Prevention Specialists',
+const heroServices = [
+  'Roof Waterproofing',
+  'Balcony Waterproofing',
+  'Basement Waterproofing',
+  'Flat Roof Systems',
+  'Wet Rooms',
+  'Liquid Waterproofing',
+  'Leak Prevention',
+  'Commercial Waterproofing',
 ]
 
 const beforeAfterItems = [
@@ -338,13 +340,13 @@ function App() {
               </motion.div>
             </div>
 
-            <div className="rounded-2xl border border-navy/12 bg-white/86 p-5 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[2px] sm:p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Trusted Service Signals</p>
-              <ul className="mt-4 space-y-2 text-sm text-navy/80">
-                {trustSignals.map((signal) => (
-                  <li key={signal} className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#6BB6F2]" />
-                    {signal}
+            <div className="rounded-2xl border border-navy/12 bg-white/82 p-4 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[2px] sm:p-5">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-blue">Waterproofing Services</p>
+              <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-[0.92rem] leading-[1.2] text-navy/78 sm:gap-x-5 sm:text-sm">
+                {heroServices.map((service) => (
+                  <li key={service} className="flex items-start gap-2">
+                    <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#8EC9F6]" />
+                    <span>{service}</span>
                   </li>
                 ))}
               </ul>
@@ -352,48 +354,13 @@ function App() {
           </div>
         </section>
 
-        <section className="border-y border-navy/10 bg-mist py-8">
-          <div className="container-shell">
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {trustSignals.map((signal) => (
-                <li key={signal} className="flex items-center gap-2 text-sm font-medium text-navy/78">
-                  <span className="h-2 w-2 rounded-full bg-[#6BB6F2]" />
-                  {signal}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         <section id="services" className="section-shell bg-white">
           <div className="container-shell">
             <div className="max-w-4xl">
               <p className="label-text">Our Services</p>
-              <h2 className="section-title">Built Around Waterproofing Performance, Finish Quality, and Long-Term Reliability</h2>
-              <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/68 sm:text-lg">
+              <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-navy/70 sm:text-lg">
                 Prime Seal delivers specialist waterproofing solutions across residential and commercial properties, with clean technical execution and dependable long-term protection.
               </p>
-            </div>
-
-            <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
-              {serviceGroups.map((group) => (
-                <div key={group.heading} className="border-t border-navy/14 pt-7 lg:pt-8">
-                  <h3 className="font-display text-xl font-semibold uppercase tracking-[0.07em] text-navy sm:text-2xl">
-                    {group.heading}
-                  </h3>
-                  <ul className="mt-5 lg:mt-6">
-                    {group.items.map((service) => (
-                      <li key={service.title} className="flex gap-4 border-b border-navy/12 py-4 sm:py-5 lg:py-6">
-                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue/80" />
-                        <div>
-                          <p className="font-display text-lg font-semibold leading-tight text-navy sm:text-xl">{service.title}</p>
-                          <p className="mt-1.5 max-w-[38ch] text-sm leading-relaxed text-navy/63 sm:text-[15px]">{service.text}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -428,10 +395,7 @@ function App() {
 
         <section id="showcase" className="section-shell bg-white">
           <div className="container-shell">
-            <div className="max-w-3xl">
-              <p className="label-text">Project Showcase</p>
-              <h2 className="section-title">Real Project Photography and Waterproofing Site Video</h2>
-            </div>
+            <p className="label-text">Project Showcase</p>
 
             <div className="relative mt-10">
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-14 bg-gradient-to-r from-white to-transparent md:block" />
@@ -473,7 +437,6 @@ function App() {
           <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
             <div>
               <p className="label-text">About PrimeSeal</p>
-              <h2 className="section-title">Straightforward, Reliable Waterproofing Expertise</h2>
               <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/72 sm:text-lg">
                 PrimeSeal Waterproofing provides long-lasting waterproofing solutions for residential and commercial properties across Dublin and surrounding areas.
               </p>
