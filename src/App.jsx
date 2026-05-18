@@ -299,35 +299,35 @@ function App() {
           scrolled ? 'border-b border-navy/10 bg-white/95 py-3' : 'bg-white/90 py-4'
         }`}
       >
-        <div className="container-shell flex items-center justify-between gap-6">
-          <a href="#home" className="flex items-center gap-3" aria-label="PrimeSeal Waterproofing home">
-            <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-12 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-14" loading="eager" />
+        <div className="container-shell flex items-center justify-between gap-4 xl:gap-6 2xl:gap-8">
+          <a href="#home" className="flex shrink-0 items-center gap-3 sm:gap-4 2xl:min-w-[340px]" aria-label="PrimeSeal Waterproofing home">
+            <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-14 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-16" loading="eager" />
             <div className="hidden sm:block">
-              <p className="font-display text-xl font-semibold uppercase tracking-[0.1em] text-navy">PrimeSeal</p>
-              <p className="text-xs uppercase tracking-[0.18em] text-navy/60">Waterproofing Specialists</p>
+              <p className="font-display text-2xl font-semibold uppercase tracking-[0.08em] text-navy">PrimeSeal</p>
+              <p className="text-sm uppercase tracking-[0.14em] text-navy/60">Waterproofing Specialists</p>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 2xl:flex">
             {navLinks.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm uppercase tracking-[0.12em] text-navy/85 transition duration-300 hover:text-blue"
+                className="whitespace-nowrap text-xs uppercase tracking-[0.1em] text-navy/85 transition duration-300 hover:text-blue"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <a href={siteConfig.phoneHref} className="text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
+          <div className="hidden shrink-0 items-center gap-3 xl:flex">
+            <a href={siteConfig.phoneHref} className="whitespace-nowrap text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
               Call {siteConfig.phone}
             </a>
             <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             <a
               href={siteConfig.phoneHref}
               aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
@@ -372,7 +372,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.2 }}
-              className="container-shell mt-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm lg:hidden"
+              className="container-shell mt-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm xl:hidden"
             >
               <div className="space-y-3">
                 {navLinks.map((item) => (
