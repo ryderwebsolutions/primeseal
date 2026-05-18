@@ -308,23 +308,23 @@ function App() {
             </div>
           </a>
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-5">
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-3 xl:flex 2xl:gap-4">
             {navLinks.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="whitespace-nowrap text-[11px] uppercase tracking-[0.08em] text-navy/85 transition duration-300 hover:text-blue 2xl:text-xs"
+                className="whitespace-nowrap text-[10px] uppercase tracking-[0.06em] text-navy/85 transition duration-300 hover:text-blue 2xl:text-xs"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-3 2xl:flex">
+          <div className="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
             <a href={siteConfig.phoneHref} className="whitespace-nowrap text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
               Call {siteConfig.phone}
             </a>
-            <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
+            <PrimaryButton href="#contact">REQUEST FREE INSPECTION</PrimaryButton>
           </div>
 
           <div className="flex items-center gap-2 xl:hidden">
@@ -581,10 +581,10 @@ function App() {
                         decoding="async"
                         className="h-full w-full object-cover"
                       />
-                      <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                      <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_8px_18px_-12px_rgba(11,31,58,0.7)]">
                         Before
                       </span>
-                      <span className="absolute right-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                      <span className="absolute right-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_8px_18px_-12px_rgba(11,31,58,0.7)]">
                         After
                       </span>
                     </figure>
@@ -598,7 +598,7 @@ function App() {
                           decoding="async"
                           className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-left"
                         />
-                        <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                        <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_8px_18px_-12px_rgba(11,31,58,0.7)]">
                           Before
                         </span>
                       </figure>
@@ -611,7 +611,7 @@ function App() {
                           decoding="async"
                           className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-right"
                         />
-                        <span className="absolute left-3 top-3 rounded-md border border-navy/12 bg-white/92 px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy/78">
+                        <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_8px_18px_-12px_rgba(11,31,58,0.7)]">
                           After
                         </span>
                       </figure>
