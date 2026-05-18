@@ -320,10 +320,7 @@ function App() {
             ))}
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
-            <a href={siteConfig.phoneHref} className="whitespace-nowrap text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
-              Call {siteConfig.phone}
-            </a>
+          <div className="hidden shrink-0 items-center xl:flex">
             <PrimaryButton href="#contact">REQUEST FREE INSPECTION</PrimaryButton>
           </div>
 
