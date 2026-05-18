@@ -299,28 +299,28 @@ function App() {
           scrolled ? 'border-b border-navy/10 bg-white/95 py-3' : 'bg-white/90 py-4'
         }`}
       >
-        <div className="container-shell flex items-center justify-between gap-4 xl:gap-6 2xl:gap-8">
-          <a href="#home" className="flex shrink-0 items-center gap-3 sm:gap-4 2xl:min-w-[340px]" aria-label="PrimeSeal Waterproofing home">
+        <div className="container-shell flex items-center justify-between gap-4 lg:gap-5 xl:gap-6">
+          <a href="#home" className="flex shrink-0 items-center gap-3 sm:gap-4 xl:min-w-[280px]" aria-label="PrimeSeal Waterproofing home">
             <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-14 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-16" loading="eager" />
             <div className="hidden sm:block">
-              <p className="font-display text-2xl font-semibold uppercase tracking-[0.08em] text-navy">PrimeSeal</p>
-              <p className="text-sm uppercase tracking-[0.14em] text-navy/60">Waterproofing Specialists</p>
+              <p className="font-display text-xl font-semibold uppercase tracking-[0.08em] text-navy lg:text-2xl">PrimeSeal</p>
+              <p className="text-xs uppercase tracking-[0.14em] text-navy/60 lg:text-sm">Waterproofing Specialists</p>
             </div>
           </a>
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 2xl:flex">
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-5">
             {navLinks.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="whitespace-nowrap text-xs uppercase tracking-[0.1em] text-navy/85 transition duration-300 hover:text-blue"
+                className="whitespace-nowrap text-[11px] uppercase tracking-[0.08em] text-navy/85 transition duration-300 hover:text-blue 2xl:text-xs"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-3 xl:flex">
+          <div className="hidden shrink-0 items-center gap-3 2xl:flex">
             <a href={siteConfig.phoneHref} className="whitespace-nowrap text-sm font-semibold tracking-wide text-navy/90 transition hover:text-blue">
               Call {siteConfig.phone}
             </a>
