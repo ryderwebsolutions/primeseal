@@ -15,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-manrope), 'Segoe UI', sans-serif;
+  font-family: var(--font-inter), 'Segoe UI', sans-serif;
   color: var(--ps-navy);
   background: #ffffff;
   text-rendering: optimizeLegibility;
@@ -50,7 +50,7 @@ body {
   }
 
   .font-display {
-    font-family: var(--font-rajdhani), var(--font-manrope), sans-serif;
+    font-family: var(--font-rajdhani), var(--font-inter), sans-serif;
   }
 
   .label-text {
@@ -58,7 +58,7 @@ body {
   }
 
   .section-title {
-    @apply font-display mt-4 text-3xl font-semibold uppercase leading-[1.06] text-navy sm:text-4xl lg:text-5xl;
+    @apply font-display mt-4 text-3xl font-semibold uppercase leading-[1.06] tracking-[0.02em] text-navy sm:text-4xl lg:text-5xl;
   }
 
   .social-chip {

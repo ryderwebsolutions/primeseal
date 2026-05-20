@@ -11,8 +11,8 @@ export default {
         mist: '#F2F5F8',
       },
       fontFamily: {
-        sans: ['var(--font-manrope)', '"Segoe UI"', 'sans-serif'],
-        display: ['var(--font-rajdhani)', 'var(--font-manrope)', 'sans-serif'],
+        sans: ['var(--font-inter)', '"Segoe UI"', 'sans-serif'],
+        display: ['var(--font-rajdhani)', 'var(--font-inter)', 'sans-serif'],
       },
       boxShadow: {
         lift: '0 18px 45px -24px rgba(11, 31, 58, 0.45)',

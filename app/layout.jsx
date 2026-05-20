@@ -1,12 +1,12 @@
 import '../src/index.css'
-import { Manrope, Rajdhani } from 'next/font/google'
+import { Inter, Rajdhani } from 'next/font/google'
 import { siteConfig } from '../src/siteConfig'
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-manrope',
-  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
 })
 
 const rajdhani = Rajdhani({
@@ -82,7 +82,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${rajdhani.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${rajdhani.variable} antialiased`}>{children}</body>
     </html>
   )
 }

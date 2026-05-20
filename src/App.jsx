@@ -68,10 +68,8 @@ const heroServices = [
   'Roof Waterproofing',
   'Balcony Waterproofing',
   'Basement Waterproofing',
+  'Wet Room Tanking',
   'Flat Roof Systems',
-  'Wet Rooms',
-  'Liquid Waterproofing',
-  'Leak Prevention',
   'Commercial Waterproofing',
 ]
 
@@ -113,7 +111,7 @@ const projectItems = [
     result: 'Long-term waterproof protection with clean durable finish.',
   },
   {
-    title: 'FLAT ROOF WATERPROOFING',
+    title: 'Flat Roof Waterproofing',
     location: 'North Dublin',
     src: '/clean-garden-before-after.jpeg',
     problem: 'Standing water and failed waterproofing causing ongoing damp risk.',
@@ -130,21 +128,27 @@ const projectItems = [
   },
 ]
 
-const testimonialItems = [
+const clientValuePoints = [
+  'Clear communication from inspection to completion',
+  'Clean and respectful project delivery on site',
+  'Reliable waterproofing systems matched to the issue',
+  'Long-term leak prevention focus over short-term patching',
+  'Fast inspections across Dublin and surrounding areas',
+  'Written quotations provided before work starts',
+]
+
+const feedbackSummaries = [
   {
-    name: 'Homeowner, Dublin 4',
-    text: 'PrimeSeal identified the leak source quickly and fixed the issue properly. The communication and finish quality were excellent.',
-    rating: 5,
+    heading: 'Communication',
+    text: 'Clients value straightforward updates, clear expectations, and direct answers throughout the project.',
   },
   {
-    name: 'Landlord, North Dublin',
-    text: 'Very practical team. They explained the problem clearly, sent a written quote, and completed the waterproofing work to a high standard.',
-    rating: 5,
+    heading: 'Work Standard',
+    text: 'Projects are delivered with tidy workmanship, careful detailing, and durable waterproofing finishes.',
   },
   {
-    name: 'Commercial Client, West Dublin',
-    text: 'Professional from inspection to completion. We needed a reliable long-term solution, and PrimeSeal delivered exactly that.',
-    rating: 5,
+    heading: 'Reliability',
+    text: 'Assessments are scheduled quickly and solutions are specified for long-term protection, not temporary fixes.',
   },
 ]
 
@@ -156,7 +160,7 @@ const showcaseItems = [
     poster: '/media/images/project-06.jpeg',
   },
   {
-    label: 'FLAT ROOF WATERPROOFING',
+    label: 'Flat Roof Waterproofing',
     src: '/media/images/project-08.jpeg',
     type: 'image',
   },
@@ -268,12 +272,18 @@ function SecondaryButton({ href, children, className = '' }) {
   )
 }
 
-function StarRating({ count = 5 }) {
+function CTAInlineStrip() {
   return (
-    <div className="flex items-center gap-1 text-[#F6B70A]" aria-label={`${count} out of 5 stars`}>
-      {Array.from({ length: count }).map((_, index) => (
-        <span key={index}>★</span>
-      ))}
+    <div className="mt-10 rounded-2xl border border-navy/12 bg-mist px-5 py-5 sm:px-6">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <p className="max-w-[70ch] text-sm leading-relaxed text-navy/78 sm:text-base">
+          Need a leak assessed? Request a free waterproofing inspection today.
+        </p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <PrimaryButton href="#contact">Request Inspection</PrimaryButton>
+          <SecondaryButton href={siteConfig.socials.whatsapp}>WhatsApp PrimeSeal</SecondaryButton>
+        </div>
+      </div>
     </div>
   )
 }
@@ -282,6 +292,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
+  const [isMobileViewport, setIsMobileViewport] = useState(
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false,
+  )
   const { scrollY } = useScroll()
   const heroVideoY = useTransform(scrollY, [0, 500], [0, 45])
 
@@ -290,6 +303,13 @@ function App() {
     onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+    const setViewport = (event) => setIsMobileViewport(event.matches)
+    media.addEventListener('change', setViewport)
+    return () => media.removeEventListener('change', setViewport)
   }, [])
 
   return (
@@ -301,7 +321,7 @@ function App() {
       >
         <div className="container-shell flex items-center justify-between gap-4 lg:gap-5 xl:gap-6">
           <a href="#home" className="flex shrink-0 items-center gap-3 sm:gap-4 xl:min-w-[280px]" aria-label="PrimeSeal Waterproofing home">
-            <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-14 w-auto rounded-md border border-navy/10 bg-white p-1 sm:h-16" loading="eager" />
+            <img src={logoSrc} alt="PrimeSeal Waterproofing logo" className="h-14 w-auto sm:h-16" loading="eager" width="214" height="96" />
             <div className="hidden sm:block">
               <p className="font-display text-xl font-semibold uppercase tracking-[0.08em] text-navy lg:text-2xl">PrimeSeal</p>
               <p className="text-xs uppercase tracking-[0.14em] text-navy/60 lg:text-sm">Waterproofing Specialists</p>
@@ -391,22 +411,36 @@ function App() {
 
       <main>
         <section id="home" className="relative isolate overflow-hidden bg-white pt-28 sm:pt-32">
-          <motion.div style={{ y: heroVideoY }} className="absolute inset-0">
-            <video
-              className="h-full w-full object-cover"
-              src="/media/videos/site-02.mp4"
-              poster="/media/images/project-06.jpeg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          </motion.div>
+          {isMobileViewport ? (
+            <div className="absolute inset-0">
+              <img
+                className="h-full w-full object-cover"
+                src="/media/images/project-06.jpeg"
+                alt="PrimeSeal waterproofing project background"
+                loading="eager"
+                decoding="async"
+                width="1920"
+                height="1080"
+              />
+            </div>
+          ) : (
+            <motion.div style={{ y: heroVideoY }} className="absolute inset-0">
+              <video
+                className="h-full w-full object-cover"
+                src="/media/videos/site-02.mp4"
+                poster="/media/images/project-06.jpeg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </motion.div>
+          )}
           <div className="absolute inset-0 bg-[#071223]/55" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/68 via-[#071223]/55 to-[#071223]/45" />
 
-          <div className="container-shell relative grid gap-10 pb-16 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:pb-20">
+          <div className="container-shell relative grid gap-8 pb-16 sm:gap-9 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:gap-10 lg:pb-20">
             <div>
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
@@ -414,14 +448,14 @@ function App() {
                 transition={{ duration: 0.4 }}
                 className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.16em] text-[#B7DFFF]"
               >
-                Dublin Waterproofing Specialists
+                Roof • Balcony • Basement Waterproofing
               </motion.p>
 
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="font-display mt-5 max-w-[18ch] text-4xl font-bold uppercase leading-[1.04] text-white sm:text-5xl lg:text-[3.7rem]"
+                className="font-display mt-5 max-w-[18ch] text-[2rem] font-bold uppercase leading-[1.04] text-white sm:text-5xl lg:text-[3.7rem]"
               >
                 Dublin Waterproofing Specialists
               </motion.h1>
@@ -430,7 +464,7 @@ function App() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.12 }}
-                className="mt-4 max-w-[40ch] text-lg font-semibold leading-snug text-white sm:text-xl"
+                className="mt-4 max-w-[40ch] text-base font-semibold leading-snug text-white sm:text-xl"
               >
                 Protecting Roofs, Balconies & Properties From Water Damage
               </motion.p>
@@ -453,11 +487,15 @@ function App() {
                 <PrimaryButton href="#contact">Request Free Inspection</PrimaryButton>
                 <SecondaryButton href={siteConfig.phoneHref} className="border-white/50 bg-white/95 text-navy hover:bg-white">Call Now</SecondaryButton>
               </motion.div>
+
+              <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-white/85 sm:text-base">
+                Active leak or damp issue? Contact PrimeSeal for fast waterproofing assessments across Dublin.
+              </p>
             </div>
 
-            <div className="rounded-2xl border border-white/16 bg-white/12 p-4 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[3px] sm:p-5">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#B7DFFF]">Trusted Across Dublin</p>
-              <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm leading-[1.3] text-white/90 sm:gap-x-5">
+            <div className="rounded-2xl border border-white/16 bg-white/10 p-4 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.38)] backdrop-blur-[7px] sm:p-5">
+              <p className="text-[0.67rem] font-semibold uppercase tracking-[0.12em] text-[#B7DFFF]">Specialist Waterproofing Services</p>
+              <ul className="mt-3 grid gap-y-2 text-sm leading-[1.35] text-white/90">
                 {heroServices.map((service) => (
                   <li key={service} className="flex items-start gap-2">
                     <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#9FD0F8]" />
@@ -506,6 +544,8 @@ function App() {
                 </article>
               ))}
             </div>
+
+            <CTAInlineStrip />
           </div>
         </section>
 
@@ -616,7 +656,7 @@ function App() {
                   </div>
 
                   <div className="space-y-2.5 px-4 py-5 sm:px-5">
-                    <p className="font-display text-lg font-semibold uppercase leading-tight text-navy">{item.title} - {item.location}</p>
+                    <p className="text-lg font-semibold leading-tight text-navy">{item.title} - {item.location}</p>
                     <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Problem:</span> {item.problem}</p>
                     <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Solution:</span> {item.solution}</p>
                     <p className="text-sm leading-relaxed text-navy/72"><span className="font-semibold text-navy">Result:</span> {item.result}</p>
@@ -624,6 +664,8 @@ function App() {
                 </article>
               ))}
             </div>
+
+            <CTAInlineStrip />
           </div>
         </section>
 
@@ -670,28 +712,38 @@ function App() {
         <section id="reviews" className="section-shell bg-mist">
           <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
             <div>
-              <p className="label-text">Client Reviews</p>
+              <p className="label-text">What Clients Value About Our Work</p>
               <h2 className="section-title">Trusted By Homeowners & Property Managers</h2>
               <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-navy/72 sm:text-lg">
                 Reliable waterproofing solutions across Dublin, backed by practical communication, clear quotes, and professional workmanship.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-navy/72 sm:text-base">
-                <li>Fully insured Dublin-based specialists</li>
-                <li>Fast response for active leaks and damp issues</li>
-                <li>Free leak assessments and written quotes</li>
-                <li>WhatsApp support for quick communication</li>
+                {clientValuePoints.map((point) => (
+                  <li key={point} className="flex items-start gap-2">
+                    <span className="mt-[2px] text-blue">✓</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="grid gap-4">
-              {testimonialItems.map((item) => (
-                <article key={item.name} className="rounded-2xl border border-navy/12 bg-white p-5">
-                  <StarRating count={item.rating} />
-                  <p className="mt-3 text-sm leading-relaxed text-navy/72">“{item.text}”</p>
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-blue">{item.name}</p>
+              {feedbackSummaries.map((item) => (
+                <article key={item.heading} className="rounded-2xl border border-navy/12 bg-white p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-blue">{item.heading}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/72">{item.text}</p>
                 </article>
               ))}
+              <article className="rounded-2xl border border-dashed border-navy/22 bg-white p-5">
+                <p className="text-sm leading-relaxed text-navy/72">
+                  Google review screenshots can be added here when verified review assets are available.
+                </p>
+              </article>
             </div>
+          </div>
+
+          <div className="container-shell">
+            <CTAInlineStrip />
           </div>
         </section>
 
@@ -771,6 +823,9 @@ function App() {
               <p className="mt-4 max-w-xl text-white/80">
                 Book a free inspection and we will assess the issue, explain the best repair option, and provide a clear written quote.
               </p>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/78 sm:text-base">
+                Active leak or damp issue? Contact PrimeSeal for fast waterproofing assessments across Dublin.
+              </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PrimaryButton href={siteConfig.emailHref}>Request Free Inspection</PrimaryButton>
                 <SecondaryButton href={siteConfig.phoneHref} className="border-white/45 bg-white text-navy hover:bg-white/92">Call Now</SecondaryButton>
@@ -779,15 +834,74 @@ function App() {
             </div>
 
             <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-              <h3 className="font-display text-xl font-semibold uppercase text-white">Contact Details</h3>
-              <div className="mt-4 space-y-2 text-sm text-white/82">
+              <h3 className="font-display text-xl font-semibold uppercase text-white">Request Free Leak Assessment</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/80">
+                Upload photos of the issue for a faster assessment.
+              </p>
+
+              <form className="mt-5 space-y-3" action={siteConfig.emailHref} method="post" encType="multipart/form-data">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Name"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="Phone Number"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <input
+                  type="text"
+                  name="issueType"
+                  placeholder="Type of Waterproofing Issue"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Message"
+                  className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50"
+                />
+                <input
+                  type="file"
+                  name="photos"
+                  accept="image/*"
+                  multiple
+                  className="w-full rounded-xl border border-dashed border-white/45 bg-white/10 px-3 py-2 text-sm text-white file:mr-3 file:rounded-lg file:border-0 file:bg-white file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-navy"
+                />
+
+                <button
+                  type="submit"
+                  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#6BB6F2] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.08em] text-navy transition duration-300 hover:bg-[#7CC0F5]"
+                >
+                  Request Free Leak Assessment
+                </button>
+              </form>
+
+              <div className="mt-6 space-y-1.5 text-sm text-white/82">
                 <p>Phone: {siteConfig.phone}</p>
                 <p>Email: {siteConfig.email}</p>
                 <p>Location: {siteConfig.location}</p>
-                <p>Hours: Mon-Fri 8:00-18:00, Sat 9:00-14:00</p>
-                <p>Fully insured | Residential & commercial | Free leak assessments</p>
               </div>
-              <div className="mt-6 flex gap-2">
+
+              <div className="mt-4 flex gap-2">
                 <a href={siteConfig.socials.whatsapp} target="_blank" rel="noreferrer" className="social-chip" aria-label="WhatsApp">
                   <SocialIcon type="whatsapp" />
                 </a>
