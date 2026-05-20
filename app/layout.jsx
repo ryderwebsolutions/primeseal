@@ -1,6 +1,9 @@
 import '../src/index.css'
 import { Inter, Rajdhani } from 'next/font/google'
 import { siteConfig } from '../src/siteConfig'
+import FloatingWhatsApp from '../src/components/FloatingWhatsApp'
+import SiteFooter from '../src/components/SiteFooter'
+import SiteHeader from '../src/components/SiteHeader'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -82,7 +85,12 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${rajdhani.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${rajdhani.variable} antialiased`}>
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+        <FloatingWhatsApp />
+      </body>
     </html>
   )
 }

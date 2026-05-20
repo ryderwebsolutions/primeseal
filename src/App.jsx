@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { serviceAreas, siteConfig } from './siteConfig'
 
 
-const logoSrc = '/images/primeseal-logo.jpg'
+const logoSrc = '/images/primeseal-logo-transparent.png'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
