@@ -31,7 +31,7 @@ export default function ProjectsPage() {
                       alt={`${item.title} before and after waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-[340px] w-full object-cover sm:h-[380px]"
+                      className="h-[280px] w-full object-cover sm:h-[320px]"
                     />
                   </figure>
                 </div>

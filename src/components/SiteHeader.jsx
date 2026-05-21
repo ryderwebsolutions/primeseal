@@ -36,7 +36,7 @@ export default function SiteHeader() {
           <img
             src={logoSrc}
             alt="PrimeSeal Waterproofing logo"
-            className="h-24 w-auto object-contain sm:h-28"
+            className="h-20 w-auto object-contain sm:h-28"
             loading="eager"
             decoding="async"
             width="428"
@@ -73,7 +73,7 @@ export default function SiteHeader() {
           <a
             href={siteConfig.phoneHref}
             aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
           >
             <SocialIcon type="phone" />
           </a>
@@ -82,7 +82,7 @@ export default function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             aria-label="Open PrimeSeal WhatsApp in a new tab"
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
           >
             <SocialIcon type="whatsapp" />
           </a>
@@ -91,7 +91,7 @@ export default function SiteHeader() {
             target="_blank"
             rel="noreferrer"
             aria-label="Open PrimeSeal Instagram in a new tab"
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
           >
             <SocialIcon type="instagram" />
           </a>
@@ -100,7 +100,7 @@ export default function SiteHeader() {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-navy/20 bg-white text-navy"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-navy/20 bg-white text-navy"
           >
             <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
           </button>
