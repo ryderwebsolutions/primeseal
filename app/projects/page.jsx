@@ -24,33 +24,15 @@ export default function ProjectsPage() {
           {projectItems.map((item, index) => (
             <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/12 bg-mist">
               <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="grid gap-2 p-2 md:grid-cols-2">
-                  <figure className="relative h-[260px] overflow-hidden rounded-xl bg-white sm:h-[320px]">
+                <div className="p-2">
+                  <figure className="relative overflow-hidden rounded-xl bg-white">
                     <img
                       src={item.src}
-                      alt={`${item.title} before waterproofing in ${item.location}`}
+                      alt={`${item.title} before and after waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-[200%] max-w-none object-cover"
-                      style={{ transform: 'translateX(0%)' }}
+                      className="h-[340px] w-full object-cover sm:h-[380px]"
                     />
-                    <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
-                      Before
-                    </span>
-                  </figure>
-
-                  <figure className="relative h-[260px] overflow-hidden rounded-xl bg-white sm:h-[320px]">
-                    <img
-                      src={item.src}
-                      alt={`${item.title} after waterproofing in ${item.location}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-[200%] max-w-none object-cover"
-                      style={{ transform: 'translateX(-50%)' }}
-                    />
-                    <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
-                      After
-                    </span>
                   </figure>
                 </div>
 
