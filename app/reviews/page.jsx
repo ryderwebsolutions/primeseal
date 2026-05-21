@@ -3,9 +3,9 @@ import PageHero from '../../src/components/PageHero'
 import { clientValuePoints, feedbackSummaries } from '../../src/content/siteContent'
 
 export const metadata = {
-  title: 'Client Reviews and Reputation',
+  title: 'What Clients Value About PrimeSeal',
   description:
-    'See why homeowners and property managers trust PrimeSeal Waterproofing for reliable communication, clean work standards, and long-term leak protection.',
+    'See what clients value about PrimeSeal Waterproofing, including communication, clean workmanship, and long-term leak prevention across Dublin.',
   alternates: { canonical: '/reviews' },
 }
 
@@ -13,9 +13,9 @@ export default function ReviewsPage() {
   return (
     <>
       <PageHero
-        label="Client Confidence"
-        title="Trusted by Homeowners and Property Managers"
-        summary="PrimeSeal Waterproofing is chosen for practical communication, careful workmanship, and long-term leak protection across Dublin projects."
+        label="Client Trust"
+        title="What Clients Value About Our Work"
+        summary="PrimeSeal is chosen for practical communication, careful workmanship, and long-term waterproofing outcomes across Dublin projects."
       />
 
       <section className="section-shell bg-white">
@@ -41,7 +41,7 @@ export default function ReviewsPage() {
             ))}
             <article className="rounded-2xl border border-dashed border-navy/22 bg-white p-5">
               <p className="text-sm leading-relaxed text-navy/72">
-                Verified review screenshot blocks can be added here once final review assets are approved.
+                Verified Google review embeds can be integrated here when approved and available.
               </p>
             </article>
           </div>

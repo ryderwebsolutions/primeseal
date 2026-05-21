@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { navLinks, serviceAreas, serviceList, siteConfig } from '../content/siteContent'
+import { navLinks, serviceAreas, serviceLinks, siteConfig } from '../content/siteContent'
 import { SocialIcon } from './Icons'
 
 export default function SiteFooter() {
@@ -16,8 +16,12 @@ export default function SiteFooter() {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-blue">Services</h4>
           <ul className="mt-3 space-y-2 text-sm text-navy/72">
-            {serviceList.map((service) => (
-              <li key={service}>{service}</li>
+            {serviceLinks.map((service) => (
+              <li key={service.label}>
+                <Link href={service.href} className="transition hover:text-blue">
+                  {service.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

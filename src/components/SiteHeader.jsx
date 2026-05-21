@@ -78,6 +78,15 @@ export default function SiteHeader() {
           >
             <SocialIcon type="whatsapp" />
           </a>
+          <a
+            href={siteConfig.socials.instagram}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open PrimeSeal Instagram in a new tab"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/70 bg-white/82 text-blue shadow-[0_10px_20px_-16px_rgba(11,31,58,0.35)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
+          >
+            <SocialIcon type="instagram" />
+          </a>
           <button
             type="button"
             aria-label="Open menu"

@@ -5,10 +5,19 @@ export default function sitemap() {
     '',
     '/services',
     '/projects',
-    '/reviews',
-    '/areas-covered',
     '/about',
+    '/faq',
     '/contact',
+    '/areas-covered',
+    '/reviews',
+    '/roof-waterproofing-dublin',
+    '/balcony-waterproofing-dublin',
+    '/flat-roof-waterproofing-dublin',
+    '/basement-waterproofing-dublin',
+    '/wet-room-waterproofing-dublin',
+    '/commercial-waterproofing-dublin',
+    '/liquid-waterproofing-dublin',
+    '/leak-repairs-dublin',
   ]
 
   return [
