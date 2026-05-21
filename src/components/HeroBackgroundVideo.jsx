@@ -12,16 +12,39 @@ export default function HeroBackgroundVideo() {
 
   useEffect(() => {
     const video = videoRef.current
+    const container = containerRef.current
     if (!video) {
       return
     }
 
     const maybePlay = () => {
+      video.muted = true
       const playAttempt = video.play()
       if (playAttempt && typeof playAttempt.catch === 'function') {
         playAttempt.catch(() => setAutoplayBlocked(true))
+      } else {
+        setAutoplayBlocked(false)
       }
     }
+
+    video.defaultMuted = true
+    video.playsInline = true
+    maybePlay()
+
+    const onCanPlay = () => maybePlay()
+    const onLoadedData = () => maybePlay()
+
+    video.addEventListener('canplay', onCanPlay)
+    video.addEventListener('loadeddata', onLoadedData)
+
+    const onFirstInteraction = () => {
+      maybePlay()
+      window.removeEventListener('touchstart', onFirstInteraction)
+      window.removeEventListener('click', onFirstInteraction)
+    }
+
+    window.addEventListener('touchstart', onFirstInteraction, { passive: true })
+    window.addEventListener('click', onFirstInteraction)
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,11 +56,17 @@ export default function HeroBackgroundVideo() {
           }
         })
       },
-      { threshold: 0.35 },
+      { threshold: 0.1 },
     )
 
-    observer.observe(video)
-    return () => observer.disconnect()
+    observer.observe(container || video)
+    return () => {
+      observer.disconnect()
+      video.removeEventListener('canplay', onCanPlay)
+      video.removeEventListener('loadeddata', onLoadedData)
+      window.removeEventListener('touchstart', onFirstInteraction)
+      window.removeEventListener('click', onFirstInteraction)
+    }
   }, [])
 
   return (
@@ -59,9 +88,10 @@ export default function HeroBackgroundVideo() {
           poster="/media/images/project-06.jpeg"
           autoPlay
           muted
+          defaultMuted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           onPlaying={() => setAutoplayBlocked(false)}
           onError={() => setAutoplayBlocked(true)}
         />
