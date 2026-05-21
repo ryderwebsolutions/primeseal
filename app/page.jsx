@@ -25,7 +25,7 @@ export default function Page() {
         '@type': 'LocalBusiness',
         '@id': `${siteConfig.domain}/#business`,
         name: siteConfig.name,
-        image: `${siteConfig.domain}/opengraph-image`,
+        image: `${siteConfig.domain}/og-image.jpg`,
         url: siteConfig.domain,
         telephone: siteConfig.phone.replace(/\s+/g, ''),
         email: siteConfig.email,
