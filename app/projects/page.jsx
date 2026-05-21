@@ -1,5 +1,6 @@
 import CTAInlineStrip from '../../src/components/CTAInlineStrip'
 import PageHero from '../../src/components/PageHero'
+import { SecondaryButton } from '../../src/components/SiteButtons'
 import { projectItems } from '../../src/content/siteContent'
 
 export const metadata = {
@@ -23,14 +24,15 @@ export default function ProjectsPage() {
           {projectItems.map((item, index) => (
             <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/12 bg-mist">
               <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="grid gap-2 p-2 sm:grid-cols-2">
+                <div className="grid gap-2 p-2 md:grid-cols-2">
                   <figure className="relative h-[260px] overflow-hidden rounded-xl bg-white sm:h-[320px]">
                     <img
                       src={item.src}
                       alt={`${item.title} before waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-[200%] max-w-none object-cover object-left"
+                      className="h-full w-[200%] max-w-none object-cover"
+                      style={{ transform: 'translateX(0%)' }}
                     />
                     <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
                       Before
@@ -43,7 +45,8 @@ export default function ProjectsPage() {
                       alt={`${item.title} after waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-[200%] max-w-none object-cover object-right"
+                      className="h-full w-[200%] max-w-none object-cover"
+                      style={{ transform: 'translateX(-50%)' }}
                     />
                     <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
                       After
@@ -60,6 +63,9 @@ export default function ProjectsPage() {
                     <p><span className="font-semibold text-navy">Problem:</span> {item.problem}</p>
                     <p><span className="font-semibold text-navy">Solution:</span> {item.solution}</p>
                     <p><span className="font-semibold text-navy">Result:</span> {item.result}</p>
+                  </div>
+                  <div className="mt-6">
+                    <SecondaryButton href="/contact">Request Similar Work</SecondaryButton>
                   </div>
                 </div>
               </div>
