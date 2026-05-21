@@ -23,29 +23,29 @@ export default function ProjectsPage() {
           {projectItems.map((item, index) => (
             <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/12 bg-mist">
               <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="grid gap-0.5 sm:grid-cols-2">
-                  <figure className="relative h-[280px] overflow-hidden bg-white sm:h-[340px]">
+                <div className="grid gap-2 p-2 sm:grid-cols-2">
+                  <figure className="relative h-[260px] overflow-hidden rounded-xl bg-white sm:h-[320px]">
                     <img
                       src={item.src}
                       alt={`${item.title} before waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-left"
+                      className="h-full w-[200%] max-w-none object-cover object-left"
                     />
-                    <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white">
+                    <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
                       Before
                     </span>
                   </figure>
 
-                  <figure className="relative h-[280px] overflow-hidden bg-white sm:h-[340px]">
+                  <figure className="relative h-[260px] overflow-hidden rounded-xl bg-white sm:h-[320px]">
                     <img
                       src={item.src}
                       alt={`${item.title} after waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-[calc(100%+2.5rem)] w-full -translate-y-10 object-cover object-right"
+                      className="h-full w-[200%] max-w-none object-cover object-right"
                     />
-                    <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white">
+                    <span className="absolute left-3 top-3 rounded-md border border-blue/35 bg-navy/95 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#B7DFFF]">
                       After
                     </span>
                   </figure>
