@@ -23,7 +23,7 @@ export default function SiteHeader() {
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? 'border-b border-navy/10 bg-white/95 py-4' : 'bg-white/90 py-5'
+        scrolled ? 'border-b border-navy/10 bg-white/95 py-3' : 'bg-white/90 py-4'
       }`}
     >
       <div className="container-shell flex items-center justify-between gap-3 lg:gap-4 xl:gap-5">
