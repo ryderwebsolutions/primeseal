@@ -39,6 +39,33 @@ export default function ServiceSeoPage({ page }) {
         </div>
       </section>
 
+      <section className="section-shell bg-mist">
+        <div className="container-shell">
+          <div className="max-w-4xl">
+            <p className="label-text">Service Gallery</p>
+            <h2 className="section-title">Professional Waterproofing Work in Progress</h2>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: '/media/images/project-03.jpeg', alt: `${page.title} installation and preparation work` },
+              { src: '/media/images/project-05.jpeg', alt: `${page.title} waterproofing system application` },
+              { src: '/media/images/project-08.jpeg', alt: `${page.title} quality control and finishing` },
+            ].map((img, idx) => (
+              <figure key={idx} className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_8px_16px_-12px_rgba(11,31,58,0.25)]">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-shell bg-mist pt-6">
         <div className="container-shell">
           <div className="max-w-4xl">

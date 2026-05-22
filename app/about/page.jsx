@@ -43,6 +43,36 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section-shell bg-mist">
+        <div className="container-shell">
+          <div className="max-w-4xl">
+            <p className="label-text">Professional Standards</p>
+            <h2 className="section-title">Premium Waterproofing Expertise in Action</h2>
+            <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-navy/70 sm:text-lg">
+              Every PrimeSeal project reflects our commitment to specialist waterproofing systems, meticulous preparation, and reliable workmanship across Dublin properties.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: '/media/images/project-02.jpeg', alt: 'Professional waterproofing system preparation and installation' },
+              { src: '/media/images/project-06.jpeg', alt: 'Specialist waterproofing application on commercial project' },
+              { src: '/media/images/project-10.jpeg', alt: 'Quality waterproofing workmanship and detailing' },
+            ].map((img, idx) => (
+              <figure key={idx} className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_8px_16px_-12px_rgba(11,31,58,0.25)]">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
 
         <div className="container-shell mt-8">
           <CTAInlineStrip />

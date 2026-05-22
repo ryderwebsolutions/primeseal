@@ -4,8 +4,8 @@ export const siteConfig = {
   domain: 'https://www.primesealwaterproofing.ie',
   phone: '+353 87 137 2847',
   phoneHref: 'tel:+353871372847',
-  email: 'info@primesealwaterproof.com',
-  emailHref: 'mailto:info@primesealwaterproof.com',
+  email: 'info@primesealwaterproofing.ie',
+  emailHref: 'mailto:info@primesealwaterproofing.ie',
   location: 'Dublin and surrounding areas',
   areaServed: 'Ireland',
   socials: {

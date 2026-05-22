@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import CTAInlineStrip from '../src/components/CTAInlineStrip'
 import HeroBackgroundVideo from '../src/components/HeroBackgroundVideo'
+import HomepageContactForm from '../src/components/HomepageContactForm'
 import { PrimaryButton, SecondaryButton } from '../src/components/SiteButtons'
 import {
   clientValuePoints,
@@ -215,7 +216,7 @@ export default function Page() {
             <p className="label-text">Client Feedback / Trust</p>
             <h2 className="section-title">What Clients Value About Our Work</h2>
             <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-navy/72">
-              PrimeSeal focuses on communication, clean workmanship, and long-term waterproofing outcomes. Verified Google review embeds can be added when available.
+              PrimeSeal focuses on clear communication, clean workmanship and long-term waterproofing results for homes and commercial properties across Dublin.
             </p>
           </div>
 
@@ -246,18 +247,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section-shell bg-white pt-8">
+      <HomepageContactForm />
+
+      <section className="section-shell bg-white">
         <div className="container-shell">
           <div className="rounded-2xl border border-navy/12 bg-mist p-6 sm:p-8 lg:p-10">
-            <p className="label-text">Final CTA</p>
-            <h2 className="section-title max-w-[20ch]">Book Your Free Waterproofing Inspection</h2>
+            <p className="label-text">Free Inspection</p>
+            <h2 className="section-title max-w-[20ch]">Book Your Free Waterproofing Assessment</h2>
             <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/72 sm:text-lg">
-              Speak directly with PrimeSeal about roof leaks, balcony failures, flat roof issues, basement damp, or commercial waterproofing requirements.
+              Have a specific question or prefer to speak directly? Contact PrimeSeal by phone, WhatsApp, or email and we'll schedule your free inspection.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <PrimaryButton href="/contact">Request Free Inspection</PrimaryButton>
-              <SecondaryButton href={siteConfig.phoneHref}>Call Now</SecondaryButton>
-              <SecondaryButton href={siteConfig.socials.whatsapp}>WhatsApp</SecondaryButton>
+              <PrimaryButton href="/contact">View Contact Page</PrimaryButton>
+              <SecondaryButton href={siteConfig.phoneHref}>Call: {siteConfig.phone}</SecondaryButton>
             </div>
           </div>
 
