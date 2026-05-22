@@ -23,39 +23,39 @@ export default function SiteHeader() {
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? 'border-b border-navy/10 bg-white/95 py-3' : 'bg-white/90 py-4'
+        scrolled ? 'border-b border-navy/10 bg-white/95 py-2 xl:py-1.5' : 'bg-white/90 py-2.5 xl:py-2'
       }`}
     >
-      <div className="container-shell flex items-center justify-between gap-3 lg:gap-4 xl:gap-5">
+      <div className="container-shell flex items-center justify-between gap-2.5 lg:gap-3 xl:gap-3.5">
         <Link
           href="/"
           onClick={() => setMenuOpen(false)}
-          className="flex shrink-0 items-center gap-2.5 sm:gap-3 xl:min-w-[380px]"
+          className="flex shrink-0 items-center gap-2 sm:gap-2.5 xl:min-w-[320px]"
           aria-label="PrimeSeal Waterproofing home"
         >
           <img
             src={logoSrc}
             alt="PrimeSeal Waterproofing logo"
-            className="h-20 w-auto object-contain sm:h-28"
+            className="h-16 w-auto object-contain sm:h-[5.5rem] xl:h-[4.85rem]"
             loading="eager"
             decoding="async"
             width="428"
             height="192"
           />
           <div className="hidden sm:block">
-            <p className="font-display text-2xl font-semibold uppercase tracking-[0.08em] text-navy lg:text-[1.9rem]">PrimeSeal</p>
-            <p className="text-sm uppercase tracking-[0.14em] text-navy/60">Waterproofing Specialists</p>
+            <p className="font-display text-[1.6rem] font-semibold uppercase tracking-[0.08em] text-navy lg:text-[1.75rem] xl:text-[1.62rem]">PrimeSeal</p>
+            <p className="text-xs uppercase tracking-[0.14em] text-navy/62">Waterproofing Specialists</p>
           </div>
         </Link>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-2.5 xl:flex 2xl:gap-3">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1.5 xl:flex 2xl:gap-2">
           {navLinks.map((item) => {
             const active = pathname === item.href
             return (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`whitespace-nowrap text-[10px] uppercase tracking-[0.05em] transition duration-300 2xl:text-xs ${
+                className={`whitespace-nowrap text-[10px] uppercase tracking-[0.045em] transition duration-300 2xl:text-[11px] ${
                   active ? 'text-blue' : 'text-navy/85 hover:text-blue'
                 }`}
               >
@@ -66,10 +66,10 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden shrink-0 items-center xl:flex">
-          <PrimaryButton href="/contact" className="px-5">Request Free Inspection</PrimaryButton>
+          <PrimaryButton href="/contact" className="min-h-[40px] px-3.5 py-1.5 text-[10px]">Request Free Inspection</PrimaryButton>
         </div>
 
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-1.5 xl:hidden">
           <a
             href={siteConfig.phoneHref}
             aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
@@ -114,7 +114,7 @@ export default function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.2 }}
-            className="container-shell mt-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm xl:hidden"
+            className="container-shell mt-3 rounded-2xl border border-navy/10 bg-white p-4 shadow-sm xl:hidden"
           >
             <div className="space-y-3">
               {navLinks.map((item) => (
