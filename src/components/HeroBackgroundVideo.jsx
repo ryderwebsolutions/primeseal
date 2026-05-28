@@ -88,7 +88,6 @@ export default function HeroBackgroundVideo() {
           poster="/media/images/project-06.jpeg"
           autoPlay
           muted
-          defaultMuted
           loop
           playsInline
           preload="auto"
@@ -97,7 +96,7 @@ export default function HeroBackgroundVideo() {
         />
       </motion.div>
       <div className="absolute inset-0 bg-[#071223]/60" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/76 via-[#071223]/58 to-[#071223]/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/52 via-[#071223]/40 to-[#071223]/34" />
     </div>
   )
 }

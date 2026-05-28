@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import CTAInlineStrip from '../src/components/CTAInlineStrip'
 import HeroBackgroundVideo from '../src/components/HeroBackgroundVideo'
-import HomepageContactForm from '../src/components/HomepageContactForm'
 import { PrimaryButton, SecondaryButton } from '../src/components/SiteButtons'
 import {
   clientValuePoints,
@@ -246,8 +245,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      <HomepageContactForm />
 
       <section className="section-shell bg-white">
         <div className="container-shell">

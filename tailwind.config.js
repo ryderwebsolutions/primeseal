@@ -8,7 +8,7 @@ export default {
         charcoal: '#0C1526',
         navy: '#0B1F3A',
         blue: '#165FA8',
-        mist: '#F2F5F8',
+        mist: '#E5EBF2',
       },
       fontFamily: {
         sans: ['var(--font-inter)', '"Segoe UI"', 'sans-serif'],

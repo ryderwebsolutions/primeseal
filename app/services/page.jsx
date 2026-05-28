@@ -21,7 +21,43 @@ export default function ServicesPage() {
 
       <section className="section-shell bg-white">
         <div className="container-shell">
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_14px_28px_-24px_rgba(11,31,58,0.34)]">
+              <img
+                src="/media/images/project-04.jpeg"
+                alt="Balcony waterproofing before and after transformation"
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+              <figcaption className="px-5 py-4 text-sm leading-relaxed text-navy/72">
+                Balcony waterproofing detail work that helps prevent repeat leaks and protects exposed edges.
+              </figcaption>
+            </figure>
+
+            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_14px_28px_-24px_rgba(11,31,58,0.34)]">
+              <img
+                src="/media/images/project-11.jpeg"
+                alt="Flat roof parapet waterproofing detail on a Dublin project"
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+              <figcaption className="px-5 py-4 text-sm leading-relaxed text-navy/72">
+                Roof and parapet protection for exposed surfaces that need durable, weather-resistant detailing.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="mt-10 max-w-4xl">
+            <p className="label-text">What We Cover</p>
+            <h2 className="section-title">Services Built Around Real Site Conditions</h2>
+            <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/72 sm:text-lg">
+              Each service page explains the issue, the waterproofing approach, and the type of property most often affected.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {servicesPreviewItems.map((item) => (
               <article key={item.title} className="rounded-2xl border border-navy/12 bg-mist p-6">
                 <h2 className="font-display text-2xl font-semibold uppercase leading-tight text-navy">{item.title}</h2>
