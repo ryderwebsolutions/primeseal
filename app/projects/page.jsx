@@ -19,10 +19,10 @@ export default function ProjectsPage() {
         summary="A curated showcase of PrimeSeal project outcomes across Dublin, highlighting the issue, approach, and final waterproofing result."
       />
 
-      <section className="section-shell bg-white pt-8">
+      <section className="section-shell bg-white pt-6">
         <div className="container-shell grid gap-10">
           {projectItems.map((item, index) => (
-            <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/12 bg-mist">
+            <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.45)]">
               <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
                 <div className="p-2">
                   <figure className="relative overflow-hidden rounded-xl bg-white">
@@ -33,6 +33,9 @@ export default function ProjectsPage() {
                       decoding="async"
                       className="h-[280px] w-full object-cover sm:h-[320px]"
                     />
+                    <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-white/90 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-navy">
+                      {item.location}
+                    </span>
                   </figure>
                 </div>
 

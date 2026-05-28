@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <section className="section-shell bg-white">
         <div className="container-shell">
           <div className="grid gap-5 lg:grid-cols-2">
-            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_14px_28px_-24px_rgba(11,31,58,0.34)]">
+            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.42)]">
               <img
                 src="/media/images/project-04.jpeg"
                 alt="Balcony waterproofing before and after transformation"
@@ -35,7 +35,7 @@ export default function ServicesPage() {
               </figcaption>
             </figure>
 
-            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_14px_28px_-24px_rgba(11,31,58,0.34)]">
+            <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.42)]">
               <img
                 src="/media/images/project-11.jpeg"
                 alt="Flat roof parapet waterproofing detail on a Dublin project"
@@ -59,7 +59,7 @@ export default function ServicesPage() {
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {servicesPreviewItems.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-navy/12 bg-mist p-6">
+              <article key={item.title} className="surface-card bg-mist/65 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_34px_-24px_rgba(11,31,58,0.52)]">
                 <h2 className="font-display text-2xl font-semibold uppercase leading-tight text-navy">{item.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-navy/72 sm:text-base">{item.text}</p>
                 <Link

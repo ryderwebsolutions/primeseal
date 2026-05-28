@@ -8,7 +8,7 @@ export default function HeroBackgroundVideo() {
   const containerRef = useRef(null)
   const [autoplayBlocked, setAutoplayBlocked] = useState(false)
   const { scrollY } = useScroll()
-  const heroVideoY = useTransform(scrollY, [0, 500], [0, 45])
+  const heroVideoY = useTransform(scrollY, [0, 500], [0, 32])
 
   useEffect(() => {
     const video = videoRef.current
@@ -83,7 +83,7 @@ export default function HeroBackgroundVideo() {
       <motion.div style={{ y: heroVideoY }} className="absolute inset-0">
         <video
           ref={videoRef}
-          className={`h-full w-full object-cover transition-opacity duration-300 ${autoplayBlocked ? 'opacity-0' : 'opacity-100'}`}
+          className={`h-full w-full scale-[1.02] object-cover transition-opacity duration-500 ${autoplayBlocked ? 'opacity-0' : 'opacity-100'}`}
           src="/media/videos/site-02.mp4"
           poster="/media/images/project-06.jpeg"
           autoPlay
@@ -95,8 +95,9 @@ export default function HeroBackgroundVideo() {
           onError={() => setAutoplayBlocked(true)}
         />
       </motion.div>
-      <div className="absolute inset-0 bg-[#071223]/60" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/52 via-[#071223]/40 to-[#071223]/34" />
+      <div className="absolute inset-0 bg-[#071223]/48" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#071223]/68 via-[#071223]/46 to-[#071223]/34" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_12%,rgba(173,215,248,0.18),transparent_40%)]" />
     </div>
   )
 }

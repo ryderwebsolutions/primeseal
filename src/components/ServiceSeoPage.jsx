@@ -11,9 +11,9 @@ export default function ServiceSeoPage({ page }) {
         summary={page.heroSummary}
       />
 
-      <section className="section-shell bg-white pt-8">
+      <section className="section-shell bg-white pt-6">
         <div className="container-shell grid gap-8 lg:grid-cols-2">
-          <article className="rounded-2xl border border-navy/12 bg-mist p-6 sm:p-7">
+          <article className="surface-card bg-mist/65 p-6 sm:p-7">
             <h2 className="text-xl font-semibold text-navy sm:text-2xl">Common Waterproofing Problems</h2>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-navy/74 sm:text-base">
               {page.problems.map((problem) => (
@@ -25,7 +25,7 @@ export default function ServiceSeoPage({ page }) {
             </ul>
           </article>
 
-          <article className="rounded-2xl border border-navy/12 bg-mist p-6 sm:p-7">
+          <article className="surface-card bg-mist/65 p-6 sm:p-7">
             <h2 className="text-xl font-semibold text-navy sm:text-2xl">PrimeSeal Solution Approach</h2>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-navy/74 sm:text-base">
               {page.solutions.map((solution) => (
@@ -73,7 +73,7 @@ export default function ServiceSeoPage({ page }) {
             <h2 className="section-title">Recent Dublin Waterproofing Case Study</h2>
           </div>
 
-          <article className="mt-8 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_14px_28px_-22px_rgba(11,31,58,0.35)]">
+          <article className="mt-8 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_20px_32px_-24px_rgba(11,31,58,0.45)]">
             <div className="hidden grid-cols-2 gap-0.5 bg-navy/10 sm:grid">
               <figure className="relative h-[320px] overflow-hidden bg-mist">
                 <img
@@ -83,7 +83,7 @@ export default function ServiceSeoPage({ page }) {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white">
+                <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-white/90 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy">
                   Before
                 </span>
               </figure>
@@ -96,7 +96,7 @@ export default function ServiceSeoPage({ page }) {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="absolute left-3 top-3 rounded-md border border-white/15 bg-navy px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white">
+                <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-white/90 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-navy">
                   After
                 </span>
               </figure>
@@ -136,7 +136,7 @@ export default function ServiceSeoPage({ page }) {
             </div>
           </article>
 
-          <article className="rounded-2xl border border-navy/12 bg-mist p-6 sm:p-7">
+          <article className="surface-card bg-mist/65 p-6 sm:p-7">
             <h3 className="text-lg font-semibold text-navy">Service FAQs</h3>
             <div className="mt-4 space-y-3">
               {faqItems.slice(0, 4).map((item) => (

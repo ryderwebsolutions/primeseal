@@ -34,7 +34,7 @@ export default function ReviewsPage() {
 
           <div className="grid gap-4">
             {feedbackSummaries.map((item) => (
-              <article key={item.heading} className="rounded-2xl border border-navy/12 bg-mist p-5">
+              <article key={item.heading} className="surface-card bg-mist/65 p-5">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-blue">{item.heading}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy/72">{item.text}</p>
               </article>

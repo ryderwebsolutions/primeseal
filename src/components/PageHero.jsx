@@ -1,10 +1,11 @@
 export default function PageHero({ label, title, summary }) {
   return (
-    <section className="bg-mist pt-32 sm:pt-36">
-      <div className="container-shell pb-14 sm:pb-16">
+    <section className="relative overflow-hidden bg-mist pt-28 sm:pt-32">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/65 via-transparent to-[#ccdef0]/55" />
+      <div className="container-shell relative pb-12 sm:pb-14">
         <p className="label-text">{label}</p>
-        <h1 className="section-title max-w-[20ch]">{title}</h1>
-        <p className="mt-4 max-w-[70ch] text-base leading-relaxed text-navy/72 sm:text-lg">{summary}</p>
+        <h1 className="section-title max-w-[19ch]">{title}</h1>
+        <p className="mt-4 max-w-[66ch] text-base leading-relaxed text-navy/72 sm:text-lg">{summary}</p>
       </div>
     </section>
   )
