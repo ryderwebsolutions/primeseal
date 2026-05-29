@@ -33,6 +33,14 @@ export default function SiteHeader() {
           </p>
           <div className="flex shrink-0 items-center gap-3">
             <a
+              href="/contact"
+              className="hidden text-[0.62rem] font-semibold tracking-[0.08em] text-[#9FD0F8] transition hover:text-white lg:inline"
+              aria-label="Request a free waterproofing inspection"
+            >
+              Free Inspection →
+            </a>
+            <span className="hidden h-3 w-px bg-white/20 lg:inline-block" aria-hidden="true" />
+            <a
               href={siteConfig.phoneHref}
               className="text-[0.62rem] font-semibold tracking-[0.08em] text-white/72 transition hover:text-[#9FD0F8]"
               aria-label={`Call ${siteConfig.phone}`}

@@ -65,7 +65,7 @@ export default function QuoteForm() {
       <div className="pt-1">
         <button
           type="submit"
-          className="inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-[#165FA8] px-6 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_10px_26px_-16px_rgba(22,95,168,0.6)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1a6cbf] hover:shadow-[0_16px_32px_-16px_rgba(22,95,168,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue/40 focus-visible:ring-offset-2 sm:w-auto"
+          className="inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-[#165FA8] px-6 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.13em] text-white shadow-[0_10px_26px_-16px_rgba(22,95,168,0.6)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1a6cbf] hover:shadow-[0_16px_32px_-16px_rgba(22,95,168,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue/40 focus-visible:ring-offset-2"
         >
           Request Free Inspection
         </button>

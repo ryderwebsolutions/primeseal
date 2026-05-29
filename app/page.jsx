@@ -23,6 +23,7 @@ export const metadata = {
 const serviceStripItems = [
   {
     label: 'Roof Waterproofing',
+    href: '/roof-waterproofing-dublin',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -32,6 +33,7 @@ const serviceStripItems = [
   },
   {
     label: 'Balcony Waterproofing',
+    href: '/balcony-waterproofing-dublin',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2" y="13" width="20" height="2" rx="1" />
@@ -46,6 +48,7 @@ const serviceStripItems = [
   },
   {
     label: 'Basement Tanking',
+    href: '/basement-waterproofing-dublin',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polyline points="6,9 12,15 18,9" />
@@ -56,6 +59,7 @@ const serviceStripItems = [
   },
   {
     label: 'Wet Room Waterproofing',
+    href: '/wet-room-waterproofing-dublin',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
@@ -64,6 +68,7 @@ const serviceStripItems = [
   },
   {
     label: 'Long-Term Protection',
+    href: '/contact',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -161,13 +166,23 @@ export default function Page() {
       {/* ── 2. SERVICE STRIP ── */}
       <section className="bg-[#165FA8] py-4">
         <div className="container-shell">
-          <div className="scrollbar-hide flex items-center gap-x-8 gap-y-2 overflow-x-auto pb-0.5 sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
-            {serviceStripItems.map((item) => (
-              <div key={item.label} className="flex shrink-0 items-center gap-2 text-white">
-                <span className="text-white/75" aria-hidden="true">{item.icon}</span>
-                <span className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.11em]">
-                  {item.label}
-                </span>
+          <div className="scrollbar-hide flex items-center gap-y-1 overflow-x-auto pb-0.5 sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
+            {serviceStripItems.map((item, i) => (
+              <div key={item.label} className="flex shrink-0 items-center">
+                {i > 0 && (
+                  <span className="mx-1 hidden text-white/20 sm:inline" aria-hidden="true">|</span>
+                )}
+                <Link
+                  href={item.href}
+                  className="group flex items-center gap-2 rounded-lg px-3 py-1.5 text-white transition duration-300 hover:bg-white/10"
+                >
+                  <span className="text-white/70 transition duration-300 group-hover:text-white" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.11em]">
+                    {item.label}
+                  </span>
+                </Link>
               </div>
             ))}
           </div>
@@ -370,7 +385,7 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:pt-4">
-            <FaqAccordion items={faqItems} />
+            <FaqAccordion items={faqItems.slice(0, 5)} />
           </div>
         </div>
       </section>
@@ -417,6 +432,10 @@ export default function Page() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <SecondaryButton href="/contact">Get Expert Waterproofing Advice</SecondaryButton>
           </div>
         </div>
       </section>

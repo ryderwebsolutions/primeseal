@@ -30,7 +30,7 @@ export default function SystemsTabs({ systems }) {
           key={current.id}
           src={current.image}
           alt={current.title}
-          className="h-[320px] w-full object-cover lg:h-[400px]"
+          className="animate-fade-in h-[320px] w-full object-cover lg:h-[400px]"
           loading="lazy"
           decoding="async"
         />

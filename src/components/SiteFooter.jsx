@@ -83,8 +83,16 @@ export default function SiteFooter() {
         <div>
           <h4 className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#6BB6F2]">Contact</h4>
           <ul className="mt-3.5 space-y-2 text-sm text-white/65">
-            <li>{siteConfig.phone}</li>
-            <li>{siteConfig.email}</li>
+            <li>
+              <a href={siteConfig.phoneHref} className="transition hover:text-[#9FD0F8]">
+                {siteConfig.phone}
+              </a>
+            </li>
+            <li>
+              <a href={siteConfig.emailHref} className="transition hover:text-[#9FD0F8]">
+                {siteConfig.email}
+              </a>
+            </li>
             <li>{siteConfig.location}</li>
             <li>Mon–Fri: 8:00–18:00</li>
             <li>Sat: 9:00–14:00</li>

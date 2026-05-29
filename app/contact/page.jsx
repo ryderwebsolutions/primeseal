@@ -76,11 +76,11 @@ export default function ContactPage() {
               <input type="email" name="email" required placeholder="Email" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
               <input type="text" name="location" required placeholder="Location" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
               <input type="text" name="issueType" required placeholder="Type of Issue" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="file" name="photos" accept="image/*" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy file:mr-3 file:rounded-full file:border-0 file:bg-[#6BB6F2] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:tracking-[0.08em] file:text-navy" />
+              <input type="file" name="photos" accept="image/*" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy file:mr-3 file:rounded-full file:border-0 file:bg-[#165FA8] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:tracking-[0.08em] file:text-white" />
               <textarea name="message" rows={4} placeholder="Message" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
               <button
                 type="submit"
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#6BB6F2] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.08em] text-navy transition duration-300 hover:bg-[#7CC0F5]"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#165FA8] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-[#1a6cbf]"
               >
                 Submit Enquiry
               </button>
