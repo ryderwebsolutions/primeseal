@@ -21,126 +21,159 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-        scrolled
-          ? 'border-b border-navy/12 bg-white/94 py-2 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.55)] backdrop-blur-md xl:py-1.5'
-          : 'bg-white/88 py-2.5 backdrop-blur-sm xl:py-2'
-      }`}
-    >
-      <div className="container-shell flex items-center justify-between gap-3 lg:gap-4">
-        <Link
-          href="/"
-          onClick={() => setMenuOpen(false)}
-          className="flex shrink-0 items-center gap-2 sm:gap-2.5 xl:min-w-[250px]"
-          aria-label="PrimeSeal Waterproofing home"
-        >
-          <img
-            src={logoSrc}
-            alt="PrimeSeal Waterproofing logo"
-            className="h-14 w-auto object-contain sm:h-[4.8rem] xl:h-[4.4rem]"
-            loading="eager"
-            decoding="async"
-            width="428"
-            height="192"
-          />
-          <div className="hidden sm:block">
-            <p className="font-display text-[1.45rem] font-semibold uppercase tracking-[0.07em] text-navy lg:text-[1.58rem] xl:text-[1.54rem]">PrimeSeal</p>
-            <p className="text-[0.63rem] uppercase tracking-[0.16em] text-navy/64">Waterproofing Specialists</p>
+    <header className="fixed left-0 top-0 z-50 w-full">
+      {/* Announcement bar */}
+      <div className="bg-[#0B1F3A] py-1.5">
+        <div className="container-shell flex items-center justify-between gap-4">
+          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white/80 sm:text-[0.65rem]">
+            Dublin Waterproofing Specialists
+            <span className="mx-2 text-[#6BB6F2]/60">•</span>
+            <span className="hidden sm:inline">Roofs • Balconies • Basements • Wet Rooms</span>
+            <span className="sm:hidden">Roofs • Balconies • Basements</span>
+          </p>
+          <div className="flex shrink-0 items-center gap-3">
+            <a
+              href={siteConfig.phoneHref}
+              className="text-[0.62rem] font-semibold tracking-[0.08em] text-white/72 transition hover:text-[#9FD0F8]"
+              aria-label={`Call ${siteConfig.phone}`}
+            >
+              {siteConfig.phone}
+            </a>
+            <a
+              href={siteConfig.socials.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="PrimeSeal Instagram"
+              className="text-white/55 transition hover:text-[#9FD0F8]"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
           </div>
-        </Link>
-
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:flex">
-          {navLinks.map((item) => {
-            const active = pathname === item.href
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`whitespace-nowrap text-[0.66rem] font-semibold uppercase tracking-[0.12em] transition duration-300 ${
-                  active ? 'text-blue' : 'text-navy/80 hover:text-blue'
-                }`}
-              >
-                {item.label}
-              </Link>
-            )
-          })}
-        </nav>
-
-        <div className="hidden shrink-0 items-center gap-2 xl:flex">
-          <a
-            href={siteConfig.phoneHref}
-            className="text-xs font-semibold uppercase tracking-[0.11em] text-navy/74 transition hover:text-blue"
-            aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
-          >
-            {siteConfig.phone}
-          </a>
-          <PrimaryButton href="/contact" className="min-h-[44px] px-4 py-2 text-[0.64rem]">Request Free Inspection</PrimaryButton>
-        </div>
-
-        <div className="flex items-center gap-1.5 xl:hidden">
-          <a
-            href={siteConfig.phoneHref}
-            aria-label={`Call PrimeSeal Waterproofing at ${siteConfig.phone}`}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-navy/16 bg-white text-blue shadow-[0_12px_20px_-16px_rgba(11,31,58,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
-          >
-            <SocialIcon type="phone" />
-          </a>
-          <a
-            href={siteConfig.socials.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open PrimeSeal WhatsApp in a new tab"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-navy/16 bg-white text-blue shadow-[0_12px_20px_-16px_rgba(11,31,58,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
-          >
-            <SocialIcon type="whatsapp" />
-          </a>
-          <a
-            href={siteConfig.socials.instagram}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open PrimeSeal Instagram in a new tab"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-navy/16 bg-white text-blue shadow-[0_12px_20px_-16px_rgba(11,31,58,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#edf7ff]"
-          >
-            <SocialIcon type="instagram" />
-          </a>
-          <button
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-navy/20 bg-white text-navy shadow-[0_10px_20px_-16px_rgba(11,31,58,0.45)]"
-          >
-            <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
-          </button>
         </div>
       </div>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.24 }}
-            className="container-shell mt-3 rounded-2xl border border-navy/10 bg-white p-4 shadow-[0_18px_34px_-24px_rgba(11,31,58,0.58)] xl:hidden"
+      {/* Main nav */}
+      <div
+        className={`w-full transition-all duration-500 ${
+          scrolled
+            ? 'border-b border-navy/12 bg-white/96 py-2 shadow-[0_12px_30px_-24px_rgba(11,31,58,0.5)] backdrop-blur-md xl:py-1.5'
+            : 'bg-white/92 py-2.5 backdrop-blur-sm xl:py-2'
+        }`}
+      >
+        <div className="container-shell flex items-center justify-between gap-3 lg:gap-4">
+          <Link
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            className="flex shrink-0 items-center gap-2 sm:gap-2.5 xl:min-w-[240px]"
+            aria-label="PrimeSeal Waterproofing home"
           >
-            <div className="space-y-2.5">
-              {navLinks.map((item) => (
+            <img
+              src={logoSrc}
+              alt="PrimeSeal Waterproofing logo"
+              className="h-12 w-auto object-contain sm:h-14 xl:h-[3.8rem]"
+              loading="eager"
+              decoding="async"
+              width="428"
+              height="192"
+            />
+            <div className="hidden sm:block">
+              <p className="font-display text-[1.35rem] font-semibold uppercase tracking-[0.07em] text-navy lg:text-[1.48rem] xl:text-[1.44rem]">PrimeSeal</p>
+              <p className="text-[0.58rem] uppercase tracking-[0.16em] text-navy/58">Waterproofing Specialists</p>
+            </div>
+          </Link>
+
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:flex">
+            {navLinks.map((item) => {
+              const active = pathname === item.href
+              return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-xl border border-navy/10 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.13em] text-navy/82 transition hover:border-blue/35 hover:text-blue"
+                  className={`relative whitespace-nowrap text-[0.64rem] font-semibold uppercase tracking-[0.12em] transition duration-300 after:absolute after:-bottom-0.5 after:left-0 after:h-[1.5px] after:w-0 after:bg-blue after:transition-all after:duration-300 hover:after:w-full ${
+                    active ? 'text-blue after:w-full' : 'text-navy/78 hover:text-blue'
+                  }`}
                 >
                   {item.label}
                 </Link>
-              ))}
-              <PrimaryButton href="/contact">Request Free Inspection</PrimaryButton>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )
+            })}
+          </nav>
+
+          <div className="hidden shrink-0 items-center gap-3 xl:flex">
+            <a
+              href={siteConfig.phoneHref}
+              className="flex items-center gap-1.5 text-xs font-semibold text-navy/68 transition hover:text-blue"
+              aria-label={`Call PrimeSeal at ${siteConfig.phone}`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              <span className="text-[0.63rem] tracking-[0.08em]">{siteConfig.phone}</span>
+            </a>
+            <PrimaryButton href="/contact" className="min-h-[42px] px-4 py-2 text-[0.62rem]">
+              Request Free Inspection
+            </PrimaryButton>
+          </div>
+
+          <div className="flex items-center gap-1.5 xl:hidden">
+            <a
+              href={siteConfig.phoneHref}
+              aria-label={`Call PrimeSeal at ${siteConfig.phone}`}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-navy/16 bg-white text-blue shadow-[0_10px_18px_-16px_rgba(11,31,58,0.32)] transition duration-300 hover:-translate-y-0.5"
+            >
+              <SocialIcon type="phone" />
+            </a>
+            <a
+              href={siteConfig.socials.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open PrimeSeal WhatsApp"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-navy/16 bg-white text-blue shadow-[0_10px_18px_-16px_rgba(11,31,58,0.32)] transition duration-300 hover:-translate-y-0.5"
+            >
+              <SocialIcon type="whatsapp" />
+            </a>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-navy/18 bg-white text-navy shadow-[0_10px_18px_-16px_rgba(11,31,58,0.4)]"
+            >
+              <Icon path={menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 7h16M4 12h16M4 17h16'} />
+            </button>
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.22 }}
+              className="container-shell mt-2.5 rounded-2xl border border-navy/10 bg-white p-4 shadow-[0_18px_34px_-24px_rgba(11,31,58,0.55)] xl:hidden"
+            >
+              <div className="space-y-2">
+                {navLinks.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block rounded-xl border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.13em] transition hover:border-blue/30 hover:text-blue ${
+                      pathname === item.href ? 'border-blue/25 text-blue' : 'border-navy/10 text-navy/80'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <PrimaryButton href="/contact" className="mt-1">Request Free Inspection</PrimaryButton>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   )
 }

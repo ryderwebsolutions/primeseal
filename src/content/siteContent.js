@@ -38,46 +38,132 @@ export const processSteps = [
   'Final Inspection',
 ]
 
+export const processStepsEnhanced = [
+  {
+    step: '01',
+    title: 'Site Inspection',
+    desc: 'We assess the waterproofing issue on site, identify failure points, and advise on the best-fit system for the substrate and exposure conditions.',
+  },
+  {
+    step: '02',
+    title: 'Surface Preparation',
+    desc: 'Correct substrate preparation is critical. We clean, repair, and prime surfaces before any waterproofing system is applied.',
+  },
+  {
+    step: '03',
+    title: 'System Application',
+    desc: 'Professional waterproofing application using the specified membrane system, with attention to critical detailing points and transitions.',
+  },
+  {
+    step: '04',
+    title: 'Final Checks & Protection',
+    desc: 'Post-application inspection and walkthrough to confirm the installation meets standard and the property is protected.',
+  },
+]
+
+export const waterproofingSystems = [
+  {
+    id: 'liquid',
+    tab: 'Liquid Waterproofing',
+    title: 'Liquid Membrane Waterproofing',
+    desc: 'Seamless liquid-applied membranes for complex roof details, balconies, and high-risk transitions. Applied in multiple coats for a continuous, flexible waterproof layer with no joints or seams — ideal for intricate shapes and critical detailing zones.',
+    image: '/media/images/project-06.jpeg',
+  },
+  {
+    id: 'sheet',
+    tab: 'Sheet Membrane',
+    title: 'Sheet Membrane Systems',
+    desc: 'Torch-on and cold-applied bitumen or polymer sheet membranes for large flat roof areas. Reliable long-term protection with proven performance across residential and commercial properties throughout Dublin.',
+    image: '/media/images/project-08.jpeg',
+  },
+  {
+    id: 'bituminous',
+    tab: 'Bituminous Systems',
+    title: 'Bituminous Waterproofing',
+    desc: 'Modified bitumen systems for flat roofs and structural waterproofing. Excellent resistance to ponding water, UV exposure, and Irish weather conditions — a reliable long-term choice for exposed roof areas.',
+    image: '/media/images/project-11.jpeg',
+  },
+  {
+    id: 'cementitious',
+    tab: 'Cementitious Waterproofing',
+    title: 'Cementitious Waterproofing',
+    desc: 'Rigid or flexible cementitious coatings for basements, wet rooms, and below-grade structures. Bonds directly to concrete and masonry surfaces for lasting protection against hydrostatic pressure and damp transfer.',
+    image: '/media/images/project-04.jpeg',
+  },
+]
+
+export const insightCards = [
+  {
+    title: 'Flat Roof Waterproofing: What To Know',
+    category: 'Flat Roofs',
+    summary: 'Understanding system options, common failure points, and why correct specification matters for Dublin flat roof properties.',
+    image: '/media/images/project-08.jpeg',
+    date: 'May 2025',
+  },
+  {
+    title: 'Balcony Waterproofing: Common Signs of Failure',
+    category: 'Balconies',
+    summary: 'What to look for when balcony waterproofing starts to fail — and why acting early prevents costly interior water damage.',
+    image: '/media/images/project-05.jpeg',
+    date: 'April 2025',
+  },
+  {
+    title: 'Basement Tanking: How To Protect Your Property',
+    category: 'Basement',
+    summary: 'Basement waterproofing approaches for controlling seepage, moisture transfer, and persistent damp in below-ground structures.',
+    image: '/media/images/project-07.jpeg',
+    date: 'March 2025',
+  },
+]
+
 export const servicesPreviewItems = [
   {
     title: 'Roof Waterproofing',
     text: 'Durable roof membrane systems designed for long-term weather resistance in Dublin conditions.',
     href: '/roof-waterproofing-dublin',
+    image: '/images/commercial-roof-waterproofing.jpg',
   },
   {
     title: 'Balcony Waterproofing',
     text: 'Targeted balcony waterproofing to protect exposed edges, outlets, and tile interfaces.',
     href: '/balcony-waterproofing-dublin',
+    image: '/images/balcony-waterproofing-membrane.jpg',
   },
   {
     title: 'Basement Waterproofing',
     text: 'Sub-structure waterproofing and damp-control solutions for basements and lower-ground spaces.',
     href: '/basement-waterproofing-dublin',
+    image: '/images/basement-waterproofing.jpg',
   },
   {
     title: 'Flat Roof Systems',
     text: 'Complete flat roof waterproofing systems for homes, extensions, and apartment blocks.',
     href: '/flat-roof-waterproofing-dublin',
+    image: '/media/images/project-08.jpeg',
   },
   {
     title: 'Wet Room Waterproofing',
     text: 'Professional wet room tanking and detailing to prevent hidden moisture ingress.',
     href: '/wet-room-waterproofing-dublin',
+    image: '/images/bathroom-waterproofing.jpg',
   },
   {
     title: 'Liquid Waterproofing',
     text: 'Seamless liquid membrane applications for complex details and high-risk waterproofing points.',
     href: '/liquid-waterproofing-dublin',
+    image: '/media/images/project-06.jpeg',
   },
   {
     title: 'Leak Prevention',
     text: 'Inspection-led leak prevention works to stop repeat failures before major damage occurs.',
     href: '/leak-repairs-dublin',
+    image: '/images/leak-detection.jpg',
   },
   {
     title: 'Commercial Waterproofing',
     text: 'Reliable commercial waterproofing packages for retail, mixed-use, and managed properties.',
     href: '/commercial-waterproofing-dublin',
+    image: '/media/images/project-11.jpeg',
   },
 ]
 

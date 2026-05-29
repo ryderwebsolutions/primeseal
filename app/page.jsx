@@ -1,21 +1,76 @@
 import Link from 'next/link'
-import CTAInlineStrip from '../src/components/CTAInlineStrip'
+import FaqAccordion from '../src/components/FaqAccordion'
 import HeroBackgroundVideo from '../src/components/HeroBackgroundVideo'
+import ProjectCarousel from '../src/components/ProjectCarousel'
 import { PrimaryButton, SecondaryButton } from '../src/components/SiteButtons'
+import SystemsTabs from '../src/components/SystemsTabs'
+import QuoteForm from '../src/components/QuoteForm'
 import {
-  clientValuePoints,
-  processSteps,
-  projectItems,
+  faqItems,
+  insightCards,
+  processStepsEnhanced,
   serviceAreas,
   servicesPreviewItems,
   siteConfig,
   trustBarItems,
-  whyChooseItems,
+  waterproofingSystems,
 } from '../src/content/siteContent'
 
 export const metadata = {
   alternates: { canonical: '/' },
 }
+
+const serviceStripItems = [
+  {
+    label: 'Roof Waterproofing',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9,22 9,12 15,12 15,22" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Balcony Waterproofing',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="13" width="20" height="2" rx="1" />
+        <line x1="5" y1="15" x2="5" y2="21" />
+        <line x1="19" y1="15" x2="19" y2="21" />
+        <line x1="8" y1="15" x2="8" y2="19" />
+        <line x1="12" y1="15" x2="12" y2="19" />
+        <line x1="16" y1="15" x2="16" y2="19" />
+        <line x1="2" y1="21" x2="22" y2="21" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Basement Tanking',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="6,9 12,15 18,9" />
+        <rect x="3" y="3" width="18" height="6" rx="1" />
+        <rect x="3" y="15" width="18" height="6" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Wet Room Waterproofing',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Long-Term Protection',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
+]
 
 export default function Page() {
   const structuredData = {
@@ -41,11 +96,9 @@ export default function Page() {
         '@type': 'Service',
         '@id': `${siteConfig.domain}/#service`,
         name: 'Waterproofing Services Dublin',
-        provider: {
-          '@id': `${siteConfig.domain}/#business`,
-        },
+        provider: { '@id': `${siteConfig.domain}/#business` },
         areaServed: serviceAreas,
-        serviceType: servicesPreviewItems.map((service) => service.title),
+        serviceType: servicesPreviewItems.map((s) => s.title),
       },
     ],
   }
@@ -57,209 +110,354 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="relative isolate overflow-hidden pt-24 sm:pt-28">
+      {/* ── 1. HERO ── */}
+      <section className="relative isolate min-h-[600px] overflow-hidden pt-36 sm:min-h-[680px] sm:pt-[10rem] lg:min-h-[740px]">
         <HeroBackgroundVideo />
-
-        <div className="container-shell relative grid gap-8 pb-14 sm:gap-9 sm:pb-16 lg:grid-cols-[1.12fr_0.88fr] lg:items-center lg:gap-10 lg:pb-20">
-          <div>
-            <p className="inline-flex rounded-full border border-white/22 bg-white/10 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#B7DFFF]">
-              Roof • Balcony • Basement Waterproofing
+        <div className="container-shell relative pb-16 sm:pb-20 lg:pb-28">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/22 bg-white/10 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#B7DFFF] backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6BB6F2]" />
+              Dublin Waterproofing Specialists
             </p>
 
-            <h1 className="font-display mt-5 max-w-[16ch] text-[2rem] font-bold uppercase leading-[1.03] text-white sm:text-5xl lg:text-[3.55rem]">
-              Dublin Waterproofing Specialists
+            <h1 className="font-display mt-5 text-[2.5rem] font-bold uppercase leading-[1.01] text-white sm:text-5xl lg:text-[3.75rem]">
+              Protecting Dublin Properties With Professional Waterproofing
             </h1>
 
-            <p className="mt-4 max-w-[45ch] text-base font-semibold leading-snug text-white sm:text-[1.35rem]">
-              Protecting roofs, balconies and properties from water damage across Dublin.
+            <p className="mt-5 max-w-[54ch] text-lg leading-relaxed text-white/82 sm:text-xl">
+              Reliable waterproofing for flat roofs, balconies, basements, wet rooms, and commercial properties across Dublin.
             </p>
 
-            <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-white/88 sm:text-lg">
-              Reliable waterproofing solutions for flat roofs, balconies, basements, wet rooms, and commercial properties.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <PrimaryButton href="/contact">Request Free Inspection</PrimaryButton>
-              <SecondaryButton href={siteConfig.phoneHref} className="border-white/50 bg-white/94 text-navy hover:bg-white">Call Now</SecondaryButton>
-              <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/50 bg-white/94 text-navy hover:bg-white">WhatsApp</SecondaryButton>
+              <SecondaryButton
+                href={siteConfig.phoneHref}
+                className="border-white/38 bg-white/90 text-navy hover:bg-white"
+              >
+                Call Now
+              </SecondaryButton>
+              <SecondaryButton
+                href={siteConfig.socials.whatsapp}
+                className="border-white/38 bg-white/90 text-navy hover:bg-white"
+              >
+                WhatsApp
+              </SecondaryButton>
             </div>
 
-            <div className="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-3 backdrop-blur-[2px]">
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-[#b6dcfd]">Coverage</p>
-                <p className="mt-1 text-sm font-semibold text-white">All Dublin Areas</p>
-              </div>
-              <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-3 backdrop-blur-[2px]">
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-[#b6dcfd]">Service Type</p>
-                <p className="mt-1 text-sm font-semibold text-white">Residential + Commercial</p>
-              </div>
-              <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-3 backdrop-blur-[2px]">
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-[#b6dcfd]">Response</p>
-                <p className="mt-1 text-sm font-semibold text-white">Fast Free Inspections</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/18 bg-white/12 p-5 shadow-[0_24px_38px_-28px_rgba(11,31,58,0.58)] backdrop-blur-[10px] sm:p-6">
-            <p className="text-[0.67rem] font-semibold uppercase tracking-[0.14em] text-[#B7DFFF]">Specialist Waterproofing Services</p>
-            <h2 className="mt-2 font-display text-2xl font-semibold uppercase leading-[1.06] text-white">Inspection-Led, Detail-Focused Work</h2>
-            <ul className="mt-4 grid gap-y-2.5 text-sm leading-[1.35] text-white/92">
-              {servicesPreviewItems.slice(0, 6).map((service) => (
-                <li key={service.title} className="flex items-start gap-2">
-                  <span className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#9FD0F8]" />
-                  <span>{service.title}</span>
-                </li>
+            <div className="mt-8 flex flex-wrap gap-4">
+              {['All Dublin Areas', 'Residential & Commercial', 'Free Inspections'].map((tag) => (
+                <div key={tag} className="flex items-center gap-1.5 rounded-xl border border-white/18 bg-white/10 px-3 py-2 backdrop-blur-sm">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9FD0F8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                  <span className="text-xs font-semibold text-white/88">{tag}</span>
+                </div>
               ))}
-            </ul>
-
-            <div className="mt-5 rounded-xl border border-white/18 bg-[#071a30]/52 px-4 py-4 text-sm text-white/90">
-              <p className="font-semibold text-white">Need urgent leak support?</p>
-              <p className="mt-1 leading-relaxed text-white/82">Call or WhatsApp PrimeSeal for fast guidance and an inspection slot.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-navy/8 bg-white/95 py-4 sm:py-5">
+      {/* ── 2. SERVICE STRIP ── */}
+      <section className="bg-[#165FA8] py-4">
         <div className="container-shell">
-          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-            {trustBarItems.map((item) => (
-              <p key={item} className="flex items-start gap-2 rounded-lg border border-navy/10 bg-mist/45 px-3 py-2 text-sm text-navy/78">
-                <span className="mt-[2px] text-blue">✓</span>
-                <span>{item}</span>
-              </p>
+          <div className="scrollbar-hide flex items-center gap-x-8 gap-y-2 overflow-x-auto pb-0.5 sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
+            {serviceStripItems.map((item) => (
+              <div key={item.label} className="flex shrink-0 items-center gap-2 text-white">
+                <span className="text-white/75" aria-hidden="true">{item.icon}</span>
+                <span className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.11em]">
+                  {item.label}
+                </span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ── 3. SERVICES (image-led cards) ── */}
       <section className="section-shell bg-white">
         <div className="container-shell">
           <div className="max-w-4xl">
-            <p className="label-text">Services Preview</p>
-            <h2 className="section-title">Specialist Waterproofing Services Across Dublin</h2>
-            <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-navy/70 sm:text-lg">
-              PrimeSeal provides targeted waterproofing systems for residential and commercial projects. Choose a service to see detailed guidance and local project context.
+            <p className="label-text">Our Services</p>
+            <h2 className="section-title">Reliable Waterproofing Solutions for Long-Term Protection</h2>
+            <p className="mt-4 max-w-[66ch] text-base leading-relaxed text-navy/68 sm:text-lg">
+              From flat roofs and balconies to basements and wet rooms, PrimeSeal provides practical waterproofing systems designed to stop water ingress and protect your property for the long term.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {servicesPreviewItems.map((item) => (
-              <article key={item.title} className="surface-card group p-5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_34px_-24px_rgba(11,31,58,0.52)] sm:p-6">
-                <h3 className="font-display text-xl font-semibold uppercase leading-tight text-navy">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-navy/72">{item.text}</p>
-                <Link
-                  href={item.href}
-                  className="mt-5 inline-flex text-xs font-semibold uppercase tracking-[0.14em] text-blue transition group-hover:text-navy"
-                >
-                  Learn More
-                </Link>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {servicesPreviewItems.slice(0, 6).map((item) => (
+              <article
+                key={item.title}
+                className="group relative h-[265px] cursor-pointer overflow-hidden rounded-2xl"
+              >
+                <img
+                  src={item.image}
+                  alt={`${item.title} Dublin`}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.07]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071223]/90 via-[#071223]/32 to-transparent transition duration-400 group-hover:from-[#071223]/95 group-hover:via-[#071223]/52" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 transition duration-300 group-hover:translate-y-0">
+                  <h3 className="font-display text-lg font-bold uppercase leading-tight text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-white/70">{item.text}</p>
+                  <Link
+                    href={item.href}
+                    className="mt-3 inline-flex items-center gap-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.11em] text-[#9FD0F8] transition duration-300 group-hover:gap-2.5 group-hover:text-white"
+                  >
+                    Learn More
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <PrimaryButton href="/services">View All Services</PrimaryButton>
             <SecondaryButton href="/contact">Book Free Inspection</SecondaryButton>
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-mist">
-        <div className="container-shell grid gap-8 lg:grid-cols-2">
-          <div>
-            <p className="label-text">Why Choose PrimeSeal</p>
-            <h2 className="section-title">Built for Long-Term Leak Prevention</h2>
+      {/* ── 4. WATERPROOFING SYSTEMS (dark tabbed) ── */}
+      <section className="section-shell bg-[#0C1526]">
+        <div className="container-shell">
+          <p className="inline-flex rounded-full border border-white/16 bg-white/7 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9FD0F8]">
+            Our Waterproofing Systems
+          </p>
+          <h2 className="font-display mt-4 text-[2rem] font-semibold uppercase leading-[1.04] tracking-[0.02em] text-white sm:text-[2.45rem] lg:text-[3.05rem]">
+            Types of Waterproofing Systems We Use
+          </h2>
+          <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-white/60">
+            Every waterproofing project starts with correct system selection. PrimeSeal specifies and applies the appropriate system based on substrate condition, exposure, and long-term performance requirements.
+          </p>
+          <div className="mt-12">
+            <SystemsTabs systems={waterproofingSystems} />
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {whyChooseItems.slice(0, 6).map((item) => (
-              <div key={item} className="rounded-xl border border-navy/12 bg-white px-4 py-4 shadow-[0_8px_20px_-20px_rgba(11,31,58,0.45)]">
-                <p className="flex items-start gap-2 text-sm leading-relaxed text-navy/78 sm:text-base">
-                  <span className="mt-[2px] text-blue">✓</span>
-                  <span>{item}</span>
+      {/* ── 5. PROCESS ── */}
+      <section className="section-shell bg-white">
+        <div className="container-shell">
+          <p className="label-text">Our Process</p>
+          <h2 className="section-title">Waterproofing Done Right — Built To Last</h2>
+          <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-navy/68">
+            Every PrimeSeal project follows a structured approach — from inspection and substrate preparation through to final checks and handover.
+          </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {processStepsEnhanced.map((step) => (
+              <div
+                key={step.step}
+                className="group rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_14px_34px_-28px_rgba(11,31,58,0.38)] transition duration-300 hover:-translate-y-1 hover:border-blue/22 hover:shadow-[0_24px_42px_-28px_rgba(22,95,168,0.28)]"
+              >
+                <p className="font-display text-5xl font-bold text-[#165FA8]/16 transition duration-300 group-hover:text-[#165FA8]/28">
+                  {step.step}
                 </p>
+                <h3 className="mt-3 text-base font-semibold text-navy sm:text-lg">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy/60">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell bg-white">
+      {/* ── 6. PROJECT PORTFOLIO ── */}
+      <section className="section-shell bg-[#0C1526]">
         <div className="container-shell">
-          <div className="max-w-4xl">
-            <p className="label-text">Our Process</p>
-            <h2 className="section-title">A Clear Waterproofing Process From Inspection to Completion</h2>
+          <p className="inline-flex rounded-full border border-white/16 bg-white/7 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9FD0F8]">
+            Project Portfolio
+          </p>
+          <h2 className="font-display mt-4 text-[2rem] font-semibold uppercase leading-[1.04] tracking-[0.02em] text-white sm:text-[2.45rem] lg:text-[3.05rem]">
+            Discover Our Project Portfolio
+          </h2>
+          <p className="mt-4 max-w-[58ch] text-base leading-relaxed text-white/60">
+            Real waterproofing results from across Dublin — roofs, balconies, basements, and commercial properties.
+          </p>
+
+          <div className="mt-10">
+            <ProjectCarousel />
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <article key={step} className="surface-card p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Step {index + 1}</p>
-                <h3 className="mt-2 text-lg font-semibold text-navy">{step}</h3>
-              </article>
-            ))}
+          <div className="mt-8 flex justify-center">
+            <PrimaryButton href="/projects">View All Projects</PrimaryButton>
           </div>
         </div>
       </section>
 
+      {/* ── 7. STATS + QUOTE FORM ── */}
       <section className="section-shell bg-mist">
-        <div className="container-shell">
-          <div className="max-w-4xl">
-            <p className="label-text">Featured Projects</p>
-            <h2 className="section-title">Real Waterproofing Results Across Dublin</h2>
+        <div className="container-shell grid gap-12 lg:grid-cols-[1fr_1.12fr] lg:items-start">
+          <div>
+            <p className="label-text">Need Waterproofing?</p>
+            <h2 className="section-title">Let's Talk About Your Project</h2>
+            <p className="mt-4 max-w-[54ch] text-base leading-relaxed text-navy/70">
+              PrimeSeal offers free site inspections and written quotes for all waterproofing works across Dublin. Call, WhatsApp, or fill in the form to get started.
+            </p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {trustBarItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2.5 rounded-xl border border-navy/10 bg-white px-4 py-3.5 shadow-[0_8px_20px_-20px_rgba(11,31,58,0.38)]"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#165FA8"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mt-[2px] shrink-0"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20,6 9,17 4,12" />
+                  </svg>
+                  <span className="text-sm font-medium text-navy/78">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <SecondaryButton href={siteConfig.phoneHref}>Call: {siteConfig.phone}</SecondaryButton>
+              <SecondaryButton href={siteConfig.socials.whatsapp}>WhatsApp</SecondaryButton>
+            </div>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {projectItems.map((item) => (
-              <article key={`${item.title}-${item.location}`} className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_18px_30px_-24px_rgba(11,31,58,0.44)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_38px_-24px_rgba(11,31,58,0.52)]">
-                <figure className="relative h-[270px] overflow-hidden bg-mist">
-                  <img src={item.src} alt={`${item.title} waterproofing project in ${item.location}`} loading="lazy" decoding="async" className="h-full w-full object-cover" />
-                  <span className="absolute left-3 top-3 rounded-full border border-white/45 bg-white/90 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-navy">
-                    {item.location}
+          <div className="rounded-2xl bg-white p-6 shadow-[0_24px_48px_-28px_rgba(11,31,58,0.35)] sm:p-8">
+            <p className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-blue">Free Inspection</p>
+            <h3 className="font-display mt-2 text-2xl font-semibold uppercase leading-tight text-navy">
+              Request Your Free Waterproofing Inspection
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-navy/62">
+              Fill in your details and we'll be in touch within 24 hours.
+            </p>
+            <QuoteForm />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. FAQ ── */}
+      <section className="section-shell bg-white">
+        <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div>
+            <p className="label-text">Common Questions</p>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="mt-4 text-base leading-relaxed text-navy/68">
+              Straight answers to common waterproofing questions from Dublin homeowners and property managers.
+            </p>
+            <div className="mt-8 overflow-hidden rounded-2xl">
+              <img
+                src="/media/images/project-03.jpeg"
+                alt="PrimeSeal waterproofing project"
+                loading="lazy"
+                decoding="async"
+                className="h-[300px] w-full object-cover sm:h-[380px]"
+              />
+            </div>
+            <div className="mt-5 flex gap-3">
+              <PrimaryButton href="/faq">View All FAQs</PrimaryButton>
+              <SecondaryButton href="/contact">Ask a Question</SecondaryButton>
+            </div>
+          </div>
+          <div className="lg:pt-4">
+            <FaqAccordion items={faqItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. INSIGHTS & ADVICE ── */}
+      <section className="section-shell bg-mist">
+        <div className="container-shell">
+          <div className="max-w-3xl">
+            <p className="label-text">Expert Advice</p>
+            <h2 className="section-title">Waterproofing Insights & Expert Advice</h2>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {insightCards.map((card) => (
+              <article
+                key={card.title}
+                className="group overflow-hidden rounded-2xl bg-white shadow-[0_14px_34px_-28px_rgba(11,31,58,0.38)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_44px_-28px_rgba(11,31,58,0.48)]"
+              >
+                <div className="relative h-[200px] overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.06]"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-[#165FA8] px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-white">
+                    {card.category}
                   </span>
-                </figure>
-                <div className="space-y-2.5 px-4 py-5 sm:px-5">
-                  <h3 className="text-lg font-semibold leading-tight text-navy">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-navy/72">{item.result}</p>
+                </div>
+                <div className="p-5">
+                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-navy/42">{card.date}</p>
+                  <h3 className="mt-2 text-base font-semibold leading-snug text-navy">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/64">{card.summary}</p>
+                  <Link
+                    href="/contact"
+                    className="mt-4 inline-flex items-center gap-1 text-[0.68rem] font-semibold uppercase tracking-[0.11em] text-blue transition duration-300 hover:gap-2 hover:text-navy"
+                  >
+                    Read More
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
-
-          <div className="mt-6">
-            <PrimaryButton href="/projects">Explore Project Case Studies</PrimaryButton>
-          </div>
         </div>
       </section>
 
-      <section className="section-shell bg-white">
-        <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
-          <div>
-            <p className="label-text">Client Feedback / Trust</p>
-            <h2 className="section-title">What Clients Value About Our Work</h2>
-            <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-navy/72">
-              PrimeSeal focuses on clear communication, clean workmanship and long-term waterproofing results for homes and commercial properties across Dublin.
-            </p>
-          </div>
-
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {clientValuePoints.slice(0, 5).map((point) => (
-              <li key={point} className="rounded-xl border border-navy/12 bg-mist/55 px-4 py-4 text-sm leading-relaxed text-navy/78 sm:text-base">
-                {point}
-              </li>
+      {/* ── 10. TRUST BADGE STRIP ── */}
+      <section className="border-y border-navy/8 bg-white py-10">
+        <div className="container-shell">
+          <p className="mb-6 text-center text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-navy/42">
+            Why Choose PrimeSeal
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {trustBarItems.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 rounded-full border border-navy/12 bg-mist/60 px-4 py-2 transition duration-200 hover:border-blue/28 hover:bg-[#EDF7FF]"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#165FA8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20,6 9,17 4,12" />
+                </svg>
+                <span className="text-xs font-semibold text-navy/76">{item}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
+      {/* ── 11. AREAS COVERED ── */}
       <section className="section-shell bg-mist">
         <div className="container-shell max-w-6xl">
           <p className="label-text">Areas Covered</p>
           <h2 className="section-title">Fast Scheduling Across Dublin</h2>
           <div className="mt-7 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {serviceAreas.map((area) => (
-              <span key={area} className="rounded-lg border border-navy/12 bg-white px-3 py-2 text-sm font-semibold text-navy/78 shadow-[0_8px_18px_-20px_rgba(11,31,58,0.45)]">
+              <span
+                key={area}
+                className="flex items-center gap-2.5 rounded-lg border border-navy/12 bg-white px-3.5 py-2.5 text-sm font-semibold text-navy/76 shadow-[0_8px_18px_-20px_rgba(11,31,58,0.42)]"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#165FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
                 {area}
               </span>
             ))}
@@ -270,21 +468,27 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section-shell bg-white">
-        <div className="container-shell">
-          <div className="rounded-2xl border border-navy/12 bg-mist p-6 shadow-[0_24px_34px_-30px_rgba(11,31,58,0.5)] sm:p-8 lg:p-10">
-            <p className="label-text">Free Inspection</p>
-            <h2 className="section-title max-w-[20ch]">Book Your Free Waterproofing Assessment</h2>
-            <p className="mt-4 max-w-[64ch] text-base leading-relaxed text-navy/72 sm:text-lg">
-              Have a specific question or prefer to speak directly? Contact PrimeSeal by phone, WhatsApp, or email and we'll schedule your free inspection.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <PrimaryButton href="/contact">View Contact Page</PrimaryButton>
-              <SecondaryButton href={siteConfig.phoneHref}>Call: {siteConfig.phone}</SecondaryButton>
-            </div>
+      {/* ── 12. FINAL CTA ── */}
+      <section className="bg-[#0C1526] py-16 sm:py-20 lg:py-24">
+        <div className="container-shell text-center">
+          <p className="inline-flex rounded-full border border-white/16 bg-white/7 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#9FD0F8]">
+            Get Started Today
+          </p>
+          <h2 className="font-display mx-auto mt-4 max-w-[22ch] text-[2rem] font-semibold uppercase leading-[1.04] tracking-[0.02em] text-white sm:text-[2.45rem] lg:text-[3.05rem]">
+            Need Waterproofing? Let's Protect Your Property
+          </h2>
+          <p className="mx-auto mt-5 max-w-[54ch] text-base leading-relaxed text-white/65">
+            Free inspections, written quotes, and reliable waterproofing systems for Dublin homes and commercial properties.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <PrimaryButton href="/contact">Request Free Inspection</PrimaryButton>
+            <SecondaryButton href={siteConfig.phoneHref} className="border-white/25 bg-white/8 text-white hover:bg-white/16 hover:border-white/40">
+              Call: {siteConfig.phone}
+            </SecondaryButton>
+            <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/25 bg-white/8 text-white hover:bg-white/16 hover:border-white/40">
+              WhatsApp
+            </SecondaryButton>
           </div>
-
-          <CTAInlineStrip />
         </div>
       </section>
     </>

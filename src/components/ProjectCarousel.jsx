@@ -1,0 +1,114 @@
+'use client'
+
+import { useRef, useState } from 'react'
+
+const projects = [
+  { title: 'Balcony Waterproofing', location: 'South Dublin', src: '/media/images/project-01.jpeg' },
+  { title: 'Flat Roof Membrane', location: 'Dublin', src: '/media/images/project-02.jpeg' },
+  { title: 'Roof Edge Waterproofing', location: 'West Dublin', src: '/media/images/project-03.jpeg' },
+  { title: 'Wet Room Tanking', location: 'Dublin', src: '/media/images/project-04.jpeg' },
+  { title: 'Balcony Systems', location: 'South Dublin', src: '/media/images/project-05.jpeg' },
+  { title: 'Roof Waterproofing', location: 'North Dublin', src: '/media/images/project-06.jpeg' },
+  { title: 'Basement Waterproofing', location: 'Dublin City', src: '/media/images/project-07.jpeg' },
+  { title: 'Flat Roof Waterproofing', location: 'Dublin', src: '/media/images/project-08.jpeg' },
+  { title: 'Commercial Roofing', location: 'Dublin', src: '/media/images/project-09.jpeg' },
+  { title: 'Roof Deck Waterproofing', location: 'East Dublin', src: '/media/images/project-10.jpeg' },
+  { title: 'Commercial Waterproofing', location: 'Dublin', src: '/media/images/project-11.jpeg' },
+  { title: 'Leak Prevention Works', location: 'West Dublin', src: '/media/images/project-12.jpeg' },
+]
+
+export default function ProjectCarousel() {
+  const trackRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  function getCardWidth() {
+    if (!trackRef.current) return 280
+    const card = trackRef.current.children[0]
+    return card ? card.offsetWidth + 16 : 280
+  }
+
+  function scrollToIndex(index) {
+    if (!trackRef.current) return
+    const clamped = Math.max(0, Math.min(projects.length - 1, index))
+    trackRef.current.scrollTo({ left: clamped * getCardWidth(), behavior: 'smooth' })
+    setActiveIndex(clamped)
+  }
+
+  function handleScroll(e) {
+    const cardWidth = getCardWidth()
+    const idx = Math.round(e.currentTarget.scrollLeft / cardWidth)
+    setActiveIndex(Math.max(0, Math.min(projects.length - 1, idx)))
+  }
+
+  return (
+    <div>
+      <div
+        ref={trackRef}
+        onScroll={handleScroll}
+        className="scrollbar-hide flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory"
+      >
+        {projects.map((project, i) => (
+          <article
+            key={i}
+            className="group relative h-[260px] w-[240px] shrink-0 snap-start overflow-hidden rounded-2xl sm:h-[280px] sm:w-[268px]"
+          >
+            <img
+              src={project.src}
+              alt={`${project.title} in ${project.location}`}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.07]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071223]/88 via-[#071223]/22 to-transparent transition duration-300 group-hover:from-[#071223]/94 group-hover:via-[#071223]/40" />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-[#9FD0F8]">
+                {project.location}
+              </p>
+              <h3 className="mt-1 text-sm font-bold leading-tight text-white">{project.title}</h3>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-4">
+        <button
+          type="button"
+          onClick={() => scrollToIndex(activeIndex - 1)}
+          disabled={activeIndex === 0}
+          aria-label="Previous project"
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/22 text-white/70 transition duration-300 hover:border-[#165FA8] hover:bg-[#165FA8] hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div className="flex gap-1.5">
+          {projects.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => scrollToIndex(i)}
+              aria-label={`Go to project ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'w-6 bg-[#165FA8]' : 'w-1.5 bg-white/28 hover:bg-white/55'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => scrollToIndex(activeIndex + 1)}
+          disabled={activeIndex === projects.length - 1}
+          aria-label="Next project"
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/22 text-white/70 transition duration-300 hover:border-[#165FA8] hover:bg-[#165FA8] hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
