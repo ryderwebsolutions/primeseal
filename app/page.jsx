@@ -145,7 +145,7 @@ export default function Page() {
                   minHeight: '50px',
                   padding: '12px 24px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(11,31,58,0.72)',
+                  backgroundColor: '#165FA8',
                   border: '1px solid rgba(255,255,255,0.45)',
                   color: '#ffffff',
                   fontSize: '0.72rem',
@@ -171,7 +171,7 @@ export default function Page() {
                   minHeight: '50px',
                   padding: '12px 24px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(11,31,58,0.72)',
+                  backgroundColor: '#165FA8',
                   border: '1px solid rgba(255,255,255,0.45)',
                   color: '#ffffff',
                   fontSize: '0.72rem',
@@ -539,12 +539,20 @@ export default function Page() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <PrimaryButton href="/contact">Request Free Inspection</PrimaryButton>
-            <SecondaryButton href={siteConfig.phoneHref} className="border-white/25 bg-white/8 text-white hover:bg-white/16 hover:border-white/40">
-              Call: {siteConfig.phone}
-            </SecondaryButton>
-            <SecondaryButton href={siteConfig.socials.whatsapp} className="border-white/25 bg-white/8 text-white hover:bg-white/16 hover:border-white/40">
-              WhatsApp
-            </SecondaryButton>
+            <a
+              href={siteConfig.phoneHref}
+              style={{ backgroundColor: '#0f2a4a', color: '#ffffff', border: '2px solid #ffffff', padding: '12px 20px', borderRadius: '6px', fontWeight: '600', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', textDecoration: 'none' }}
+            >
+              📞 Call Us
+            </a>
+            <a
+              href={siteConfig.socials.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              style={{ backgroundColor: '#0f2a4a', color: '#ffffff', border: '2px solid #ffffff', padding: '12px 20px', borderRadius: '6px', fontWeight: '600', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', textDecoration: 'none' }}
+            >
+              💬 WhatsApp
+            </a>
           </div>
         </div>
       </section>
