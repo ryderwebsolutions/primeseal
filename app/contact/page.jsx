@@ -2,6 +2,7 @@ import PageHero from '../../src/components/PageHero'
 import { siteConfig, serviceAreas } from '../../src/content/siteContent'
 import { PrimaryButton, SecondaryButton } from '../../src/components/SiteButtons'
 import { SocialIcon } from '../../src/components/Icons'
+import ContactPageForm from '../../src/components/ContactPageForm'
 
 export const metadata = {
   title: 'Contact PrimeSeal Waterproofing',
@@ -70,21 +71,7 @@ export default function ContactPage() {
             <h3 className="font-display text-xl font-semibold uppercase text-white">Send an Enquiry</h3>
             <p className="mt-2 text-sm leading-relaxed text-white/80">Share project details and photos for a faster assessment.</p>
 
-            <form className="mt-5 space-y-3" action={siteConfig.emailHref} method="post" encType="multipart/form-data">
-              <input type="text" name="name" required placeholder="Name" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="tel" name="phone" required placeholder="Phone" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="email" name="email" required placeholder="Email" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="text" name="location" required placeholder="Location" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="text" name="issueType" required placeholder="Type of Issue" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <input type="file" name="photos" accept="image/*" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy file:mr-3 file:rounded-full file:border-0 file:bg-[#165FA8] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:tracking-[0.08em] file:text-white" />
-              <textarea name="message" rows={4} placeholder="Message" className="w-full rounded-xl border border-white/30 bg-white/95 px-3 py-2.5 text-sm text-navy placeholder:text-navy/50" />
-              <button
-                type="submit"
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#165FA8] px-6 py-3 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white transition duration-300 hover:bg-[#1a6cbf]"
-              >
-                Submit Enquiry
-              </button>
-            </form>
+            <ContactPageForm />
 
             <div className="mt-6 rounded-xl border border-white/20 bg-white/5 px-4 py-4 text-sm text-white/82">
               <p className="font-semibold text-white">Areas Covered</p>
