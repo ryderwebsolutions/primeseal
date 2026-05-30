@@ -157,7 +157,7 @@ export default function Page() {
                   cursor: 'pointer',
                 }}
               >
-                📞 Call Us
+                Call Us
               </a>
               <a
                 href={siteConfig.socials.whatsapp}
@@ -183,7 +183,7 @@ export default function Page() {
                   cursor: 'pointer',
                 }}
               >
-                💬 WhatsApp
+                WhatsApp
               </a>
             </div>
 
@@ -543,7 +543,7 @@ export default function Page() {
               href={siteConfig.phoneHref}
               style={{ backgroundColor: '#0f2a4a', color: '#ffffff', border: '2px solid #ffffff', padding: '12px 20px', borderRadius: '6px', fontWeight: '600', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', textDecoration: 'none' }}
             >
-              📞 Call Us
+              Call Us
             </a>
             <a
               href={siteConfig.socials.whatsapp}
@@ -551,7 +551,7 @@ export default function Page() {
               rel="noreferrer"
               style={{ backgroundColor: '#0f2a4a', color: '#ffffff', border: '2px solid #ffffff', padding: '12px 20px', borderRadius: '6px', fontWeight: '600', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', textDecoration: 'none' }}
             >
-              💬 WhatsApp
+              WhatsApp
             </a>
           </div>
         </div>
