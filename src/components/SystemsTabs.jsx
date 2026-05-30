@@ -17,7 +17,7 @@ export default function SystemsTabs({ systems }) {
             className={`shrink-0 rounded-xl px-4 py-3.5 text-left text-sm font-semibold transition duration-300 lg:w-full ${
               i === active
                 ? 'bg-[#165FA8] text-white shadow-[0_8px_24px_-12px_rgba(22,95,168,0.65)]'
-                : 'bg-white/8 text-white/68 hover:bg-white/14 hover:text-white'
+                : 'border border-white/25 bg-white/[0.1] text-white/90 hover:border-white/40 hover:bg-white/[0.18] hover:text-white'
             }`}
           >
             {sys.tab}

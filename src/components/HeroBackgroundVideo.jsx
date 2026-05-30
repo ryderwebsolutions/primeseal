@@ -83,7 +83,7 @@ export default function HeroBackgroundVideo() {
       <motion.div style={{ y: heroVideoY }} className="absolute inset-0">
         <video
           ref={videoRef}
-          className={`h-full w-full scale-[1.02] object-cover transition-opacity duration-500 ${autoplayBlocked ? 'opacity-0' : 'opacity-100'}`}
+          className={`h-full w-full scale-[1.02] object-cover object-[center_30%] lg:scale-100 lg:object-center transition-opacity duration-500 ${autoplayBlocked ? 'opacity-0' : 'opacity-100'}`}
           src="/media/videos/site-02.mp4"
           poster="/media/images/project-06.jpeg"
           autoPlay

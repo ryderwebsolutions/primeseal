@@ -11,8 +11,10 @@ const projects = [
   { title: 'Roof Waterproofing', location: 'North Dublin', src: '/media/images/project-06.jpeg' },
   { title: 'Basement Waterproofing', location: 'Dublin City', src: '/media/images/project-07.jpeg' },
   { title: 'Flat Roof Waterproofing', location: 'Dublin', src: '/media/images/project-08.jpeg' },
-  { title: 'Commercial Roofing', location: 'Dublin', src: '/media/images/project-09.jpeg' },
-  { title: 'Roof Deck Waterproofing', location: 'East Dublin', src: '/media/images/project-10.jpeg' },
+  // TODO: replace with real single-shot project photo
+  { title: 'Flat Roof Repair', location: 'Dublin', src: '/clean-roof-before-after.jpeg' },
+  // TODO: replace with real single-shot project photo
+  { title: 'Balcony Reseal', location: 'South Dublin', src: '/clean-balcony-before-after.jpeg' },
   { title: 'Commercial Waterproofing', location: 'Dublin', src: '/media/images/project-11.jpeg' },
   { title: 'Leak Prevention Works', location: 'West Dublin', src: '/media/images/project-12.jpeg' },
 ]
