@@ -31,7 +31,7 @@ export default function ProjectsPage() {
                       alt={`${item.title} before and after waterproofing in ${item.location}`}
                       loading="lazy"
                       decoding="async"
-                      className="h-[280px] w-full object-cover sm:h-[320px]"
+                      className="h-[280px] w-full object-contain object-top sm:h-[320px]"
                     />
                     <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-white/90 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-navy">
                       {item.location}

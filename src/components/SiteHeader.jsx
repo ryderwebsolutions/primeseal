@@ -92,7 +92,7 @@ export default function SiteHeader() {
             <img
               src={logoSrc}
               alt="PrimeSeal Waterproofing logo"
-              className="h-12 w-auto object-contain sm:h-14 xl:h-[3.8rem]"
+              className="h-14 w-auto object-contain sm:h-16 xl:h-[3.8rem]"
               loading="eager"
               decoding="async"
               width="428"

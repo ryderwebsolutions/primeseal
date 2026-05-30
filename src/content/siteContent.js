@@ -111,7 +111,7 @@ export const insightCards = [
     title: 'Basement Tanking: How To Protect Your Property',
     category: 'Basement',
     summary: 'Basement waterproofing approaches for controlling seepage, moisture transfer, and persistent damp in below-ground structures.',
-    image: '/media/images/project-07.jpeg',
+    image: '/images/basement-waterproofing.jpg',
     date: 'March 2025',
   },
 ]
