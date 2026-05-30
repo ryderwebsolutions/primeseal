@@ -88,7 +88,7 @@ export const waterproofingSystems = [
     tab: 'Cementitious Waterproofing',
     title: 'Cementitious Waterproofing',
     desc: 'Rigid or flexible cementitious coatings for basements, wet rooms, and below-grade structures. Bonds directly to concrete and masonry surfaces for lasting protection against hydrostatic pressure and damp transfer.',
-    image: '/media/images/project-04.jpeg',
+    video: '/media/videos/cementitious.mp4',
   },
 ]
 

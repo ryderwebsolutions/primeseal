@@ -24,8 +24,8 @@ export default function ServicesPage() {
           <div className="grid gap-5 lg:grid-cols-2">
             <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.42)]">
               <img
-                src="/media/images/project-04.jpeg"
-                alt="Balcony waterproofing before and after transformation"
+                src="/images/balcony-waterproofing-membrane.jpg"
+                alt="Clean liquid membrane applied to a balcony"
                 loading="eager"
                 decoding="async"
                 className="h-full w-full object-cover"

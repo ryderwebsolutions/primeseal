@@ -26,14 +26,26 @@ export default function SystemsTabs({ systems }) {
       </div>
 
       <div className="relative overflow-hidden rounded-2xl">
-        <img
-          key={current.id}
-          src={current.image}
-          alt={current.title}
-          className="animate-fade-in h-[320px] w-full object-cover lg:h-[400px]"
-          loading="lazy"
-          decoding="async"
-        />
+        {current.video ? (
+          <video
+            key={current.id}
+            className="animate-fade-in h-[320px] w-full object-cover lg:h-[400px]"
+            src={current.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img
+            key={current.id}
+            src={current.image}
+            alt={current.title}
+            className="animate-fade-in h-[320px] w-full object-cover lg:h-[400px]"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#030813]/92 via-[#030813]/45 to-[#030813]/10" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
           <span className="inline-flex rounded-full bg-[#165FA8]/80 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
