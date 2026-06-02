@@ -505,19 +505,16 @@ export default function Page() {
         <div className="container-shell max-w-6xl">
           <p className="label-text">Areas Covered</p>
           <h2 className="section-title">Fast Scheduling Across Dublin</h2>
-          <div className="mt-7 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceAreas.map((area) => (
-              <span
-                key={area}
-                className="flex items-center gap-2.5 rounded-lg border border-navy/12 bg-white px-3.5 py-2.5 text-sm font-semibold text-navy/76 shadow-[0_8px_18px_-20px_rgba(11,31,58,0.42)]"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#165FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                {area}
-              </span>
-            ))}
+          <p className="mt-3 max-w-[62ch] text-base leading-relaxed text-navy/70">
+            Based in Dublin 8 — serving all of Dublin and surrounding areas. We travel for the right job.
+          </p>
+          <div className="mt-7 overflow-hidden rounded-2xl border border-navy/12 shadow-[0_18px_40px_-24px_rgba(11,31,58,0.28)]">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-6.5%2C53.23%2C-6.0%2C53.45&layer=mapnik&marker=53.333%2C-6.283"
+              title="PrimeSeal service area — Dublin and surrounding areas"
+              loading="lazy"
+              style={{ border: 'none', display: 'block', width: '100%', height: '420px' }}
+            />
           </div>
           <div className="mt-6">
             <SecondaryButton href="/areas-covered">View Full Areas Covered</SecondaryButton>

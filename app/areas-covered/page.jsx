@@ -1,6 +1,5 @@
 import CTAInlineStrip from '../../src/components/CTAInlineStrip'
 import PageHero from '../../src/components/PageHero'
-import { serviceAreas } from '../../src/content/siteContent'
 
 export const metadata = {
   title: 'Areas Covered in Dublin',
@@ -20,18 +19,23 @@ export default function AreasCoveredPage() {
 
       <section className="section-shell bg-white">
         <div className="container-shell max-w-6xl">
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceAreas.map((area) => (
-              <span key={area} className="rounded-lg border border-navy/12 bg-mist px-3 py-2 text-sm font-semibold text-navy/78">
-                {area}
-              </span>
-            ))}
+          <p className="mb-6 max-w-[62ch] text-base leading-relaxed text-navy/70">
+            Based in Dublin 8 — serving all of Dublin and surrounding areas. We travel for the right job.
+          </p>
+
+          <div className="overflow-hidden rounded-2xl border border-navy/12 shadow-[0_18px_40px_-24px_rgba(11,31,58,0.28)]">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-6.5%2C53.23%2C-6.0%2C53.45&layer=mapnik&marker=53.333%2C-6.283"
+              title="PrimeSeal service area — Dublin and surrounding areas"
+              loading="lazy"
+              style={{ border: 'none', display: 'block', width: '100%', height: '480px' }}
+            />
           </div>
 
           <div className="mt-8 rounded-2xl border border-navy/12 bg-mist p-6">
-            <h2 className="text-xl font-semibold text-navy sm:text-2xl">Need an inspection in your area?</h2>
+            <h2 className="text-xl font-semibold text-navy sm:text-2xl">Not sure if we cover your area?</h2>
             <p className="mt-3 max-w-[64ch] text-sm leading-relaxed text-navy/72 sm:text-base">
-              If your location is not listed above, contact PrimeSeal and we will confirm availability for your project. We regularly serve surrounding Dublin areas for both leak repair and full waterproofing works.
+              Get in touch — PrimeSeal regularly travels beyond the map for the right project. Both residential and commercial enquiries welcome across Dublin and surrounding counties.
             </p>
           </div>
 

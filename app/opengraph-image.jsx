@@ -1,13 +1,16 @@
+import { readFileSync } from 'fs'
+import { join } from 'path'
 import { ImageResponse } from 'next/og'
 import { siteConfig } from '../src/siteConfig'
 
-export const size = {
-  width: 1200,
-  height: 630,
-}
+export const runtime = 'nodejs'
+export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default function Image() {
+  const logoBuffer = readFileSync(join(process.cwd(), 'public/images/primeseal-logo-transparent.png'))
+  const logoSrc = `data:image/png;base64,${logoBuffer.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -15,93 +18,90 @@ export default function Image() {
           display: 'flex',
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, #030813 0%, #0a1221 45%, #12375f 100%)',
-          color: 'white',
+          backgroundColor: '#030813',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           fontFamily: 'sans-serif',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
+        {/* subtle radial glow */}
         <div
           style={{
             display: 'flex',
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(circle at 18% 20%, rgba(109,182,242,0.24), transparent 32%), radial-gradient(circle at 84% 10%, rgba(22,95,168,0.52), transparent 35%)',
+              'radial-gradient(circle at 50% 40%, rgba(22,95,168,0.35), transparent 60%)',
           }}
         />
+
+        {/* logo */}
+        <img
+          src={logoSrc}
+          width={280}
+          height={126}
+          style={{ objectFit: 'contain', position: 'relative' }}
+        />
+
+        {/* company name */}
+        <div
+          style={{
+            display: 'flex',
+            marginTop: '28px',
+            fontSize: '64px',
+            fontWeight: '800',
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            position: 'relative',
+          }}
+        >
+          {siteConfig.shortName} Waterproofing
+        </div>
+
+        {/* tagline */}
+        <div
+          style={{
+            display: 'flex',
+            marginTop: '16px',
+            fontSize: '26px',
+            color: '#9fd0f8',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            position: 'relative',
+          }}
+        >
+          Dublin Waterproofing Specialists
+        </div>
+
+        {/* bottom bar */}
         <div
           style={{
             display: 'flex',
             position: 'absolute',
-            right: -80,
-            top: 120,
-            width: 380,
-            height: 380,
-            borderRadius: 999,
-            background: 'rgba(109,182,242,0.14)',
-            filter: 'blur(30px)',
-          }}
-        />
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            padding: '64px 72px',
-            width: '100%',
+            bottom: '48px',
+            gap: '32px',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+          {['Roofs', 'Balconies', 'Basements', 'Wet Rooms', 'Commercial'].map((item) => (
             <div
+              key={item}
               style={{
                 display: 'flex',
-                alignItems: 'center',
-                alignSelf: 'flex-start',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: 999,
-                padding: '10px 18px',
-                fontSize: 26,
-                letterSpacing: '0.24em',
-                textTransform: 'uppercase',
-                color: '#9fd0f8',
+                border: '1px solid rgba(255,255,255,0.18)',
+                background: 'rgba(255,255,255,0.06)',
+                borderRadius: '999px',
+                padding: '10px 20px',
+                fontSize: '20px',
+                color: 'rgba(255,255,255,0.78)',
               }}
             >
-              Premium Waterproofing Specialists
+              {item}
             </div>
-            <div style={{ display: 'flex', fontSize: 78, lineHeight: 0.95, fontWeight: 800, maxWidth: 780, textTransform: 'uppercase' }}>
-              {siteConfig.shortName} Waterproofing
-            </div>
-            <div style={{ display: 'flex', fontSize: 34, maxWidth: 860, lineHeight: 1.25, color: 'rgba(255,255,255,0.82)' }}>
-              Protecting roofs, balconies, basements, and commercial properties across Dublin and Ireland.
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-            <div style={{ display: 'flex', gap: 14 }}>
-              {['Real project media', 'Residential & commercial', 'Detail-led systems'].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: 'flex',
-                    border: '1px solid rgba(255,255,255,0.14)',
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: 999,
-                    padding: '12px 18px',
-                    fontSize: 24,
-                    color: 'rgba(255,255,255,0.85)',
-                  }}
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
-              <div style={{ display: 'flex', fontSize: 30, fontWeight: 700 }}>{siteConfig.phone}</div>
-              <div style={{ display: 'flex', fontSize: 22, color: 'rgba(255,255,255,0.68)' }}>{siteConfig.location}</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     ),

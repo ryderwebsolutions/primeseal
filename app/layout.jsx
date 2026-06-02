@@ -48,10 +48,10 @@ export const metadata = {
       'Protecting Dublin properties with specialist waterproofing systems and professional workmanship.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} social preview image`,
+        alt: `${siteConfig.name} — Dublin Waterproofing Specialists`,
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata = {
     title: `${siteConfig.name} | Dublin Waterproofing Specialists`,
     description:
       'Reliable waterproofing services across Dublin: roofs, balconies, basements, and commercial sites.',
-    images: ['/og-image.jpg'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
