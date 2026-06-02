@@ -91,6 +91,18 @@ body {
   .animate-fade-in {
     animation: fade-in 0.38s ease-out both;
   }
+
+  /* Mobile subpage hero top offset — clears the fixed header (announcement bar + nav).
+     --header-h is written by SiteHeader on mount and window resize.
+     The 1rem gives breathing room matching the desktop gap. */
+  .page-hero-top {
+    padding-top: calc(var(--header-h, 8rem) + 1rem);
+  }
+  @media (min-width: 640px) {
+    .page-hero-top {
+      padding-top: 8rem; /* sm:pt-32 — already clears on wider viewports */
+    }
+  }
 }
 
 /* Floating WhatsApp pulse animation */

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { logoSrc, navLinks, siteConfig } from '../content/siteContent'
 import { Icon, SocialIcon } from './Icons'
 import { PrimaryButton } from './SiteButtons'
@@ -12,6 +12,7 @@ export default function SiteHeader() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const headerRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -20,8 +21,18 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+    const setVar = () =>
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`)
+    setVar()
+    window.addEventListener('resize', setVar)
+    return () => window.removeEventListener('resize', setVar)
+  }, [])
+
   return (
-    <header className="fixed left-0 top-0 z-50 w-full">
+    <header ref={headerRef} className="fixed left-0 top-0 z-50 w-full">
       {/* Announcement bar */}
       <div className="bg-[#0B1F3A] py-1.5">
         <div className="container-shell flex items-center justify-between gap-4">
