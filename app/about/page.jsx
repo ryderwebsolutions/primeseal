@@ -55,22 +55,16 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { src: '/media/images/project-02.jpeg', alt: 'Professional waterproofing system preparation and installation' },
-              { src: '/media/images/project-06.jpeg', alt: 'Specialist waterproofing application on commercial project' },
-              { src: '/media/images/project-10.jpeg', alt: 'Quality waterproofing workmanship and detailing' },
-            ].map((img, idx) => (
-              <figure key={idx} className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_8px_16px_-12px_rgba(11,31,58,0.25)]">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="aspect-[4/3] w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            ))}
+          <div className="mt-10 flex justify-center">
+            <figure className="w-full max-w-[500px] overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_12px_40px_-12px_rgba(11,31,58,0.22)]">
+              <img
+                src="/images/primeseal.jpeg"
+                alt="PrimeSeal Waterproofing — Dublin waterproofing specialists"
+                className="w-full"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
 
