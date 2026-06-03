@@ -74,7 +74,7 @@ export const waterproofingSystems = [
     tab: 'Sheet Membrane',
     title: 'Sheet Membrane Systems',
     desc: 'Torch-on and cold-applied bitumen or polymer sheet membranes for large flat roof areas. Reliable long-term protection with proven performance across residential and commercial properties throughout Dublin.',
-    image: '/media/images/project-08.jpeg',
+    image: '/media/images/sheet-membrane-roofing.jpg',
   },
   {
     id: 'bituminous',
@@ -152,6 +152,7 @@ export const servicesPreviewItems = [
     text: 'Seamless liquid membrane applications for complex details and high-risk waterproofing points.',
     href: '/liquid-waterproofing-dublin',
     image: '/media/images/project-06.jpeg',
+    video: '/media/videos/liquidwaterproofing.mp4',
   },
   {
     title: 'Leak Prevention',

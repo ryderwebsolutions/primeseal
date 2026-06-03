@@ -244,13 +244,26 @@ export default function Page() {
                 key={item.title}
                 className="group relative h-[265px] cursor-pointer overflow-hidden rounded-2xl"
               >
-                <img
-                  src={item.image}
-                  alt={`${item.title} Dublin`}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.07]"
-                />
+                {item.video ? (
+                  <video
+                    src={item.video}
+                    poster={item.image}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.07]"
+                  />
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={`${item.title} Dublin`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.07]"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071223]/90 via-[#071223]/32 to-transparent transition duration-400 group-hover:from-[#071223]/95 group-hover:via-[#071223]/52" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 transition duration-300 group-hover:translate-y-0">
                   <h3 className="font-display text-lg font-bold uppercase leading-tight text-white">
