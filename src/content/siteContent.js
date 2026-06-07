@@ -73,22 +73,15 @@ export const waterproofingSystems = [
     id: 'sheet',
     tab: 'Sheet Membrane',
     title: 'Sheet Membrane Systems',
-    desc: 'Torch-on and cold-applied bitumen or polymer sheet membranes for large flat roof areas. Reliable long-term protection with proven performance across residential and commercial properties throughout Dublin.',
+    desc: 'Sheet membrane waterproofing uses pre-formed rolls or sheets such as EPDM, PVC, TPO, self-adhesive membranes, and bituminous membrane systems. These systems are suitable for large roof areas, balconies, terraces, and structural waterproofing where a continuous waterproof layer is required.',
     image: '/media/images/sheet-membrane-roofing.jpg',
   },
   {
     id: 'bituminous',
     tab: 'Bituminous Systems',
     title: 'Bituminous Waterproofing',
-    desc: 'Modified bitumen systems for flat roofs and structural waterproofing. Excellent resistance to ponding water, UV exposure, and Irish weather conditions — a reliable long-term choice for exposed roof areas.',
+    desc: 'Bituminous waterproofing includes torch-on felt, self-adhesive bitumen membranes, and liquid bitumen coatings. It is a proven waterproofing system for flat roofs, garages, extensions, sheds, and foundation waterproofing, providing long-lasting protection against Irish weather conditions.',
     image: '/media/images/project-11.jpeg',
-  },
-  {
-    id: 'cementitious',
-    tab: 'Cementitious Waterproofing',
-    title: 'Cementitious Waterproofing',
-    desc: 'Rigid or flexible cementitious coatings for basements, wet rooms, and below-grade structures. Bonds directly to concrete and masonry surfaces for lasting protection against hydrostatic pressure and damp transfer.',
-    video: '/media/videos/cementitious.mp4',
   },
 ]
 

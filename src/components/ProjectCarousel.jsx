@@ -10,7 +10,6 @@ const projects = [
   { title: 'Roof Waterproofing', location: 'North Dublin', src: '/images/commercial-roof-waterproofing.jpg' },
   { title: 'Flat Roof Waterproofing', location: 'Dublin', src: '/media/images/project-08.jpeg' },
   { title: 'Commercial Waterproofing', location: 'Dublin', src: '/media/images/project-11.jpeg' },
-  { title: 'Balcony Membrane', location: 'Dublin', src: '/images/balcony-waterproofing-membrane.jpg' },
 ]
 
 export default function ProjectCarousel() {

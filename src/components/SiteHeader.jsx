@@ -36,11 +36,12 @@ export default function SiteHeader() {
       {/* Announcement bar */}
       <div className="bg-[#0B1F3A] py-1.5">
         <div className="container-shell flex items-center justify-between gap-4">
-          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white sm:text-[0.65rem]">
-            Dublin Waterproofing Specialists
-            <span className="mx-2 text-[#6BB6F2]">•</span>
-            <span className="hidden sm:inline">Roofs • Balconies • Basements • Wet Rooms</span>
-            <span className="sm:hidden">Roofs • Balconies • Basements</span>
+          <p className="min-w-0 overflow-hidden text-[0.62rem] font-semibold uppercase tracking-[0.13em] text-white sm:text-[0.65rem]">
+            <span className="whitespace-nowrap">Dublin Waterproofing Specialists</span>
+            <span className="hidden sm:inline">
+              <span className="mx-2 text-[#6BB6F2]">•</span>
+              Roofs • Balconies • Basements • Wet Rooms
+            </span>
           </p>
           <div className="flex shrink-0 items-center gap-3">
             <a
