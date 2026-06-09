@@ -3,9 +3,8 @@
 import { useRef, useState } from 'react'
 
 const projects = [
-  { title: 'Balcony Waterproofing', location: 'South Dublin', src: '/media/images/balcony-card.jpg' },
-  { title: 'Flat Roof Membrane', location: 'Dublin', src: '/media/images/project-02.jpeg' },
   { title: 'Balcony Waterproofing', location: 'West Dublin', src: '/media/images/project-03.jpeg' },
+  { title: 'Flat Roof Membrane', location: 'Dublin', src: '/media/images/project-02.jpeg' },
   { title: 'Wet Room Tanking', location: 'Dublin', src: '/media/images/wetroomtanking.jpg' },
   { title: 'Roof Waterproofing', location: 'North Dublin', src: '/images/commercial-roof-waterproofing.jpg' },
   { title: 'Flat Roof Waterproofing', location: 'Dublin', src: '/media/images/project-08.jpeg' },

@@ -133,6 +133,7 @@ export const servicesPreviewItems = [
     text: 'Complete flat roof waterproofing systems for homes, extensions, and apartment blocks.',
     href: '/flat-roof-waterproofing-dublin',
     image: '/media/images/project-08.jpeg',
+    video: '/media/videos/flatroofsystems.mp4',
   },
   {
     title: 'Wet Room Waterproofing',
