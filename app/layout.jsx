@@ -74,7 +74,11 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/images/primeseal-logo-transparent.png', type: 'image/png' },
+    ],
+    apple: '/images/primeseal-logo-transparent.png',
+    shortcut: '/images/primeseal-logo-transparent.png',
   },
 }
 
