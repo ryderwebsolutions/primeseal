@@ -291,40 +291,6 @@ export default function FlooringDublinPage() {
         </div>
       </section>
 
-      {/* ── Gallery placeholder (ready for client photos) ── */}
-      <section className="section-shell bg-white">
-        <div className="container-shell">
-          <div className="max-w-4xl">
-            <p className="label-text">Project Gallery</p>
-            <h2 className="section-title">Flooring Installation Work Across Dublin</h2>
-            <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-navy/68">
-              Project photography from completed flooring installations will be added here. Contact us to discuss your flooring project and request a quote.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { src: '/media/images/project-02.jpeg', alt: 'Floor preparation and substrate assessment before flooring installation in Dublin' },
-              { src: '/media/images/project-04.jpeg', alt: 'Professional flooring installation work in progress on a Dublin property' },
-              { src: '/media/images/project-09.jpeg', alt: 'Completed flooring installation — Dublin residential project by PrimeSeal' },
-            ].map((img, idx) => (
-              <figure
-                key={idx}
-                className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_8px_16px_-12px_rgba(11,31,58,0.25)]"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="aspect-[4/3] w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── FAQ ── */}
       <section className="section-shell bg-mist">
         <div className="container-shell grid gap-10 lg:grid-cols-2 lg:items-start">
