@@ -75,6 +75,20 @@ const serviceStripItems = [
       </svg>
     ),
   },
+  {
+    label: 'Flooring Services',
+    href: '/flooring-dublin',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="18" rx="1" />
+        <line x1="2" y1="9" x2="22" y2="9" />
+        <line x1="2" y1="15" x2="22" y2="15" />
+        <line x1="12" y1="3" x2="12" y2="9" />
+        <line x1="7" y1="9" x2="7" y2="15" />
+        <line x1="17" y1="15" x2="17" y2="21" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Page() {
@@ -287,6 +301,25 @@ export default function Page() {
           <div className="mt-8 flex flex-wrap gap-3">
             <PrimaryButton href="/services">View All Services</PrimaryButton>
             <SecondaryButton href="/contact">Book Free Inspection</SecondaryButton>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3b. FLOORING CTA STRIP ── */}
+      <section className="border-y border-navy/8 bg-[#EDF7FF] py-8">
+        <div className="container-shell flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-blue">Also Available</p>
+            <h2 className="font-display mt-1 text-xl font-semibold uppercase text-navy sm:text-2xl">
+              Professional Flooring Services in Dublin
+            </h2>
+            <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-navy/68">
+              Alongside our waterproofing works, PrimeSeal provides professional flooring installation — laminate, LVT, engineered timber, vinyl, and floor preparation for homes and commercial properties across Dublin.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <PrimaryButton href="/flooring-dublin">View Flooring Services</PrimaryButton>
+            <SecondaryButton href="/contact">Request a Flooring Quote</SecondaryButton>
           </div>
         </div>
       </section>

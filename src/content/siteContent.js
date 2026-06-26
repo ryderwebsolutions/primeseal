@@ -5,6 +5,7 @@ export const logoSrc = '/images/primeseal-logo-transparent.png'
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
+  { label: 'Flooring', href: '/flooring-dublin' },
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'FAQ', href: '/faq' },
@@ -160,6 +161,12 @@ export const servicesPreviewItems = [
     href: '/commercial-waterproofing-dublin',
     image: '/media/images/project-11.jpeg',
   },
+  {
+    title: 'Flooring Services',
+    text: 'Professional flooring installation for homes and commercial properties — laminate, LVT, engineered timber, vinyl, and floor preparation.',
+    href: '/flooring-dublin',
+    image: '/media/images/project-09.jpeg',
+  },
 ]
 
 export const serviceGroups = [
@@ -202,6 +209,19 @@ export const serviceGroups = [
       {
         title: 'Commercial Waterproofing',
         text: 'Reliable systems for apartment blocks, retail sites, and facilities.',
+      },
+    ],
+  },
+  {
+    heading: 'Flooring Services',
+    items: [
+      {
+        title: 'Flooring Installation',
+        text: 'Laminate, LVT, engineered timber, and vinyl installed to a professional finish.',
+      },
+      {
+        title: 'Floor Preparation & Levelling',
+        text: 'Sub-floor moisture checks, levelling compounds, and screeding before installation.',
       },
     ],
   },
@@ -358,6 +378,7 @@ export const serviceLinks = [
   { label: 'Liquid Waterproofing', href: '/liquid-waterproofing-dublin' },
   { label: 'Commercial Waterproofing', href: '/commercial-waterproofing-dublin' },
   { label: 'Leak Repairs', href: '/leak-repairs-dublin' },
+  { label: 'Flooring Services', href: '/flooring-dublin' },
 ]
 
 export const ctaBlurb = 'Need a leak assessed? Request a free waterproofing inspection today.'

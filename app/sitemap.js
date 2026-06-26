@@ -18,6 +18,7 @@ export default function sitemap() {
     '/commercial-waterproofing-dublin',
     '/liquid-waterproofing-dublin',
     '/leak-repairs-dublin',
+    '/flooring-dublin',
   ]
 
   return [

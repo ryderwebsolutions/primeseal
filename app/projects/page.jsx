@@ -57,6 +57,23 @@ export default function ProjectsPage() {
             </article>
           ))}
 
+          {/* ── Flooring Projects (placeholder — ready for client photos) ── */}
+          <article className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.45)]">
+            <div className="px-6 py-7 sm:px-8 sm:py-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue">Flooring Services</p>
+              <h2 className="mt-2 font-display text-2xl font-semibold uppercase leading-tight text-navy">
+                Flooring Installation Projects
+              </h2>
+              <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-navy/74 sm:text-base">
+                PrimeSeal now provides professional flooring installation alongside our waterproofing services. Photos and case studies from completed flooring projects across Dublin will be added here. In the meantime, contact us to discuss your flooring requirements.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <SecondaryButton href="/flooring-dublin">View Flooring Services</SecondaryButton>
+                <SecondaryButton href="/contact">Request a Flooring Quote</SecondaryButton>
+              </div>
+            </div>
+          </article>
+
           <CTAInlineStrip />
         </div>
       </section>
