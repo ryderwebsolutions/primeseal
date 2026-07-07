@@ -82,7 +82,7 @@ export const waterproofingSystems = [
     tab: 'Bituminous Systems',
     title: 'Bituminous Waterproofing',
     desc: 'Bituminous waterproofing includes torch-on felt, self-adhesive bitumen membranes, and liquid bitumen coatings. It is a proven waterproofing system for flat roofs, garages, extensions, sheds, and foundation waterproofing, providing long-lasting protection against Irish weather conditions.',
-    image: '/media/images/project-11.jpeg',
+    image: '/media/images/bituminous-waterproofing.jpg',
   },
 ]
 
