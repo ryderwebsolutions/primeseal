@@ -37,7 +37,7 @@ export default function ServicesPage() {
 
             <figure className="overflow-hidden rounded-2xl border border-navy/12 bg-mist shadow-[0_18px_30px_-24px_rgba(11,31,58,0.42)]">
               <img
-                src="/media/images/project-11.jpeg"
+                src="/media/images/bituminous-waterproofing.jpg"
                 alt="Flat roof parapet waterproofing detail on a Dublin project"
                 loading="eager"
                 decoding="async"
